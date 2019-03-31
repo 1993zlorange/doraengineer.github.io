@@ -1,0 +1,576 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no", user-scalable=no">
+  <title>HTML学习笔记Doraengineer's Blog</title>
+  <link rel="shortcut icon" href="/images/dora.jpg">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="https://www.doraengineer.xyz" class="blog-header-mobile-title">Doraengineer's Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/环境搭建" class="transition">环境搭建</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/literary/" class="transition">散文随想</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>HTML学习笔记</h4>
+    <time datetime="2019-03-31T14:18:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    
+    
+    <span>
+        <i class="fa fa-eye"></i>
+        <span id="/2019/03/31/HTML学习笔记/" class="views views-post"  title="HTML学习笔记"></span>
+    </span>
+    
+    
+    
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <h1 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h1><blockquote>
+<p>HyperText Markup Language 超文本标记语言<br>超文本：通过建立链接，使访问者简洁从一页面跳到另一页面<br>标记：对文本进行注释<br><code>`</code></p>
+</blockquote>
+<p><html><br>    <head><meta name="generator" content="Hexo 3.8.0">    //有关这个页面的一些信息<br>        <title> This is the Title of the Page </title><br>    </head><br>    <body><br>        <h1> This is the Body of the Page </h1><br>        <p>    Anything within the body of a web page is displayed in the main broser window </p><br>    </body></html></p>
+<pre><code># 文本
+ &gt;结构化标签：描述标题和段落
+ 语义化标签：表达特定含义（强调，引用，缩写词）
+
+* 结构化标记
+
+标题 
+</code></pre><p></p><h1> This is a MainHeading </h1><p></p>
+<p></p><h2>  This is Level 2 heading </h2><p></p>
+<pre><code>段落
+</code></pre><p></p><p>    </p><p></p>
+<pre><code> 粗体，斜体，上标，下标
+</code></pre><p>粗体：<b> </b><br>斜体：<i> </i><br>上标：4<sup>th</sup><br>下标：co<sub>2</sub></p>
+<pre><code>空白
+&gt; 当浏览器遇到两个或两个以上连续空格，或遇一次换行时，会将其看作一个空格（白色空间折叠）
+
+换行符，水平线
+&gt; 空元素只含有一个标签
+</code></pre><p>换行符 <br><br>水平线 <hr></p>
+<pre><code>* 语义化标记
+
+强调
+</code></pre><p>加强和强调:<strong> </strong><br>斜体强调：<em> </em></p>
+<pre><code>引用(对引用内容进行缩进)
+</code></pre><p><blockquote cite="    "><br>    <p>    hello     </p><br>&lt;/ blockquote&gt;</blockquote></p>
+<pre><code>缩写词和首字母缩写词
+</code></pre><p><abbr title="Professor">    Prof    </abbr></p>
+<pre><code>引用和定义
+</code></pre><p>引用： <cite>    </cite><br>定义：<dfn>    </dfn></p>
+<pre><code>设计者详细信息（内容显示斜体）
+</code></pre><p><address><br>    <p><a href="    ">homer@example &lt;/ a&gt;</a></p><br></address></p>
+<pre><code>内容的修改
+</code></pre><p></p><p>    It was the <del>worst</del>    <ins>best</ins><br>idea she had ever had    &lt;/ p&gt;</p>
+<pre><code>不准确却又不予以删除
+</code></pre><p><s>    </s></p>
+<pre><code># 列表
+有序列表 
+</code></pre><p><ol>    //创建有序列表<br>    <li>    </li><br>    <li>    </li><br>    <li>    </li><br>&lt;/ ol&gt;</ol></p>
+<pre><code>无序列表
+</code></pre><p><ul><br>    <li>    </li><br>    <li>    </li><br></ul></p>
+<pre><code>定义列表
+</code></pre><p><dl>    //创建定义列表<br>    <dt>    &lt;/ dt&gt;//定义<br>    <dd>    &lt;/ dd&gt;//具体解释<br>&lt;/ dl&gt;</dd></dt></dl></p>
+<pre><code>嵌套列表
+</code></pre><p><ul><br>    <li>    </li><br>    <li><br>        <ul><br>            <li>    &lt;/ li&gt;<br>         &lt;/ ul&gt;<br>      &lt;/ li&gt;<br>&lt;/ ul&gt;</li></ul></li></ul></p>
+<pre><code># 链接
+指向其他网站
+</code></pre><p><a href="http://www.empire.com" target="_blank" rel="noopener"> Empire &lt;/ a&gt;<br>// href:链接起始标签， Empire:用户单击文本</a></p>
+<pre><code>指向同一网站中其他页面链接
+</code></pre><p><a href="index.html">home&lt;/ a&gt;<br>//“index.html”:相对URL</a></p>
+<pre><code>EMAIL链接
+</code></pre><p><a href="mailto:join@example" target="_blank" rel="noopener">Email</a><br>//href特性中的mailto特性值</p>
+<pre><code>在新窗口中打开链接
+</code></pre><p>//target=”_blank”<br><a href="http:..." target="_blank"> Internet </a></p>
+<pre><code>链接到当前页面的某个特定位置
+</code></pre><p><a href="#arc_shot">Arcshot </a></p>
+<p></p><h2 id="arc_shot">Arcshot<p></p>
+<pre><code>链接到其他页面的某个特定位置
+</code></pre><p><a href="http:/ www.hello.com /# bottom" target="_blank" rel="noopener"></a></p>
+<pre><code># 图像
+添加图像
+</code></pre><p><img src=" " alt=" " title=" "><br>//src:图像源 alt:图像描述 title:图像附加信息</p>
+<pre><code>图像的宽度和高度
+</code></pre><p><img src=" " alt=" " width="600" height="200"></p>
+<pre><code>图形和图形说明
+</code></pre><p><figure><br>    <img src=" " alt=" "><br>    <br><br>    <figcaption>    &lt;/ figcaption&gt;<br>&lt;/ figure&gt;</figcaption></figure></p>
+<pre><code># 表格
+基本表格结构
+</code></pre><p><table>//创建表格，内容逐行编写<br>    <tr>//起始标签(table row)行的开始<br>        <td>    </td>//每个单元格<br>    </tr><br>&lt;/ table&gt;</table></p>
+<pre><code>表格的标题
+</code></pre><p><th scope="col">Saturday</th><br>//scope=”col”：表示列标题<br>  scope=”row”：表示行标题</p>
+<pre><code>跨列
+</code></pre><p><td colspan="2">hello</td><br>//colspan=”2”:某个单元格跨越多列</p>
+<pre><code>跨行
+</code></pre><p><td rowspan="2">hello</td></p>
+<pre><code>长表格
+</code></pre><p>//<thead>   &lt;/ thead&gt; 标题<br>//<tbody>   &lt;/ tbody&gt;主体<br>//<tfoot>    &lt;/ tfoot&gt;脚注</tfoot></tbody></thead></p>
+<pre><code>
+# 表单
+
+表单结构
+</code></pre><p><form action="    " method="get"><br>&lt;/ form&gt;<br>//action：特性值 URL用来在用户提交表单时接收表单中的信息<br>//method：get:表单中的值被附加在由action特性所指定的URL末尾<br>                post:表单中的值被放在HTTP头信息中进行发送（允许用户上传文件、非常长、数据库操作、敏感信息）</form></p>
+<pre><code>单行文本框
+</code></pre><p><form action="    "></form></p>
+<p></p><p>    Username:<br>    <input type="text" name="username" size="15" maxlength="30"><br>&lt;/ p&gt;<br>&lt;/ form&gt;<br>//name: 控件名称 </p>
+<pre><code>密码框
+</code></pre><p>&lt;input type=”password” name=”password” size=”15” maxlength=”30” / &gt;</p>
+<pre><code>文本域
+</code></pre><p><textarea name="    " col="    " rows="    ">    Enter your comments    &lt;/ textarea&gt;</textarea></p>
+<pre><code>单选按钮
+</code></pre><p>&lt;input type=” radio” name=”    “ value=”rock”     checked=”checked” / &gt;    Rock</p>
+<pre><code>复选框
+</code></pre><p>&lt;input type=”checkbox”    name=”service”    value=”itunes”    checked=”checked” / &gt;iTunes</p>
+<pre><code>下拉列表框
+</code></pre><p><select name="    "><br>    <option value="ipod">     ipod </option><br>    <option value="radio">    Radio </option><br>&lt;/ select&gt;</select></p>
+<pre><code>多选框
+</code></pre><p><select name="    " size="3" multiple="multiple"></select></p>
+<pre><code>文件上传域
+</code></pre><p>&lt;input type =”file”    name=”    “/ &gt;</p>
+<pre><code>提交按钮
+</code></pre><p>&lt;input     type=”submit”     name=”    “     value= “subcribe “     / &gt;<br>//value:按钮上显示的文本</p>
+<pre><code>图像按钮
+</code></pre><p>&lt;input    type=”image”    src=”    “ width=”100”    height=”    “ / &gt;</p>
+<pre><code>按钮
+</code></pre><p><button>&lt;img Src=”images/add.gif”    alt=”add”    width=”10”    height=”10”    / &gt;Add&lt;/ button&gt;<br>//允许文本和图像出现在button中</button></p>
+<pre><code>标签表单控件
+</code></pre><p><input id="male" type="radio" name="gender" value="m"></p>
+<p><label for="male">    Male    </label><br>//声明标签控件标注的是哪个表单控件，与id特性相匹配，id特性值对某个元素进行唯一标识</p>
+<pre><code>组合表单控件
+</code></pre><p><fieldset><br>    <legend>    Contact details    &lt;/ legend&gt;//组合表单标题<br>&lt;/ fieldset&gt;</legend></fieldset></p>
+<pre><code>
+# 其他标记
+
+注释
+</code></pre><!--    -->
+<pre><code>id特性
+</code></pre><p></p><p id="    "><br>//用来从页面上的其他元素中对一个元素进行唯一标识(CSS可以为ID单独定义样式)</p>
+<pre><code>class特性
+</code></pre><p></p><p class="    "><br>//css 针对这一元素的规则</p>
+<pre><code>块级元素
+&gt; 显示时总是另起一行
+</code></pre><p></p><h1>    <p>    <ul>    <li></li></ul></p>
+<pre><code>内联元素
+&gt; 显示时总是与他邻近元素出现在同一行内
+</code></pre><p><a>    <b>    <em>    <img></em></b></a></p>
+<pre><code>将文本和元素集中在一个块级元素中
+
+&gt; 若div元素使用id或class特性，则可创建CSS，指定div元素占空间，或改变其内部所有元素外观
+
+</code></pre><p><div id="    ">    </div></p>
+<pre><code>将文本和元素集中在一个内联元素中
+
+&gt; 若包含若干内联元素，可利用CSS控制元素中内容外观
+
+</code></pre><p><span class="    ">    </span></p>
+<pre><code>内联框架 （inline frame）
+&gt;分割小窗口看到另一个网页
+</code></pre><p><iframe width="    " height="    " src="    ">    </iframe></p>
+<pre><code>页面信息
+</code></pre><p><head><meta name="generator" content="Hexo 3.8.0"><br>    &lt;meta name=”    “    content=”    “ / &gt;//空元素<br></head></p>
+<h2 id><a href="#" class="headerlink" title="`"></a><code>`</code></h2><p>后记</p>
+<blockquote>
+<p>新人上路，旨在分享交流干货经验，若有错误或者不当之处，请大家批评指正！<br>更多说明请查看 <a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></p>
+</blockquote>
+</h1></h2>
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/前端/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">前端</a>
+				
+			<a href="/tags/HTML/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">HTML</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/03/31/CSS语法笔记/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="CSS语法笔记">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/03/31/理解cmake/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="理解cmake">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span  data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span  data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/zhifu.jpg"/>
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/weixin.jpg"/>
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src=""/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/HTML学习笔记/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="https://www.doraengineer.xyz">Doraengineer's Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href="">Doraengineer's Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/dora.jpg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">14</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">22</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/1993zlorange" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href="" class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href="" class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:orange_working@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="" class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/学习笔记/">学习笔记</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/git/" class="tag-could" data-toggle="tooltip" data-placement="top" title="git">git</a></li>
+                    
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
+                    
+                      <li><a href="/tags/cmake/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmake ">cmake </a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
+                    
+                      <li><a href="/tags/前端/" class="tag-could" data-toggle="tooltip" data-placement="top" title="前端">前端</a></li>
+                    
+                      <li><a href="/tags/计算机视觉/" class="tag-could" data-toggle="tooltip" data-placement="top" title="计算机视觉">计算机视觉</a></li>
+                    
+                      <li><a href="/tags/全景相机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景相机">全景相机</a></li>
+                    
+                      <li><a href="/tags/全景立体/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景立体">全景立体</a></li>
+                    
+                      <li><a href="/tags/图像拼接/" class="tag-could" data-toggle="tooltip" data-placement="top" title="图像拼接">图像拼接</a></li>
+                    
+                      <li><a href="/tags/投影变换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="投影变换">投影变换</a></li>
+                    
+                      <li><a href="/tags/相机标定/" class="tag-could" data-toggle="tooltip" data-placement="top" title="相机标定">相机标定</a></li>
+                    
+                      <li><a href="/tags/CSS/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CSS">CSS</a></li>
+                    
+                      <li><a href="/tags/HTML/" class="tag-could" data-toggle="tooltip" data-placement="top" title="HTML">HTML</a></li>
+                    
+                      <li><a href="/tags/ubuntu/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ubuntu">ubuntu</a></li>
+                    
+                      <li><a href="/tags/docker/" class="tag-could" data-toggle="tooltip" data-placement="top" title="docker">docker</a></li>
+                    
+                      <li><a href="/tags/sql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sql">sql</a></li>
+                    
+                      <li><a href="/tags/数据库/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据库">数据库</a></li>
+                    
+                      <li><a href="/tags/数据处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据处理">数据处理</a></li>
+                    
+                      <li><a href="/tags/excel/" class="tag-could" data-toggle="tooltip" data-placement="top" title="excel">excel</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>

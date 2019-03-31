@@ -1,0 +1,1101 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>python实现excel数据处理Doraengineer's Blog</title>
+  <link rel="shortcut icon" href="/images/dora.jpg">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="https://www.doraengineer.xyz" class="blog-header-mobile-title">Doraengineer's Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/环境搭建" class="transition">环境搭建</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/literary/" class="transition">散文随想</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>python实现excel数据处理</h4>
+    <time datetime="2019-03-31T14:28:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    
+    
+    <span>
+        <i class="fa fa-eye"></i>
+        <span id="/2019/03/31/python实现excel数据处理/" class="views views-post" title="python实现excel数据处理"></span>
+    </span>
+    
+    
+    
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/学习笔记/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">学习笔记</a>
+    		
+        </span>
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Excel固然功能强大，也有许多函数实现数据处理功能，但是Excel仍需大量人工操作，虽然能嵌入VB脚本宏，但也容易染上宏病毒。python作为解释性语言，在数据处理方面拥有强大的函数库以及第三方库，excel作为主要基础数据源之一，在利用数据进行分析前往往需要预先对数据进行整理。因此，本文就python处理excel数据进行了学习，主要分为python对excel数据处理的常用数据类型以及常用函数，用python语言实现excel基本操作。<br><img src="https://img-blog.csdnimg.cn/2019022719494215.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019022719500272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h1 id="常用数据类型序列sequence-列表list-元组tuple-array-字典dictionary，series-dataframe-集合set区别"><a href="#常用数据类型序列sequence-列表list-元组tuple-array-字典dictionary，series-dataframe-集合set区别" class="headerlink" title="常用数据类型序列sequence, 列表list, 元组tuple, array,字典dictionary，series,dataframe,集合set区别"></a>常用数据类型序列sequence, 列表list, 元组tuple, array,字典dictionary，series,dataframe,集合set区别</h1><h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><p>首先，序列是是Python中最基本的数据结构。序列中的每个元素都分配一个数字 - 它的位置，或索引，第一个索引是0，第二个索引是1，依此类推。每个索引对应一个元素。Python包含 6 中内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。<br>对于序列，都可以使用以下操作：</p>
+<ul>
+<li>索引</li>
+<li>切片</li>
+<li>加</li>
+<li>乘</li>
+<li>成员检查</li>
+<li>计算序列的长度</li>
+<li>取序列中的最大、最小值<h2 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h2><h3 id="概述用途"><a href="#概述用途" class="headerlink" title="概述用途"></a>概述用途</h3></li>
+<li>一组有序项目的集合。可变的数据类型【可进行增删改查】</li>
+<li>列表是以方括号“[]”包围的数据集合，不同成员以“,”分隔。</li>
+<li>列表中可以包含任何数据类型，也可包含另一个列表</li>
+<li>列表可通过序号访问其中成员<h3 id="声明方式"><a href="#声明方式" class="headerlink" title="声明方式"></a>声明方式</h3><pre><code>example = [0,1,2,3,4,5,6,7,8,9]  
+</code></pre><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h4 id="Python列表脚本操作符"><a href="#Python列表脚本操作符" class="headerlink" title="Python列表脚本操作符"></a>Python列表脚本操作符</h4><img src="https://img-blog.csdnimg.cn/20190227195112135.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="Python列表函数"><a href="#Python列表函数" class="headerlink" title="Python列表函数"></a>Python列表函数</h4><img src="https://img-blog.csdnimg.cn/20190227195127699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="Python列表方法"><a href="#Python列表方法" class="headerlink" title="Python列表方法"></a>Python列表方法</h4><img src="https://img-blog.csdnimg.cn/20190227195135715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><pre><code>#列表操作补充--切片操作  
+example = [0,1,2,3,4,5,6,7,8,9]  
+#打印某一区间 左闭右开  
+print(example[4:8])  
+#想包含最后一个  
+print(example[4:])  
+#包含首个  
+print(example[:8])  
+#所有的  
+print(example[:])  
+#第三个参数为步长  
+print(example[1:8:2])  
+#倒序输出  
+print(example[::-1])  
+#列表合并  
+a = [1,2,3]  
+b = [4,5,6]  
+print(a+b)  
+#替换  
+ex = [1,2,3,4,5,6]  
+ex[4:]=[9,8,7]  
+print(ex)#将56换为987
+</code></pre><h4 id="判断列表中"><a href="#判断列表中" class="headerlink" title="判断列表中"></a>判断列表中</h4><pre><code>&gt;&gt;&gt; list4=[123,[&quot;das&quot;,&quot;aaa&quot;],234]
+&gt;&gt;&gt; list4
+&gt;&gt;&gt; &quot;aaa&quot; in list4 #in只能判断一个层次的元素
+False
+&gt;&gt;&gt; &quot;aaa&quot; in list4[1] #选中列表中的列表进行判断
+True
+&gt;&gt;&gt; list4[1][1]
+&#39;aaa&#39;
+</code></pre><h2 id="元组tuple"><a href="#元组tuple" class="headerlink" title="元组tuple"></a>元组tuple</h2><h3 id="概述用途-1"><a href="#概述用途-1" class="headerlink" title="概述用途"></a>概述用途</h3></li>
+<li>不可变序列</li>
+<li>元组是以圆括号“()”包围的数据集合，不同成员以“,”分隔</li>
+<li>与列表不同：元组中数据一旦确立就不能改变</li>
+<li>通过下标进行访问<h3 id="声明方式-1"><a href="#声明方式-1" class="headerlink" title="声明方式"></a>声明方式</h3><pre><code>L=(1,2,3)
+含0个元素的元组: L = ()
+</code></pre><h3 id="元组操作"><a href="#元组操作" class="headerlink" title="元组操作"></a>元组操作</h3>访问元组<pre><code>&gt;&gt;&gt; o =(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,(&#39;d1&#39;,&#39;d2&#39;)) 
+&gt;&gt;&gt; print o[0]
+&gt;&gt;&gt; print o[3][0]
+a
+d1
+</code></pre><pre><code>&gt;&gt;&gt; age=22
+&gt;&gt;&gt; name=&#39;sandra&#39;
+&gt;&gt;&gt; print&#39;%s is %d years old&#39;%(name,age)
+sandra is 22 years old
+</code></pre>修改元组<br>（元组中的元素值是不允许修改的，但我们可以对元组进行连接组合，如下实例）<pre><code>tup1 = (12, 34.56);
+tup2 = (&#39;abc&#39;, &#39;xyz&#39;);
+# 以下修改元组元素操作是非法的。
+# tup1[0] = 100;
+# 创建一个新的元组
+tup3 = tup1 + tup2;
+print tup3;
+</code></pre>添加元组<pre><code>#通过切片方法添加
+a=(1,2,3,4,5,6)
+a=a[:2]+(10,)+a[2:]
+a
+</code></pre>删除元素<pre><code>del tup1
+</code></pre><h3 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h3><h4 id="元组运算符"><a href="#元组运算符" class="headerlink" title="元组运算符"></a>元组运算符</h4></li>
+</ul>
+<p>与字符串一样，元组之间可以使用 + 号和 * 号进行运算。这就意味着他们可以组合和复制，运算后会生成一个新的元组。<br><img src="https://img-blog.csdnimg.cn/20190227195250694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="元组内置函数"><a href="#元组内置函数" class="headerlink" title="元组内置函数"></a>元组内置函数</h4><p><img src="https://img-blog.csdnimg.cn/20190227195313620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="字典dictionary"><a href="#字典dictionary" class="headerlink" title="字典dictionary"></a>字典dictionary</h2><h3 id="概述用途-2"><a href="#概述用途-2" class="headerlink" title="概述用途"></a>概述用途</h3><ul>
+<li><p>字典是另一种可变容器模型，且可存储任意类型对象。</p>
+</li>
+<li><p>字典的每个键值(key=&gt;value)对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号({})中</p>
+<h3 id="声明方式-2"><a href="#声明方式-2" class="headerlink" title="声明方式"></a>声明方式</h3><pre><code>d = {key1 : value1, key2 : value2 }
+//键必须是唯一的，但值则不必。
+//值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。
+</code></pre><h3 id="字典操作"><a href="#字典操作" class="headerlink" title="字典操作"></a>字典操作</h3><p>访问字典里的值</p>
+<pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
+dict[&#39;Name&#39;]
+dict[&#39;Age&#39;]
+</code></pre><p>修改字典</p>
+<pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
+dict[&#39;Age&#39;] = 8; 
+dict[&#39;School&#39;] = &quot;DPS School&quot;
+</code></pre></li>
+</ul>
+<p>删除字典元素<br>能删单一的元素也能清空字典，清空只需一项操作。</p>
+<p>显示删除一个字典用del命令，如下实例：</p>
+<pre><code>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;};
+del dict[&#39;Name&#39;]; # 删除键是&#39;Name&#39;的条目
+dict.clear();     # 清空词典所有条目
+del dict ;        # 删除词典
+</code></pre><h3 id="API-2"><a href="#API-2" class="headerlink" title="API"></a>API</h3><h4 id="字典内置函数"><a href="#字典内置函数" class="headerlink" title="字典内置函数"></a>字典内置函数</h4><p><img src="https://img-blog.csdnimg.cn/20190227195333190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="字典内置方法"><a href="#字典内置方法" class="headerlink" title="字典内置方法"></a>字典内置方法</h4><p><img src="https://img-blog.csdnimg.cn/20190227195339538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="ndarray（数组）–numpy"><a href="#ndarray（数组）–numpy" class="headerlink" title="ndarray（数组）–numpy"></a>ndarray（数组）–numpy</h2><h3 id="概述用途-3"><a href="#概述用途-3" class="headerlink" title="概述用途"></a>概述用途</h3><p>python中的list是python的内置数据类型，list中的数据类不必相同的，而array的中的类型必须全部相同。在list中的数据类型保存的是数据的存放的地址，简单的说就是指针，并非数据，这样保存一个list就太麻烦了，例如list1=[1,2,3,’a’]需要4个指针和四个数据，增加了存储和消耗cpu。numpy中封装的array有很强大的功能，里面存放的都是相同的数据类型<br>1）numpy array 必须有相同数据类型属性 ，Python list可以是多种数据类型的混合<br>2）numpy array有一些方便的函数<br>3）numpy array数组可以是多维的</p>
+<h3 id="声明方式-3"><a href="#声明方式-3" class="headerlink" title="声明方式"></a>声明方式</h3><p>np.array用来创建ndarray类型</p>
+<pre><code>b=np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])  
+</code></pre><h3 id="API-3"><a href="#API-3" class="headerlink" title="API"></a>API</h3><h2 id="series-pandas"><a href="#series-pandas" class="headerlink" title="series-pandas"></a>series-pandas</h2><h3 id="概述用途-4"><a href="#概述用途-4" class="headerlink" title="概述用途"></a>概述用途</h3><p>class pandas.Series（data = None，index = None，dtype = None，name = None，copy = False，fastpath = False ）</p>
+<p>带轴标签的一维ndarray（包括时间序列）。</p>
+<p>标签不一定是唯一的，但必须是可清洗的类型。该对象支持基于整数和基于标签的索引，并提供了许多方法来执行涉及索引的操作。来自ndarray的统计方法已被覆盖，以自动排除缺失的数据（目前表示为NaN）。</p>
+<p>Series（+， - ，/ ,, *）之间的操作根据其关联的索引值对齐值 - 它们不必是相同的长度。结果索引将是两个索引的排序并集。</p>
+<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>Python列表，index与列表元素个数一致</p>
+<pre><code>
+In [1]: import pandas as pd
+​
+In [2]: list_a = [2,4,5,6]
+​
+In [3]: pd.Series(list_a)
+Out[3]:
+0    2
+1    4
+2    5
+3    6
+dtype: int64
+</code></pre><p>标量值，index表达Series类型的尺寸</p>
+<pre><code>
+In [4]: pd.Series(1,index = [1,2,3])
+Out[4]:
+1    1
+2    1
+3    1
+dtype: int64
+</code></pre><p>Python字典，键值对中的“键”是索引，index从字典中进行选择操作</p>
+<pre><code>In [5]: pd.Series({&#39;a&#39;:1,&#39;b&#39;:3})
+Out[5]:
+a 1
+b 3
+dtype: int64
+#如果定义的index在原字典中已经存在，那么该索引会一直对应原字典的值，如果index对应不到原字典的值，则会返回NaN
+In [11]: pd.Series({&#39;a&#39;:1,&#39;b&#39;:3},index = [&#39;b&#39;,&#39;a&#39;,&#39;c&#39;])
+Out[11]:
+b 3.0
+a 1.0
+c NaN
+dtype: float64
+</code></pre><p>ndarray，索引和数据都可以通过ndarray类型创建</p>
+<pre><code>In [9]: list_b = np.arange(6)
+​
+In [10]: pd.Series(list_b)
+Out[10]:
+0    0
+1    1
+2    2
+3    3
+4    4
+5    5
+dtype: int32
+</code></pre><p>其他函数，range()函数等</p>
+<pre><code>In [12]: pd.Series(range(3))
+Out[12]:
+0    0
+1    1
+2    2
+dtype: int32
+</code></pre><h3 id="series操作"><a href="#series操作" class="headerlink" title="series操作"></a>series操作</h3><p>Series类型包括index和values两部分</p>
+<pre><code>In [14]: a = pd.Series({&#39;a&#39;:1,&#39;b&#39;:5}) 
+In [15]: a.index 
+Out[15]: Index([&#39;a&#39;, &#39;b&#39;], dtype=&#39;object&#39;) 
+
+In [16]: a.values #返回一个多维数组numpy对象 
+Out[16]: array([1, 5], dtype=int64)
+</code></pre><p>Series类型的操作类似ndarray类型</p>
+<pre><code>#自动索引和自定义索引并存，但不能混用
+ In [17]: a[0] #自动索引 
+Out[17]: 1 
+#自定义索引 
+In [18]: a[&#39;a&#39;] 
+Out[18]: 1 
+#不能混用
+In [20]: a[[&#39;a&#39;,1]] 
+Out[20]: 
+a 1.0 
+1 NaN 
+dtype: float64
+</code></pre><p>Series类型的操作类似Python字典类型</p>
+<pre><code>#通过自定义索引访问
+#对索引保留字in操作，值不可以
+In [21]: &#39;a&#39; in a
+Out[21]: True
+​
+In [22]: 1 in a
+Out[22]: False
+</code></pre><p>Series类型在运算中会自动对齐不同索引的数据</p>
+<pre><code>In [29]: a = pd.Series([1,3,5],index = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]) 
+In [30]: b = pd.Series([2,4,5,6],index = [&#39;c,&#39;,&#39;d&#39;,&#39;e&#39;,&#39;b&#39;])
+ In [31]: a+b 
+Out[31]: 
+a NaN 
+b 9.0 
+c NaN 
+c, NaN
+d NaN 
+e NaN 
+</code></pre><p>Series对象可以随时修改并即刻生效</p>
+<pre><code>In [32]: a.index = [&#39;c&#39;,&#39;d&#39;,&#39;e&#39;] 
+In [33]: a 
+Out[33]: 
+c 1 
+d 3
+ e 5 
+dtype: int64 
+In [34]: a+b 
+Out[34]: 
+b NaN 
+c NaN
+c, NaN 
+d 7.0 
+e 10.0
+dtype: float64
+</code></pre><h2 id="dataframe-pandas"><a href="#dataframe-pandas" class="headerlink" title="dataframe-pandas"></a>dataframe-pandas</h2><h3 id="概述用途-5"><a href="#概述用途-5" class="headerlink" title="概述用途"></a>概述用途</h3><p>DataFrame提供的是一个类似表的结构，由多个Series组成，而Series在DataFrame中叫columns<br><img src="https://img-blog.csdnimg.cn/20190227195416647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt></p>
+<h3 id="声明方式-4"><a href="#声明方式-4" class="headerlink" title="声明方式"></a>声明方式</h3><pre><code>import pandas as pd
+from pandas import Series, DataFrame
+import numpy as np
+data = DataFrame(np.arange(15).reshape(3,5),index=[&#39;one&#39;,&#39;two&#39;,&#39;three&#39;],columns=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;])
+print data
+</code></pre><pre><code>        a   b   c   d   e
+one     0   1   2   3   4
+two     5   6   7   8   9
+three  10  11  12  13  14
+</code></pre><h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><pre><code>import pandas as pd
+import numpy as np
+s1=np.array([1,2,3,4])
+s2=np.array([5,6,7,8])
+df=pd.DataFrame([s1,s2])
+print df
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195458154.jpg" alt="在这里插入图片描述"></p>
+<h4 id="series列表（效果与二维array相同）"><a href="#series列表（效果与二维array相同）" class="headerlink" title="series列表（效果与二维array相同）"></a>series列表（效果与二维array相同）</h4><pre><code>import pandas as pd
+import numpy as np
+s1=pd.Series(np.array([1,2,3,4]))
+s2=pd.Series(np.array([5,6,7,8]))
+df=pd.DataFrame([s1,s2])
+print df
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195511384.jpg" alt="在这里插入图片描述"></p>
+<h4 id="value为Series的字典结构"><a href="#value为Series的字典结构" class="headerlink" title="value为Series的字典结构"></a>value为Series的字典结构</h4><pre><code>import pandas as pd
+import numpy as np
+
+s1=pd.Series(np.array([1,2,3,4]))
+s2=pd.Series(np.array([5,6,7,8]))
+df=pd.DataFrame({&quot;a&quot;:s1,&quot;b&quot;:s2});
+print df
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195525925.jpg" alt="在这里插入图片描述"></p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p>直接取值df.[]</p>
+<pre><code>df=pd.DataFrame({&quot;A&quot;:[1,2,3,4],&quot;B&quot;:[5,6,7,8],&quot;C&quot;:[1,1,1,1]})
+df=df[df.A&gt;=2]
+print df
+</code></pre><p>使用.loc[]</p>
+<pre><code>df=pd.DataFrame({&quot;A&quot;:[1,2,3,4],&quot;B&quot;:[5,6,7,8],&quot;C&quot;:[1,1,1,1]})
+df=df.loc[df.A&gt;2]
+print df
+</code></pre><p>.ix[]索引</p>
+<pre><code>print df.columns.size#列数 2
+print df.iloc[:,0].size#行数 3 
+print df.ix[[0]].index.values[0]#索引值 0
+print df.ix[[0]].values[0][0]#第一行第一列的值 11
+print df.ix[[1]].values[0][1]#第二行第二列的值 121
+</code></pre><h3 id="API-4"><a href="#API-4" class="headerlink" title="API"></a>API</h3><p>group(groupby 形成group)</p>
+<pre><code>df = pd.DataFrame({&#39;animal&#39;: &#39;cat dog cat fish dog cat cat&#39;.split(),
+                  &#39;size&#39;: list(&#39;SSMMMLL&#39;),
+                  &#39;weight&#39;: [8, 10, 11, 1, 20, 12, 12],
+                  &#39;adult&#39; : [False] * 5 + [True] * 2});
+#列出动物中weight最大的对应size
+group=df.groupby(&quot;animal&quot;).apply(lambda subf: subf[&#39;size&#39;][subf[&#39;weight&#39;].idxmax()])
+print group
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195541211.jpg" alt="在这里插入图片描述"><br> 使用get_group 取出其中一分组</p>
+<pre><code>df = pd.DataFrame({&#39;animal&#39;: &#39;cat dog cat fish dog cat cat&#39;.split(),
+                  &#39;size&#39;: list(&#39;SSMMMLL&#39;),
+                  &#39;weight&#39;: [8, 10, 11, 1, 20, 12, 12],
+                  &#39;adult&#39; : [False] * 5 + [True] * 2});
+
+group=df.groupby(&quot;animal&quot;)
+cat=group.get_group(&quot;cat&quot;)
+print cat
+</code></pre><p><img src="https://img-blog.csdnimg.cn/2019022719555266.jpg" alt="在这里插入图片描述"></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="概述作用"><a href="#概述作用" class="headerlink" title="概述作用"></a>概述作用</h3><p>集合中包含一系列的元素，在Python中这些元素不需要是相同的类型，且这些元素在集合中是没有存储顺序的。</p>
+<h3 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h3><pre><code>&gt;&gt;&gt; {1,2,&quot;hi&quot;,2.23}
+{2.23, 2, &#39;hi&#39;, 1}
+&gt;&gt;&gt; set(&quot;hello&quot;)
+{&#39;l&#39;, &#39;h&#39;, &#39;e&#39;, &#39;o&#39;}
+</code></pre><p>注：由于集合和字典都用{}表示，所以初始化空的集合只能通过set()操作，{}只是表示一个空的字典</p>
+<h3 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h3><p>集合的增加</p>
+<pre><code>&gt;&gt;&gt; a={1,2}
+&gt;&gt;&gt; a.update([3,4],[1,2,7])
+&gt;&gt;&gt; a
+{1, 2, 3, 4, 7}
+&gt;&gt;&gt; a.update(&quot;hello&quot;)
+&gt;&gt;&gt; a
+{1, 2, 3, 4, 7, &#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+&gt;&gt;&gt; a.add(&quot;hello&quot;)
+&gt;&gt;&gt; a
+{1, 2, 3, 4, &#39;hello&#39;, 7, &#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+</code></pre><p>集合的删除</p>
+<pre><code>&gt;&gt;&gt; a={1,2,3,4}
+&gt;&gt;&gt; a.discard(1)
+&gt;&gt;&gt; a
+{2, 3, 4}
+&gt;&gt;&gt; a.discard(1)
+&gt;&gt;&gt; a
+{2, 3, 4}
+&gt;&gt;&gt; a.remove(1)
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+KeyError: 1
+</code></pre><p>集合也支持pop()方法，不过由于集合是无序的，pop返回的结果不能确定，且当集合为空时调用pop会抛出KeyError错误，可以调用clear方法来清空集合：</p>
+<pre><code>&gt;&gt;&gt; a={3,&quot;a&quot;,2.1,1}
+&gt;&gt;&gt; a.pop()
+&gt;&gt;&gt; a.pop()
+&gt;&gt;&gt; a.clear()
+&gt;&gt;&gt; a
+set()
+&gt;&gt;&gt; a.pop()
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+KeyError: &#39;pop from an empty set&#39;
+</code></pre><h3 id="API-5"><a href="#API-5" class="headerlink" title="API"></a>API</h3><h4 id="集合操作-1"><a href="#集合操作-1" class="headerlink" title="集合操作"></a>集合操作</h4><ul>
+<li>并集：set.union(s),也可以用a|b计算</li>
+<li>交集：set.intersection(s)，也可以用a&amp;b计算</li>
+<li>差集：set.difference(s)，也可以用a-b计算<br>需要注意的是Python提供了一个求对称差集的方法set.symmetric_difference(s)，相当于两个集合互求差集后再求并集，其实就是返回两个集合中只出现一次的元素，也可以用a^b计算。<pre><code>&gt;&gt;&gt; a={1,2,3,4}
+&gt;&gt;&gt; b={3,4,5,6}
+&gt;&gt;&gt; a.symmetric_difference(b)
+{1, 2, 5, 6}
+2
+4
+</code></pre>set.update(s)操作相当于将两个集合求并集并赋值给原集合，其他几种集合操作也提供各自的update版本来改变原集合的值，形式如intersection_update(),也可以支持多参数形式。</li>
+</ul>
+<h4 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h4><p>两个集合之间一般有三种关系，相交、包含、不相交。在Python中分别用下面的方法判断：</p>
+<ul>
+<li>set.isdisjoint(s)：判断两个集合是不是不相交</li>
+<li>set.issuperset(s)：判断集合是不是包含其他集合，等同于a&gt;=b</li>
+<li>set.issubset(s)：判断集合是不是被其他集合包含，等同于a&lt;=b<br>如果要真包含关系，就用符号操作&gt;和&lt;。<h4 id="不变集合"><a href="#不变集合" class="headerlink" title="不变集合"></a>不变集合</h4>Python提供了不能改变元素的集合的实现版本，即不能增加或删除元素，类型名叫frozenset，使用方法如下：<pre><code>&gt;&gt;&gt; a = frozenset(&quot;hello&quot;)
+&gt;&gt;&gt; a
+frozenset({&#39;l&#39;, &#39;h&#39;, &#39;e&#39;, &#39;o&#39;})
+2
+</code></pre>需要注意的是frozenset仍然可以进行集合操作，只是不能用带有update的方法。如果要一个有frozenset中的所有元素的普通集合，只需把它当作参数传入集合的构造函数中即可：<h1 id="python-excel操作"><a href="#python-excel操作" class="headerlink" title="python excel操作"></a>python excel操作</h1>##生成数据表<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><pre><code>import numpy as np
+import pandas as pd
+</code></pre><h3 id="导入数据表"><a href="#导入数据表" class="headerlink" title="导入数据表"></a>导入数据表</h3><pre><code>df=pd.DataFrame(pd.read_csv(&#39;name.csv&#39;,header=1))
+df=pd.DataFrame(pd.read_excel(&#39;name.xlsx&#39;))
+</code></pre><h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><pre><code>df = pd.DataFrame({&quot;id&quot;:[1001,1002,1003,1004,1005,1006],
+                 &quot;date&quot;:pd.date_range(&#39;20130102&#39;, periods=6),
+                 &quot;city&quot;:[&#39;Beijing &#39;, &#39;SH&#39;, &#39; guangzhou &#39;, &#39;Shenzhen&#39;, &#39;shanghai&#39;, &#39;BEIJING &#39;],
+                 &quot;age&quot;:[23,44,54,32,34,32],
+                 &quot;category&quot;:[&#39;100-A&#39;,&#39;100-B&#39;,&#39;110-A&#39;,&#39;110-C&#39;,&#39;210-A&#39;,&#39;130-F&#39;],
+                 &quot;price&quot;:[1200,np.nan,2133,5433,np.nan,4432]},
+                 columns =[&#39;id&#39;,&#39;date&#39;,&#39;city&#39;,&#39;category&#39;,&#39;age&#39;,&#39;price&#39;])
+</code></pre><h2 id="数据表检查"><a href="#数据表检查" class="headerlink" title="数据表检查"></a>数据表检查</h2>python中处理的数据量通常会比较大，，我们无法一目了然的了解数据表的整体情况，必须要通过一些方法来获得数据表的关键信息。数据表检查的另一个目的是了解数据的概况，例如整个数据表的大小，所占空间，数据格式，是否有空值和重复项和具体的数据内容。为后面的清洗和预处理做好准备。<h3 id="数据维度"><a href="#数据维度" class="headerlink" title="数据维度"></a>数据维度</h3><pre><code>#查看数据表的维度
+df.shape
+(6, 6)
+</code></pre><h3 id="数据表信息"><a href="#数据表信息" class="headerlink" title="数据表信息"></a>数据表信息</h3><pre><code>#数据表信息
+df.info()
+&amp;lt;class &#39;pandas.core.frame.DataFrame&#39;&amp;gt;
+RangeIndex: 6 entries, 0 to 5
+Data columns (total 6 columns):
+id          6 non-null int64
+date        6 non-null datetime64[ns]
+city        6 non-null object
+category    6 non-null object
+age         6 non-null int64
+price       4 non-null float64
+dtypes: datetime64[ns](1), float64(1), int64(2), object(2)
+memory usage: 368.0+ bytes
+</code></pre><h3 id="查看数据格式"><a href="#查看数据格式" class="headerlink" title="查看数据格式"></a>查看数据格式</h3><pre><code>#查看数据表各列格式
+df.dtypes
+id                   int64
+date        datetime64[ns]
+city                object
+category            object
+age                  int64
+price              float64
+dtype: object
+#查看单列格式
+df[&#39;B&#39;].dtype
+dtype(&#39;int64&#39;)
+</code></pre><h3 id="查看空值"><a href="#查看空值" class="headerlink" title="查看空值"></a>查看空值</h3>Isnull是Python中检验空值的函数，返回的结果是逻辑值，包含空值返回True，不包含则返回False。可以对整个数据表进行检查，也可以单独对某一列进行空值检查。<pre><code>#检查数据空值
+df.isnull()
+</code></pre><pre><code>#检查特定列空值
+df[&#39;price&#39;].isnull()
+0    False
+1     True
+2    False
+3    False
+4     True
+5    False
+Name: price, dtype: bool
+</code></pre><h3 id="查看唯一值-（删除重复项）"><a href="#查看唯一值-（删除重复项）" class="headerlink" title="查看唯一值 （删除重复项）"></a>查看唯一值 （删除重复项）</h3><pre><code>#查看city列中的唯一值
+df[&#39;city&#39;].unique()
+array([&#39;Beijing &#39;, &#39;SH&#39;, &#39; guangzhou &#39;, &#39;Shenzhen&#39;, &#39;shanghai&#39;, &#39;BEIJING &#39;], dtype=object)
+</code></pre><h3 id="查看数据表数值"><a href="#查看数据表数值" class="headerlink" title="查看数据表数值"></a>查看数据表数值</h3><pre><code>#查看数据表的值
+df.values
+array([[1001, Timestamp(&#39;2013-01-02 00:00:00&#39;), &#39;Beijing &#39;, &#39;100-A&#39;, 23,
+      1200.0],
+     [1002, Timestamp(&#39;2013-01-03 00:00:00&#39;), &#39;SH&#39;, &#39;100-B&#39;, 44, nan],
+     [1003, Timestamp(&#39;2013-01-04 00:00:00&#39;), &#39; guangzhou &#39;, &#39;110-A&#39;, 54,
+      2133.0],
+     [1004, Timestamp(&#39;2013-01-05 00:00:00&#39;), &#39;Shenzhen&#39;, &#39;110-C&#39;, 32,
+      5433.0],
+     [1005, Timestamp(&#39;2013-01-06 00:00:00&#39;), &#39;shanghai&#39;, &#39;210-A&#39;, 34,
+      nan],
+     [1006, Timestamp(&#39;2013-01-07 00:00:00&#39;), &#39;BEIJING &#39;, &#39;130-F&#39;, 32,
+      4432.0]], dtype=object)
+</code></pre><h3 id="查看列名称"><a href="#查看列名称" class="headerlink" title="查看列名称"></a>查看列名称</h3><pre><code>#查看列名称
+df.columns
+Index([&#39;id&#39;, &#39;date&#39;, &#39;city&#39;, &#39;category&#39;, &#39;age&#39;, &#39;price&#39;], dtype=&#39;object&#39;)
+</code></pre><h3 id="查看前10行数据"><a href="#查看前10行数据" class="headerlink" title="查看前10行数据"></a>查看前10行数据</h3><pre><code>#查看前3行数据
+df.head(3)
+</code></pre><h3 id="查看后10行数据"><a href="#查看后10行数据" class="headerlink" title="查看后10行数据"></a>查看后10行数据</h3><pre><code>#查看最后3行
+df.tail(3)
+</code></pre><h2 id="数据表清洗"><a href="#数据表清洗" class="headerlink" title="数据表清洗"></a>数据表清洗</h2><h3 id="处理空值"><a href="#处理空值" class="headerlink" title="处理空值"></a>处理空值</h3><pre><code>#删除数据表中含有空值的行
+df.dropna(how=&#39;any&#39;)
+</code></pre><pre><code>#使用数字0填充数据表中空值
+df.fillna(value=0)
+</code></pre><pre><code>#使用数字0填充数据表中空值
+df.fillna(value=0)
+</code></pre><pre><code>#使用price均值对NA进行填充
+df[&#39;price&#39;].fillna(df[&#39;price&#39;].mean())
+0    1200.0
+1    3299.5
+2    2133.0
+3    5433.0
+4    3299.5
+5    4432.0
+Name: price, dtype: float64
+</code></pre><h3 id="清理空格"><a href="#清理空格" class="headerlink" title="清理空格"></a>清理空格</h3><pre><code>#清除city字段中的字符空格
+df[&#39;city&#39;]=df[&#39;city&#39;].map(str.strip)
+</code></pre><h3 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h3><pre><code>#city列大小写转换
+df[&#39;city&#39;]=df[&#39;city&#39;].str.lower()
+</code></pre><h3 id="更改数据格式"><a href="#更改数据格式" class="headerlink" title="更改数据格式"></a>更改数据格式</h3><pre><code>#更改数据格式
+df[&#39;price&#39;].astype(&#39;int&#39;)
+0    1200
+1    3299
+2    2133
+3    5433
+4    3299
+5    4432
+Name: price, dtype: int32
+</code></pre><h3 id="更改列名称"><a href="#更改列名称" class="headerlink" title="更改列名称"></a>更改列名称</h3><pre><code>#更改列名称
+df.rename(columns={&#39;category&#39;: &#39;category-size&#39;})
+</code></pre><h3 id="删除重复值"><a href="#删除重复值" class="headerlink" title="删除重复值"></a>删除重复值</h3><pre><code>#删除后出现的重复值
+df[&#39;city&#39;].drop_duplicates()
+0      beijing
+1      sh
+2      guangzhou
+3     shenzhen
+4     shanghai
+Name: city, dtype: object
+</code></pre><pre><code>#删除先出现的重复值
+df[&#39;city&#39;].drop_duplicates(keep=&#39;last&#39;)
+1      sh
+2      guangzhou
+3     shenzhen
+4     shanghai
+5     beijing
+Name: city, dtype: objec
+</code></pre><h3 id="数值修改及替换"><a href="#数值修改及替换" class="headerlink" title="数值修改及替换"></a>数值修改及替换</h3><pre><code>#数据替换
+df[&#39;city&#39;].replace(&#39;sh&#39;, &#39;shanghai&#39;)
+</code></pre><h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><h3 id="数据表合并"><a href="#数据表合并" class="headerlink" title="数据表合并"></a>数据表合并</h3>首先是对不同的数据表进行合并，我们这里创建一个新的数据表df1，并将df和df1两个数据表进行合并。在Excel中没有直接完成数据表合并的功能，可以通过VLOOKUP函数分步实现。在python中可以通过merge函数一次性实现。下面建立df1数据表，用于和df数据表进行合并。<pre><code>#数据表匹配合并，inner模式
+df_inner=pd.merge(df,df1,how=&#39;inner&#39;)
+#其他数据表匹配模式
+df_left=pd.merge(df,df1,how=&#39;left&#39;)
+df_right=pd.merge(df,df1,how=&#39;right&#39;)
+df_outer=pd.merge(df,df1,how=&#39;outer&#39;)
+</code></pre><h3 id="设置索引列"><a href="#设置索引列" class="headerlink" title="设置索引列"></a>设置索引列</h3><pre><code>#设置索引列
+df_inner.set_index(&#39;id&#39;)
+</code></pre><h3 id="排序（按索引，按数值）"><a href="#排序（按索引，按数值）" class="headerlink" title="排序（按索引，按数值）"></a>排序（按索引，按数值）</h3><pre><code>#按特定列的值排序
+df_inner.sort_values(by=[&#39;age&#39;])
+</code></pre><pre><code>#按索引列排序
+df_inner.sort_index()
+</code></pre><h3 id="数据分组（vlookup）"><a href="#数据分组（vlookup）" class="headerlink" title="数据分组（vlookup）"></a>数据分组（vlookup）</h3>Excel中可以通过VLOOKUP函数进行近似匹配来完成对数值的分组，或者使用“数据透视表”来完成分组。相应的 python中使用where函数完成数据分组。<pre><code>#如果price列的值&gt;3000，group列显示high，否则显示low
+df_inner[&#39;group&#39;] = np.where(df_inner[&#39;price&#39;] &gt; 3000,&#39;high&#39;,&#39;low&#39;)
+</code></pre><pre><code>#对复合多个条件的数据进行分组标记
+df_inner.loc[(df_inner[&#39;city&#39;] == &#39;beijing&#39;) &amp; (df_inner[&#39;price&#39;] &gt;= 4000), &#39;sign&#39;]=1
+</code></pre><h3 id="数据分列（对字段拆分）"><a href="#数据分列（对字段拆分）" class="headerlink" title="数据分列（对字段拆分）"></a>数据分列（对字段拆分）</h3><pre><code>#对category字段的值依次进行分列，并创建数据表，索引值为df_inner的索引列，列名称为category和size
+pd.DataFrame((x.split(&#39;-&#39;) for x in df_inner[&#39;category&#39;]),index=df_inner.index,columns=[&#39;category&#39;,&#39;size&#39;])
+</code></pre><pre><code>#将完成分列后的数据表与原df_inner数据表进行匹配
+df_inner=pd.merge(df_inner,split,right_index=True, left_index=True)
+</code></pre><h2 id="数据提取"><a href="#数据提取" class="headerlink" title="数据提取"></a>数据提取</h2><h3 id="按标签提取-loc"><a href="#按标签提取-loc" class="headerlink" title="按标签提取(loc)"></a>按标签提取(loc)</h3><pre><code>#按索引提取单行的数值
+df_inner.loc[3]
+id 1004
+date 2013-01-05 00:00:00
+city shenzhen
+category 110-C
+age 32
+price 5433
+gender female
+m-point 40
+pay Y
+group high
+sign NaN
+category_1 110
+size C
+Name: 3, dtype: object
+</code></pre>使用冒号可以限定提取数据的范围，冒号前面为开始的标签值，后面为结束的标签值。下面提取了0到5的数据行。<pre><code>#按索引提取区域行数值
+df_inner.loc[0:5]
+</code></pre>Reset_index函数用于恢复索引，这里我们重新将date字段的日期设置为数据表的索引，并按日期进行数据提取。<pre><code>#重设索引
+df_inner.reset_index()
+</code></pre><pre><code>#设置日期为索引
+df_inner=df_inner.set_index(&#39;date&#39;)
+</code></pre>使用冒号限定提取数据的范围，冒号前面为空表示从0开始。提取所有2013年1月4日以前的数据。<pre><code>#提取4日之前的所有数据
+df_inner[:&#39;2013-01-04&#39;]
+</code></pre><h3 id="按位置提取-iloc"><a href="#按位置提取-iloc" class="headerlink" title="按位置提取(iloc)"></a>按位置提取(iloc)</h3>使用iloc函数按位置对数据表中的数据进行提取，这里冒号前后的数字不再是索引的标签名称，而是数据所在的位置，从0开始。<pre><code>#使用iloc按位置区域提取数据
+df_inner.iloc[:3,:2]
+</code></pre>iloc函数除了可以按区域提取数据，还可以按位置逐条提取，前面方括号中的0,2,5表示数据所在行的位置，后面方括号中的数表示所在列的位置。<pre><code>#使用iloc按位置单独提取数据
+df_inner.iloc[[0,2,5],[4,5]]
+</code></pre><h3 id="按标签和位置提取-ix"><a href="#按标签和位置提取-ix" class="headerlink" title="按标签和位置提取(ix)"></a>按标签和位置提取(ix)</h3>ix是loc和iloc的混合，既能按索引标签提取，也能按位置进行数据提取。下面代码中行的位置按索引日期设置，列按位置设置。<pre><code>#使用ix按索引标签和位置混合提取数据
+df_inner.ix[:&#39;2013-01-03&#39;,:4]
+</code></pre><h3 id="按条件提取-区域和条件值"><a href="#按条件提取-区域和条件值" class="headerlink" title="按条件提取(区域和条件值)"></a>按条件提取(区域和条件值)</h3>除了按标签和位置提起数据以外，还可以按具体的条件进行数据。下面使用loc和isin两个函数配合使用，按指定条件对数据进行提取。<br>使用isin函数对city中的值是否为beijing进行判断。<pre><code>#判断city列的值是否为beijing
+df_inner[&#39;city&#39;].isin([&#39;beijing&#39;])
+date
+2013-01-02 True
+2013-01-05 False
+2013-01-07 True
+2013-01-06 False
+2013-01-03 False
+2013-01-04 False
+Name: city, dtype: bool
+</code></pre>将isin函数嵌套到loc的数据提取函数中，将判断结果为Ture数据提取出来。这里我们把判断条件改为city值是否为beijing和 shanghai。如果是就把这条数据提取出来。<pre><code>#先判断city列里是否包含beijing和shanghai，然后将复合条件的数据提取出来。
+df_inner.loc[df_inner[&#39;city&#39;].isin([&#39;beijing&#39;,&#39;shanghai&#39;])]
+</code></pre>数值提取还可以完成类似数据分列的工作，从合并的数值中提取出制定的数值。<pre><code>category=df_inner[&#39;category&#39;]
+0 100-A
+3 110-C
+5 130-F
+4 210-A
+1 100-B
+2 110-A
+Name: category, dtype: object
+#提取前三个字符，并生成数据表
+pd.DataFrame(category.str[:3])
+</code></pre><h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2>使用与，或，非三个条件配合大于，小于和等于对数据进行筛选，并进行计数和求和。与excel中的筛选功能和countifs和sumifs功能相似。<h3 id="按条件筛选（与，或，非）"><a href="#按条件筛选（与，或，非）" class="headerlink" title="按条件筛选（与，或，非）"></a>按条件筛选（与，或，非）</h3><pre><code>#使用“与”条件进行筛选
+df_inner.loc[(df_inner[&#39;age&#39;] &gt; 25) &amp; (df_inner[&#39;city&#39;] == &#39;beijing&#39;), [&#39;id&#39;,&#39;city&#39;,&#39;age&#39;,&#39;category&#39;,&#39;gender&#39;]]
+</code></pre><pre><code>#使用“或”条件筛选
+df_inner.loc[(df_inner[&#39;age&#39;] &gt; 25) | (df_inner[&#39;city&#39;] == &#39;beijing&#39;), [&#39;id&#39;,&#39;city&#39;,&#39;age&#39;,&#39;category&#39;,&#39;gender&#39;]].sort([&#39;age&#39;])
+</code></pre>在前面的代码后增加price字段以及sum函数，按筛选后的结果将price字段值进行求和，相当于excel中sumifs的功能。<pre><code>#对筛选后的数据按price字段进行求和
+df_inner.loc[(df_inner[&#39;age&#39;] &gt; 25) | (df_inner[&#39;city&#39;] == &#39;beijing&#39;),
+[&#39;id&#39;,&#39;city&#39;,&#39;age&#39;,&#39;category&#39;,&#39;gender&#39;,&#39;price&#39;]].sort([&#39;age&#39;]).price.sum()
+19796
+</code></pre><pre><code>#使用“非”条件进行筛选
+df_inner.loc[(df_inner[&#39;city&#39;] != &#39;beijing&#39;), [&#39;id&#39;,&#39;city&#39;,&#39;age&#39;,&#39;category&#39;,&#39;gender&#39;]].sort([&#39;id&#39;])
+</code></pre>在前面的代码后面增加city列，并使用count函数进行计数。相当于excel中的countifs函数的功能。<pre><code>#对筛选后的数据按city列进行计数
+df_inner.loc[(df_inner[&#39;city&#39;] != &#39;beijing&#39;), [&#39;id&#39;,&#39;city&#39;,&#39;age&#39;,&#39;category&#39;,&#39;gender&#39;]].sort([&#39;id&#39;]).city.count()
+4
+</code></pre>还有一种筛选的方式是用query函数。下面是具体的代码和筛选结果。<pre><code>#使用query函数进行筛选
+df_inner.query(&#39;city == [&quot;beijing&quot;, &quot;shanghai&quot;]&#39;)
+</code></pre>在前面的代码后增加price字段和sum函数。对筛选后的price字段进行求和，相当于excel中的sumifs函数的功能。<pre><code>#对筛选后的结果按price进行求和
+df_inner.query(&#39;city == [&quot;beijing&quot;, &quot;shanghai&quot;]&#39;).price.sum()
+12230
+</code></pre><h2 id="数据汇总"><a href="#数据汇总" class="headerlink" title="数据汇总"></a>数据汇总</h2>Excel中使用分类汇总和数据透视可以按特定维度对数据进行汇总，python中使用的主要函数是groupby和pivot_table。下面分别介绍这两个函数的使用方法。<h3 id="分类汇总"><a href="#分类汇总" class="headerlink" title="分类汇总"></a>分类汇总</h3>Groupby是进行分类汇总的函数，使用方法很简单，制定要分组的列名称就可以，也可以同时制定多个列名称，groupby按列名称出现的顺序进行分组。同时要制定分组后的汇总方式，常见的是计数和求和两种。<pre><code>#对所有列进行计数汇总
+df_inner.groupby(&#39;city&#39;).count()
+</code></pre></li>
+</ul>
+<pre><code>#对特定的ID列进行计数汇总
+df_inner.groupby(&#39;city&#39;)[&#39;id&#39;].count()
+city
+beijing 2
+guangzhou 1
+shanghai 2
+shenzhen 1
+Name: id, dtype: int64
+</code></pre><pre><code>#对两个字段进行汇总计数
+df_inner.groupby([&#39;city&#39;,&#39;size&#39;])[&#39;id&#39;].count()
+city size
+beijing A 1
+F 1
+guangzhou A 1
+shanghai A 1
+B 1
+shenzhen C 1
+Name: id, dtype: int64
+</code></pre><p>除了计数和求和外，还可以对汇总后的数据同时按多个维度进行计算，下面的代码中按城市对price字段进行汇总，并分别计算price的数量，总金额和平均金额。</p>
+<pre><code>#对city字段进行汇总并计算price的合计和均值。
+df_inner.groupby(&#39;city&#39;)[&#39;price&#39;].agg([len,np.sum, np.mean])
+</code></pre><h3 id="数据透视"><a href="#数据透视" class="headerlink" title="数据透视"></a>数据透视</h3><p>Excel中的插入目录下提供“数据透视表”功能对数据表按特定维度进行汇总。Python中也提供了数据透视表功能。通过pivot_table函数实现同样的效果。<br>数据透视表也是常用的一种数据分类汇总方式，并且功能上比groupby要强大一些。下面的代码中设定city为行字段，size为列字段，price为值字段。分别计算price的数量和金额并且按行与列进行汇总。</p>
+<pre><code>#数据透视表
+pd.pivot_table(df_inner,index=[&quot;city&quot;],values=[&quot;price&quot;],columns=[&quot;size&quot;],aggfunc=[len,np.sum],fill_value=0,margins=True)
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195729490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><h3 id="数据采样"><a href="#数据采样" class="headerlink" title="数据采样"></a>数据采样</h3><p>Python通过sample函数完成数据采样。</p>
+<pre><code>#简单的数据采样
+df_inner.sample(n=3)
+</code></pre><p>Weights参数是采样的权重，通过设置不同的权重可以更改采样的结果，权重高的数据将更有希望被选中。这里手动设置6条数据的权重值。将前面4个设置为0，后面两个分别设置为0.5。</p>
+<pre><code>#手动设置采样权重
+weights = [0, 0, 0, 0, 0.5, 0.5]
+f_inner.sample(n=2, weights=weights)
+</code></pre><pre><code>#采样后不放回
+df_inner.sample(n=6, replace=False)
+</code></pre><pre><code>#采样后放回
+df_inner.sample(n=6, replace=True)
+</code></pre><h3 id="描述统计"><a href="#描述统计" class="headerlink" title="描述统计"></a>描述统计</h3><p>Python中可以通过Describe对数据进行描述统计。<br>Describe函数是进行描述统计的函数，自动生成数据的数量，均值，标准差等数据。下面的代码中对数据表进行描述统计，并使用round函数设置结果显示的小数位。并对结果数据进行转置。</p>
+<pre><code>#数据表描述性统计
+df_inner.describe().round(2).T
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190227195745296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h4><p>Python中的Std函数用来接算特定数据列的标准差。</p>
+<pre><code>#标准差
+df_inner[&#39;price&#39;].std()
+1523.3516556155596
+</code></pre><h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>Excel中的数据分析功能中提供协方差的计算，python中通过cov函数计算两个字段或数据表中各字段间的协方差。<br>Cov函数用来计算两个字段间的协方差，可以只对特定字段进行计算，也可以对整个数据表中各个列之间进行计算。</p>
+<pre><code>#两个字段间的协方差
+df_inner[&#39;price&#39;].cov(df_inner[&#39;m-point&#39;])
+17263.200000000001
+
+#数据表中所有字段间的协方差
+df_inner.cov()
+</code></pre><h4 id="相关分析"><a href="#相关分析" class="headerlink" title="相关分析"></a>相关分析</h4><p>Excel的数据分析功能中提供了相关系数的计算功能，python中则通过corr函数完成相关分析的操作，并返回相关系数。<br>Corr函数用来计算数据间的相关系数，可以单独对特定数据进行计算，也可以对整个数据表中各个列进行计算。相关系数在-1到1之间，接近1为正相关，接近-1为负相关，0为不相关。</p>
+<pre><code>#相关性分析
+df_inner[&#39;price&#39;].corr(df_inner[&#39;m-point&#39;])
+0.77466555617085264
+
+#数据表相关性分析
+df_inner.corr()
+</code></pre><h2 id="数据输出"><a href="#数据输出" class="headerlink" title="数据输出"></a>数据输出</h2><p>处理和分析完的数据可以输出为xlsx格式和csv格式。</p>
+<h3 id="写入excel"><a href="#写入excel" class="headerlink" title="写入excel"></a>写入excel</h3><pre><code>#输出到excel格式
+df_inner.to_excel(&#39;excel_to_python.xlsx&#39;, sheet_name=&#39;bluewhale_cc&#39;)
+</code></pre><h3 id="写入csv"><a href="#写入csv" class="headerlink" title="写入csv"></a>写入csv</h3><pre><code>#输出到CSV格式
+df_inner.to_csv(&#39;excel_to_python.csv&#39;)
+</code></pre><p>在数据处理的过程中，大部分基础工作是重复和机械的，对于这部分基础工作，我们可以使用自定义函数进行自动化。以下简单介绍对数据表信息获取自动化处理。</p>
+<pre><code>#创建数据表
+df = pd.DataFrame({&quot;id&quot;:[1001,1002,1003,1004,1005,1006],
+&quot;date&quot;:pd.date_range(&#39;20130102&#39;, periods=6),
+&quot;city&quot;:[&#39;Beijing &#39;, &#39;SH&#39;, &#39; guangzhou &#39;, &#39;Shenzhen&#39;, &#39;shanghai&#39;, &#39;BEIJING &#39;],
+&quot;age&quot;:[23,44,54,32,34,32],
+&quot;category&quot;:[&#39;100-A&#39;,&#39;100-B&#39;,&#39;110-A&#39;,&#39;110-C&#39;,&#39;210-A&#39;,&#39;130-F&#39;],
+&quot;price&quot;:[1200,np.nan,2133,5433,np.nan,4432]},
+columns =[&#39;id&#39;,&#39;date&#39;,&#39;city&#39;,&#39;category&#39;,&#39;age&#39;,&#39;price&#39;])
+
+#创建自定义函数
+def table_info(x):
+    shape=x.shape
+    types=x.dtypes
+    colums=x.columns
+    print(&quot;数据维度(行，列):\n&quot;,shape)
+    print(&quot;数据格式:\n&quot;,types)
+    print(&quot;列名称:\n&quot;,colums)
+
+#调用自定义函数获取df数据表信息并输出结果
+table_info(df)
+
+数据维度(行，列):
+(6, 6)
+数据格式:
+id int64
+date datetime64[ns]
+city object
+category object
+age int64
+price float64
+dtype: object
+列名称:
+Index([&#39;id&#39;, &#39;date&#39;, &#39;city&#39;, &#39;category&#39;, &#39;age&#39;, &#39;price&#39;], dtype=&#39;object&#39;)
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="series:https://blog.csdn.net/brucewong0516/article/details/79196902" target="_blank" rel="noopener">【python】pandas库Series类型与基本操作详解</a></li>
+<li><a href="http://www.cnblogs.com/260554904html/p/8125641.html" target="_blank" rel="noopener">列表（list）、元组（tuple）、字典（dictionary）、array(数组)-numpy、DataFrame-pandas 、集合（set）</a></li>
+<li><a href="https://www.cnblogs.com/nxld/p/6756492.html" target="_blank" rel="noopener">像Excel一样使用python进行数据分析</a><h1 id="好的学习资料"><a href="#好的学习资料" class="headerlink" title="好的学习资料"></a>好的学习资料</h1></li>
+<li>Numpy <a href="https://www.numpy.org.cn/" target="_blank" rel="noopener">https://www.numpy.org.cn/</a></li>
+<li>Pandas <a href="https://www.pypandas.cn/" target="_blank" rel="noopener">https://www.pypandas.cn/</a><br>pandas API速查 <a href="https://www.jianshu.com/p/a77b0bc736f2" target="_blank" rel="noopener">https://www.jianshu.com/p/a77b0bc736f2</a> 翻译自 (<a href="https://www.dataquest.io/blog/pandas-cheat-sheet/" target="_blank" rel="noopener">https://www.dataquest.io/blog/pandas-cheat-sheet/</a> )</li>
+<li><a href="http://www.runoob.com/" target="_blank" rel="noopener">菜鸟教程</a></li>
+<li>Matplotlib <a href="http://reverland.org/python/2012/09/07/matplotlib-tutorial/" target="_blank" rel="noopener">http://reverland.org/python/2012/09/07/matplotlib-tutorial/</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
+</ul>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/python/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">python</a>
+				
+			<a href="/tags/数据处理/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">数据处理</a>
+				
+			<a href="/tags/excel/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">excel</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/03/31/ubuntu下docker初探/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="ubuntu下docker初探">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/03/31/python语法笔记/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="python语法笔记">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/zhifu.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/weixin.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/python实现excel数据处理/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="https://www.doraengineer.xyz">Doraengineer's Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>Doraengineer's Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/dora.jpg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">14</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">22</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/1993zlorange" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:orange_working@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/学习笔记/">学习笔记</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/git/" class="tag-could" data-toggle="tooltip" data-placement="top" title="git">git</a></li>
+                    
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
+                    
+                      <li><a href="/tags/cmake/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmake ">cmake </a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
+                    
+                      <li><a href="/tags/前端/" class="tag-could" data-toggle="tooltip" data-placement="top" title="前端">前端</a></li>
+                    
+                      <li><a href="/tags/计算机视觉/" class="tag-could" data-toggle="tooltip" data-placement="top" title="计算机视觉">计算机视觉</a></li>
+                    
+                      <li><a href="/tags/全景相机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景相机">全景相机</a></li>
+                    
+                      <li><a href="/tags/全景立体/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景立体">全景立体</a></li>
+                    
+                      <li><a href="/tags/图像拼接/" class="tag-could" data-toggle="tooltip" data-placement="top" title="图像拼接">图像拼接</a></li>
+                    
+                      <li><a href="/tags/投影变换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="投影变换">投影变换</a></li>
+                    
+                      <li><a href="/tags/相机标定/" class="tag-could" data-toggle="tooltip" data-placement="top" title="相机标定">相机标定</a></li>
+                    
+                      <li><a href="/tags/CSS/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CSS">CSS</a></li>
+                    
+                      <li><a href="/tags/HTML/" class="tag-could" data-toggle="tooltip" data-placement="top" title="HTML">HTML</a></li>
+                    
+                      <li><a href="/tags/ubuntu/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ubuntu">ubuntu</a></li>
+                    
+                      <li><a href="/tags/docker/" class="tag-could" data-toggle="tooltip" data-placement="top" title="docker">docker</a></li>
+                    
+                      <li><a href="/tags/sql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sql">sql</a></li>
+                    
+                      <li><a href="/tags/数据库/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据库">数据库</a></li>
+                    
+                      <li><a href="/tags/数据处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据处理">数据处理</a></li>
+                    
+                      <li><a href="/tags/excel/" class="tag-could" data-toggle="tooltip" data-placement="top" title="excel">excel</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>

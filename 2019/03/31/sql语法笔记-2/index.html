@@ -1,0 +1,554 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>sql语法笔记Doraengineer's Blog</title>
+  <link rel="shortcut icon" href="/images/dora.jpg">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="https://www.doraengineer.xyz" class="blog-header-mobile-title">Doraengineer's Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/环境搭建" class="transition">环境搭建</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/literary/" class="transition">散文随想</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>sql语法笔记</h4>
+    <time datetime="2019-03-31T14:22:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    
+    
+    <span>
+        <i class="fa fa-eye"></i>
+        <span id="/2019/03/31/sql语法笔记-2/" class="views views-post" title="sql语法笔记"></span>
+    </span>
+    
+    
+    
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <h1 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h1><h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><p>create table</p>
+<pre><code>create table department
+( dept_name varchar (20),
+    building varchar (15),
+    budget numeric(12,2),
+    primary key(dept_name));
+</code></pre><pre><code>//完整性约束
+foreign key(dept_name) references department
+</code></pre><h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><p>删表</p>
+<pre><code>`drop table r;
+</code></pre><h2 id="修改字段"><a href="#修改字段" class="headerlink" title="修改字段"></a>修改字段</h2><p>增加字段</p>
+<pre><code>alter table r add A D;
+alter table r drop A;
+</code></pre><h1 id="增删查找"><a href="#增删查找" class="headerlink" title="增删查找"></a>增删查找</h1><h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><h3 id="插入值"><a href="#插入值" class="headerlink" title="插入值"></a>插入值</h3><pre><code>insert into instructor
+values(10211,&#39;smith&#39;,&#39;Biplogy&#39;,&#39;66000&#39;);
+order by: salary desc,name asc;
+//desc:降序，asc：升序（默认升序）
+</code></pre><h3 id="添加查询结果"><a href="#添加查询结果" class="headerlink" title="添加查询结果"></a>添加查询结果</h3><pre><code>insert into course
+value (&#39;CS-437&#39;,&#39;Database System&#39;,&#39;comp.sci&#39;,4)
+</code></pre><pre><code>insert into instructor
+select ID,name,dept_name,1800
+from student
+where dept_name=&#39;Music&#39; and cot_cred&gt;144;
+</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>删所有元组</p>
+<pre><code>//从student中删除所有元组
+delete from student;
+</code></pre><p>删除条件元组</p>
+<pre><code>   delete from r
+   where P; //省略where将删除全部
+</code></pre><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><pre><code>update instructor
+set salary =salary* 1.05;
+set salary=case
+                   when ... then ...
+                   when ... then ...
+                   ...
+                   else ...  ( else()否则为空)
+                   end
+</code></pre><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><p>select</p>
+<ul>
+<li>distinct</li>
+<li>all</li>
+<li>salary *1.1<br>from</li>
+<li>r1 natural join r2;</li>
+<li>r2 join r2 using (    );//允许哪些列相等</li>
+</ul>
+<h3 id="更名"><a href="#更名" class="headerlink" title="更名"></a>更名</h3><pre><code>select name as instructor_name
+</code></pre><pre><code>select T.name,S.course_id
+from instructor as T,teacher as S
+where T.ID=S.ID
+</code></pre><h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><p>where building like</p>
+<ul>
+<li>‘Intro%’     以Intro 打头</li>
+<li>‘% comp%    ’包含comp</li>
+<li>‘_ _ _’    匹配只含三个字符</li>
+<li>‘_ _ _%’    匹配至少三个字符</li>
+<li>like ‘ab\%cd%’escape ‘\’     以“ab%cd”开头</li>
+<li>not like<h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3></li>
+<li>between</li>
+<li>(a1,b1)=(c1,d1)<h3 id="集合函数"><a href="#集合函数" class="headerlink" title="集合函数"></a>集合函数</h3></li>
+<li>（    ）union (    );</li>
+<li>(    ) intersect (    );</li>
+<li>(    ) except (    );<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3></li>
+<li>select avg(salary)<br> from<br> where</li>
+<li>select count(distinct ID)<br>select count(*)//计算元组个数</li>
+<li>分组<br>  group by<br>  having avg(salary)&gt;4200    //建完表后再一次筛选<h3 id="嵌套子句"><a href="#嵌套子句" class="headerlink" title="嵌套子句"></a>嵌套子句</h3></li>
+<li>in/not in    (‘mozart’,’Einstein’)</li>
+<li>集合比较<pre><code>&gt;some // 至少比某一个大
+&lt;&gt; some // not in
+=all    // ==in
+&gt;all    // 比所有都大 
+</code></pre></li>
+<li>exists / not exsists(    ) // 在此集合中是否存在</li>
+<li>unique    // 最多一次<br>not unique // 最少两次<pre><code>select T.course_id
+from course as T // 从course 表选
+where unique (
+select R.course_id
+from section as R
+where T.course_id=R.course_id 
+and R.year =2009); //重复元组存在性测试显示为true的元组
+</code></pre></li>
+<li>from<pre><code>select dept_name , avg_salary
+from (select dept_name,avg(salary)
+       from instructor
+       group by dept_name)
+as dept_avg(dept_name,avg_salary)//rename
+where avg_salary&gt;42000;
+</code></pre></li>
+<li>lateral<pre><code>select
+from instructo I1,lateral
+(select avg(salary)
+from instructor I2
+where I2.dept_name=I1.dept_name);
+</code></pre></li>
+<li>with: 临时关系<pre><code>with max_budget(value) as
+(select max(budget)
+  from department) //临时表
+</code></pre><h1 id="建立数据库"><a href="#建立数据库" class="headerlink" title="建立数据库"></a>建立数据库</h1><h2 id="完整性约束"><a href="#完整性约束" class="headerlink" title="完整性约束"></a>完整性约束</h2></li>
+</ul>
+<p>单个关系</p>
+<pre><code>not null
+unique (Aj1,Aj2,Ajm)
+check
+</code></pre><p>参照完整性</p>
+<pre><code>foreign key(dept_name)references department
+</code></pre><pre><code>dept_name varchar(20) references department
+</code></pre><ul>
+<li>tot_cred numeric (3,0) default 0 // 默认值</li>
+<li>cast e as t<pre><code>date &#39;2001-04-25&#39;
+time &#39;09:30:00&#39;
+timestamp&#39;2007-04-25 10:29:01.45&#39;
+</code></pre><h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><pre><code>creat view faculty as
+select ID,name,dept_name
+from instructor;
+</code></pre><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><pre><code>create index student ID_index on student (ID);
+</code></pre><h2 id="用户自定义类型"><a href="#用户自定义类型" class="headerlink" title="用户自定义类型"></a>用户自定义类型</h2><pre><code>create type Dollars as numeric (12,2) final;
+</code></pre><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2></li>
+<li>grant(select,update(budget)在…属性上的更新,delete)<br> on<br> to</li>
+<li>revoke<br>on<br>from</li>
+<li>create role instructor;<br>grant select on department to Amit with grant option</li>
+</ul>
+<hr>
+<p>后记</p>
+<blockquote>
+<p>新人上路，旨在分享交流干货经验，若有错误或者不当之处，请大家批评指正！<br>更多说明请查看 <a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></p>
+</blockquote>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/sql/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">sql</a>
+				
+			<a href="/tags/数据库/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">数据库</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/03/31/python语法笔记/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="python语法笔记">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/03/31/CSS语法笔记/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="CSS语法笔记">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/zhifu.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/weixin.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/sql语法笔记-2/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="https://www.doraengineer.xyz">Doraengineer's Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>Doraengineer's Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/dora.jpg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">14</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">22</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/1993zlorange" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:orange_working@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/学习笔记/">学习笔记</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/git/" class="tag-could" data-toggle="tooltip" data-placement="top" title="git">git</a></li>
+                    
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
+                    
+                      <li><a href="/tags/cmake/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmake ">cmake </a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
+                    
+                      <li><a href="/tags/前端/" class="tag-could" data-toggle="tooltip" data-placement="top" title="前端">前端</a></li>
+                    
+                      <li><a href="/tags/计算机视觉/" class="tag-could" data-toggle="tooltip" data-placement="top" title="计算机视觉">计算机视觉</a></li>
+                    
+                      <li><a href="/tags/全景相机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景相机">全景相机</a></li>
+                    
+                      <li><a href="/tags/全景立体/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景立体">全景立体</a></li>
+                    
+                      <li><a href="/tags/图像拼接/" class="tag-could" data-toggle="tooltip" data-placement="top" title="图像拼接">图像拼接</a></li>
+                    
+                      <li><a href="/tags/投影变换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="投影变换">投影变换</a></li>
+                    
+                      <li><a href="/tags/相机标定/" class="tag-could" data-toggle="tooltip" data-placement="top" title="相机标定">相机标定</a></li>
+                    
+                      <li><a href="/tags/CSS/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CSS">CSS</a></li>
+                    
+                      <li><a href="/tags/HTML/" class="tag-could" data-toggle="tooltip" data-placement="top" title="HTML">HTML</a></li>
+                    
+                      <li><a href="/tags/ubuntu/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ubuntu">ubuntu</a></li>
+                    
+                      <li><a href="/tags/docker/" class="tag-could" data-toggle="tooltip" data-placement="top" title="docker">docker</a></li>
+                    
+                      <li><a href="/tags/sql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sql">sql</a></li>
+                    
+                      <li><a href="/tags/数据库/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据库">数据库</a></li>
+                    
+                      <li><a href="/tags/数据处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据处理">数据处理</a></li>
+                    
+                      <li><a href="/tags/excel/" class="tag-could" data-toggle="tooltip" data-placement="top" title="excel">excel</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>

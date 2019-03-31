@@ -1,0 +1,769 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>python语法笔记Doraengineer's Blog</title>
+  <link rel="shortcut icon" href="/images/dora.jpg">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="https://www.doraengineer.xyz" class="blog-header-mobile-title">Doraengineer's Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/环境搭建" class="transition">环境搭建</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/literary/" class="transition">散文随想</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>python语法笔记</h4>
+    <time datetime="2019-03-31T14:27:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    
+    
+    <span>
+        <i class="fa fa-eye"></i>
+        <span id="/2019/03/31/python语法笔记/" class="views views-post" title="python语法笔记"></span>
+    </span>
+    
+    
+    
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <p><img src="https://img-blog.csdnimg.cn/20190221110401572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><p>中文编码</p>
+<pre><code># -*- coding:utf-8 -*-#
+</code></pre><p>注释</p>
+<pre><code>#
+</code></pre><h1 id="列表和元组"><a href="#列表和元组" class="headerlink" title="列表和元组"></a>列表和元组</h1><h2 id="序列操作"><a href="#序列操作" class="headerlink" title="序列操作"></a>序列操作</h2><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><pre><code>&gt;&gt;&gt;&#39;Hello&#39;[-1]
+    &#39;o&#39;
+&gt;&gt;&gt;&#39;Hello&#39;[1]
+    &#39;e&#39;
+</code></pre><pre><code>&gt;&gt;&gt;fourth=input(&#39;Year: &#39;)[3]
+    Year: 2005
+&gt;&gt;&gt;fourth
+    ‘5’
+</code></pre><h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><pre><code>tag[32:-4]//左闭右开
+//注：若a1在a2索引位置后面，则结果为空序列[a1:a2]
+</code></pre><h3 id="步长"><a href="#步长" class="headerlink" title="步长"></a>步长</h3><pre><code>&gt;&gt;&gt;number[0:10:2] //左-&gt;右
+&gt;&gt;&gt;number[8:3:-1] //右-&gt;左
+</code></pre><h3 id="相加"><a href="#相加" class="headerlink" title="相加"></a>相加</h3><p>列表</p>
+<pre><code>&gt;&gt;&gt;[1,2,3]+[4,5,6]
+</code></pre><p>字符串</p>
+<pre><code>&gt;&gt;&gt;‘Hello’+&#39;world&#39;
+</code></pre><h3 id="相乘"><a href="#相乘" class="headerlink" title="相乘"></a>相乘</h3><pre><code>&gt;&gt;&gt;&#39;python&#39;*5
+&gt;&gt;&gt;[42]*10
+</code></pre><h3 id="成员资格"><a href="#成员资格" class="headerlink" title="成员资格"></a>成员资格</h3><pre><code>&gt;&gt;&gt;permissions=&#39;rw&#39;
+&gt;&gt;&gt;‘w’in permission
+    True
+</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="字符串与列表的转换"><a href="#字符串与列表的转换" class="headerlink" title="字符串与列表的转换"></a>字符串与列表的转换</h3><p>字符串到列表</p>
+<pre><code>list(&#39;    &#39;)
+</code></pre><p>列表到字符串</p>
+<pre><code>&#39;    &#39;.join(some list)
+</code></pre><h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><pre><code>x[1]=2
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>del names[2]
+</code></pre><h3 id="特殊赋值删除方式"><a href="#特殊赋值删除方式" class="headerlink" title="特殊赋值删除方式"></a>特殊赋值删除方式</h3><p>切片赋值</p>
+<pre><code>name[2: ]=list(&#39;ar&#39;)//在第3个元素开始
+</code></pre><p>代替插入</p>
+<pre><code>numbers[1:1]=[2,3,4]
+</code></pre><p>代替del</p>
+<pre><code>numbers[1:4]=[    ]
+</code></pre><h3 id="列表方法"><a href="#列表方法" class="headerlink" title="列表方法"></a>列表方法</h3><p>append（将对象附加到末尾）</p>
+<pre><code>lst.append(4)
+</code></pre><p>clear</p>
+<pre><code>lst.clear()
+</code></pre><p>copy</p>
+<pre><code>b=a //同一个指向
+b=a.copy
+</code></pre><p>count</p>
+<pre><code>x.count(1)
+</code></pre><p>extend(附多个值到列表末尾)</p>
+<pre><code>a.extend(b)//效率大于a=a+b(使用a、b的副本创建新的列表)
+</code></pre><p>index</p>
+<pre><code>knights.index(&#39;who&#39;)
+</code></pre><p>insert</p>
+<pre><code>numbers.insert(3,&#39;four&#39;)//在第4个元素前插入
+</code></pre><p>pop</p>
+<pre><code>&gt;&gt;&gt; x.pop() //删除（弹出）末尾
+</code></pre><p>remove</p>
+<pre><code>&gt;&gt;&gt; x.remove(&#39;be&#39;)//就地修改不返回值
+</code></pre><p>reverse</p>
+<pre><code>&gt;&gt;&gt; x.reverse()
+</code></pre><p>sort(升序排列)</p>
+<pre><code>sorted(x)//获取排序后的列表副本
+</code></pre><p>高级排序</p>
+<pre><code>x.sort(key=len)
+</code></pre><h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><pre><code>&gt;&gt;&gt; tuple([1,2,3])  //列表到元组
+    (1,2,3)
+</code></pre><p>访问</p>
+<pre><code>&gt;&gt;&gt; x[0:2]
+    (1,2)
+</code></pre><h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><h3 id="元组（同c中printf）"><a href="#元组（同c中printf）" class="headerlink" title="% + 元组（同c中printf）"></a>% + 元组（同c中printf）</h3><pre><code>&gt;&gt;&gt; format=&quot;Hello,%s,%s enough for ya&quot;
+&gt;&gt;&gt; value=(&#39;world&#39;,&#39;Hot&#39;)
+&gt;&gt;&gt; format % values
+    &quot;Hello,world,Hot enough for ya?&quot;
+</code></pre><h3 id="关键字参数-同Unix-shell"><a href="#关键字参数-同Unix-shell" class="headerlink" title="关键字参数(同Unix shell)"></a>关键字参数(同Unix shell)</h3><pre><code>&gt;&gt;&gt; from string import Template
+&gt;&gt;&gt; tmpl=Template(&quot;Hello,$who!$what enough for ya?&quot;)
+&gt;&gt;&gt; templ.substitute(who=&quot;Mars&quot;,what=&quot;Dusty&quot;)
+    &quot;Hello,Mars!Dusty enough for ya?&quot;
+</code></pre><h3 id="format"><a href="#format" class="headerlink" title="format"></a>format</h3><pre><code>&gt;&gt;&gt; &quot;{0},{1} and {2}&quot;.format(&quot;first&quot;,&quot;second&quot;,&quot;third&quot;)
+    &#39;first,second and third&#39;
+</code></pre><p>命名字段</p>
+<pre><code>&gt;&gt;&gt; from math imort p;
+&gt;&gt;&gt; &quot;{name} is approximately {value:2f}&quot;.format(value =pi,name=&quot;pi&quot;)
+    &quot;pi&quot; is approximately 3.14
+</code></pre><p>混合使用</p>
+<pre><code>&gt;&gt;&gt; &quot;{foo} {1} {bar} {0}&quot;.format (1,2,bar=4,foo=3)
+    &#39;3 2 4 1&#39;
+</code></pre><h2 id="宽度，精度，千位分隔符"><a href="#宽度，精度，千位分隔符" class="headerlink" title="宽度，精度，千位分隔符"></a>宽度，精度，千位分隔符</h2><h3 id="宽度"><a href="#宽度" class="headerlink" title="宽度"></a>宽度</h3><pre><code>&gt;&gt;&gt;&quot;{num:10}&quot;.format(num=3)
+    &#39;            3&#39;
+</code></pre><h3 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h3><pre><code>&gt;&gt;&gt;&quot;pi day is {pi:2f}&quot;.format(pi=pi)
+    &#39;pi day is 3.14&#39;
+</code></pre><h3 id="千位分隔符"><a href="#千位分隔符" class="headerlink" title="千位分隔符"></a>千位分隔符</h3><pre><code>&gt;&gt;&gt; &#39;One googol is {:,}&#39;.format (10*100)
+    &#39;One google is 10,000,000,...,000&#39;
+</code></pre><h2 id="符号，对齐和用0填空"><a href="#符号，对齐和用0填空" class="headerlink" title="符号，对齐和用0填空"></a>符号，对齐和用0填空</h2><h3 id="0填空"><a href="#0填空" class="headerlink" title="0填空"></a>0填空</h3><pre><code>&gt;&gt;&gt; &#39;{: 010.2f}&#39;.format(pi)//0:用0填空，10:宽度，2f：精度
+    &#39;0000003.14&#39;    
+</code></pre><h3 id="左对齐，居中对齐，右对齐"><a href="#左对齐，居中对齐，右对齐" class="headerlink" title="左对齐，居中对齐，右对齐"></a>左对齐，居中对齐，右对齐</h3><pre><code>&gt;&gt;&gt; print(&#39;{0:&lt;10.2f}\n{0:^10.2f}\n{0:&gt;10.2f}&#39;.format(pi))
+    3.14
+        3.14
+            3.14
+</code></pre><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="center-字符串剧中两边填充字符"><a href="#center-字符串剧中两边填充字符" class="headerlink" title="center 字符串剧中两边填充字符"></a>center 字符串剧中两边填充字符</h3><pre><code>&gt;&gt;&gt; &quot;The middle by Jimmy Eat World&quot;.center(39,&quot;*&quot;)
+    &#39;***** The middle by Jimmy Eat World *****&#39;
+</code></pre><h3 id="find-查找子串"><a href="#find-查找子串" class="headerlink" title="find 查找子串"></a>find 查找子串</h3><pre><code>&gt;&gt;&gt; title =&quot;Monty Python&#39;s Flying Circus&quot;
+&gt;&gt;&gt; title.find (&#39;Monty&#39;)
+    0
+</code></pre><h3 id="join-合并字符串列表（防御参数字符串后）"><a href="#join-合并字符串列表（防御参数字符串后）" class="headerlink" title="join (合并字符串列表（防御参数字符串后）)"></a>join (合并字符串列表（防御参数字符串后）)</h3><pre><code>&gt;&gt;&gt; dirs=&#39;    &#39;,&#39;usr&#39;,&#39;bin&#39;,&#39;env&#39;
+&gt;&gt;&gt; &#39;/&#39;.join(dirs)
+    &#39;    /usr/bin/env&#39;
+</code></pre><pre><code>&gt;&gt;&gt; Print(&#39;c:&#39;+&#39;\\&#39;.join(dirs))
+    c:\usr\bin\env
+</code></pre><h3 id="lower-返回字符串-小写版本"><a href="#lower-返回字符串-小写版本" class="headerlink" title="lower 返回字符串 小写版本"></a>lower 返回字符串 小写版本</h3><pre><code>&gt;&gt;&gt; &#39;Trondheim Hammer Dance&#39;.lower()
+    &#39;trondheim hammer dance&#39;
+</code></pre><h3 id="replace-替换"><a href="#replace-替换" class="headerlink" title="replace 替换"></a>replace 替换</h3><pre><code>&gt;&gt;&gt; &#39;This is a test&#39;.replace(&#39;is&#39;,&#39;eez&#39;)
+    &#39;Theez eez a test&#39;
+</code></pre><h3 id="split-将字符串拆分为序列"><a href="#split-将字符串拆分为序列" class="headerlink" title="split 将字符串拆分为序列"></a>split 将字符串拆分为序列</h3><pre><code>&gt;&gt;&gt; &#39;1+2+3+4+5&#39;.split(&#39;+&#39;)
+    [&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;]
+</code></pre><h3 id="strip-删除字符串开头末尾空白"><a href="#strip-删除字符串开头末尾空白" class="headerlink" title="strip (删除字符串开头末尾空白)"></a>strip (删除字符串开头末尾空白)</h3><pre><code>&gt;&gt;&gt;&#39;    internal whitespace is kept    &#39;.strip()
+    &#39;internal whitespace is kept&#39;
+</code></pre><h3 id="translate-单个字符替换，同时替换多个字符"><a href="#translate-单个字符替换，同时替换多个字符" class="headerlink" title="translate (单个字符替换，同时替换多个字符)"></a>translate (单个字符替换，同时替换多个字符)</h3><pre><code>&gt;&gt;&gt; table =str.maketrans(&#39;cs&#39;,&#39;kz&#39;,&#39; &#39;)//maketrans(建表)，k代替c,z代替s，删除‘    ’
+&gt;&gt;&gt; &#39;this is an incredible test&#39;.translate(table)
+    &#39;thizizaninkredibletezt&#39;    
+</code></pre><h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><blockquote>
+<p>列表：通过编号来访问各值<br>字典：通过名称访问各值的数据结构</p>
+</blockquote>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><pre><code>phonebook=&#39;{&#39;Alice&#39;:&#39;2341&#39;,&#39;Beth&#39;:&#39;9102&#39;}//&#39;Alice&#39;:键(独一无二)，&#39;2341&#39;：项
+</code></pre><h2 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h2><p>从其他映射或建一值对序列 创建字典</p>
+<pre><code>&gt;&gt;&gt;[(&#39;name&#39;,&#39;gumby&#39;),(&#39;age,42&#39;)]
+&gt;&gt;&gt;d=dict(items)
+&gt;&gt;&gt;d[&#39;name&#39;]
+&#39;gumby&#39;
+</code></pre><p>关键字实参</p>
+<pre><code>&gt;&gt;&gt;d=dict(name=&#39;gumby&#39;,age=42)
+</code></pre><h2 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h2><ul>
+<li>len(d) </li>
+<li>d[k]</li>
+<li>d[k]=v </li>
+<li>del d[k]  k in d<blockquote>
+<p>注:<br>1.自动添加（不像列表须使用append）<br>2.成员资格<br>k in d 字典到键<br>v in l 列表到值</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="字符串格式设置功能用于字典"><a href="#字符串格式设置功能用于字典" class="headerlink" title="字符串格式设置功能用于字典"></a>字符串格式设置功能用于字典</h2><pre><code>&gt;&gt;&gt;phonebook
+{&#39;Beth&#39;:&#39;9102&#39;,&#39;Alice&#39;:&#39;2341&#39;,&#39;cecil&#39;:&#39;3258&#39;}
+&gt;&gt;&gt;&#39;&#39;Cecic&#39;s phone number is{cecil}&#39;&#39;
+format_map(phonebook)
+&#39;&#39;cecil&#39;s phone number is 3258&#39;&#39;
+</code></pre><h2 id="字典方法"><a href="#字典方法" class="headerlink" title="字典方法"></a>字典方法</h2><h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><pre><code>d .(clear)//通过赋值字典是无法清除的
+</code></pre><h3 id="copy-浅复制（值可替换不可修改）值本身是原件而非副本"><a href="#copy-浅复制（值可替换不可修改）值本身是原件而非副本" class="headerlink" title="copy 浅复制（值可替换不可修改）值本身是原件而非副本"></a>copy 浅复制（值可替换不可修改）值本身是原件而非副本</h3><p>deepcopy 深复制</p>
+<h3 id="from-keys-创建新字典"><a href="#from-keys-创建新字典" class="headerlink" title="from keys  创建新字典"></a>from keys  创建新字典</h3><pre><code>&gt;&gt;&gt;dict.fromkeys([&#39;name&#39;,&#39;age&#39;])
+{&#39;age&#39;:None,&#39;name&#39;:None}
+</code></pre><h3 id="get-项不在字典中也不会报错"><a href="#get-项不在字典中也不会报错" class="headerlink" title="get (项不在字典中也不会报错)"></a>get (项不在字典中也不会报错)</h3><pre><code>&gt;&gt;&gt; print d.get(&#39;name&#39;)
+None
+</code></pre><h3 id="items-返回一个包含有所有字典项的列表"><a href="#items-返回一个包含有所有字典项的列表" class="headerlink" title="items (返回一个包含有所有字典项的列表)"></a>items (返回一个包含有所有字典项的列表)</h3><pre><code>d.items()//字典项在列表中排序不确定 注：items() -&gt;返回字典视图（不复制而是反映底层字典）
+</code></pre><p>复制：</p>
+<pre><code>&gt;&gt;&gt;list(d.items())
+</code></pre><h3 id="key-返回字典视图，包含字典中的键。"><a href="#key-返回字典视图，包含字典中的键。" class="headerlink" title="key 返回字典视图，包含字典中的键。"></a>key 返回字典视图，包含字典中的键。</h3><h3 id="pop-获取与指定键相关值并删除（弹出）"><a href="#pop-获取与指定键相关值并删除（弹出）" class="headerlink" title="pop 获取与指定键相关值并删除（弹出）"></a>pop 获取与指定键相关值并删除（弹出）</h3><pre><code>&gt;&gt;&gt;d={&#39;x&#39;:1,&#39;y&#39;:2}
+&gt;&gt;&gt;d.pop(&#39;x&#39;)
+1
+&gt;&gt;&gt;d
+{&#39;y&#39;:2}
+</code></pre><h3 id="popitem"><a href="#popitem" class="headerlink" title="popitem"></a>popitem</h3><p> 随机弹出一个字典项（高效逐个删除）</p>
+<h3 id="setdefault"><a href="#setdefault" class="headerlink" title="setdefault"></a>setdefault</h3><p>字典中包含键时更新键-值对</p>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p>若键相同，则替换</p>
+<h3 id="values"><a href="#values" class="headerlink" title="values"></a>values</h3><p>返回由值组成的字典视图，可重复</p>
+<h1 id="条件循环"><a href="#条件循环" class="headerlink" title="条件循环"></a>条件循环</h1><h2 id="打印多个参数"><a href="#打印多个参数" class="headerlink" title="打印多个参数"></a>打印多个参数</h2><h3 id="定义分隔符"><a href="#定义分隔符" class="headerlink" title="定义分隔符"></a>定义分隔符</h3><pre><code>&gt;&gt;&gt;print(&quot;I&quot;,&quot;with&quot;,&quot;to&quot;,sep=&quot;_&quot;)
+</code></pre><h3 id="自定义结束字符串，替换默认的换行符"><a href="#自定义结束字符串，替换默认的换行符" class="headerlink" title="自定义结束字符串，替换默认的换行符"></a>自定义结束字符串，替换默认的换行符</h3><pre><code>&gt;&gt;&gt;print(hello,end=&quot; &quot;)
+&gt;&gt;&gt;print(&quot;world！&quot;)
+</code></pre><h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><pre><code>import  somemodule
+or from somemodule import some function
+or from somemodule import *
+or import somemodule as XX
+</code></pre><h2 id="赋值-1"><a href="#赋值-1" class="headerlink" title="赋值"></a>赋值</h2><h3 id="序列解包"><a href="#序列解包" class="headerlink" title="序列解包"></a>序列解包</h3><pre><code>&gt;&gt;&gt;ralne=1,2,3
+&gt;&gt;&gt;x,y,z=valne
+(*)收集多余值
+&gt;&gt;&gt;a,b,*rest=[1,2,3,4]
+&gt;&gt;&gt;rest
+[3,4]
+</code></pre><h3 id="链式赋值"><a href="#链式赋值" class="headerlink" title="链式赋值"></a>链式赋值</h3><pre><code>x=y=somefunction()
+</code></pre><h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><p>布尔假：</p>
+<ul>
+<li>False</li>
+<li>None </li>
+<li>0 </li>
+<li>“ “</li>
+<li>()</li>
+<li>[]</li>
+<li>{}<pre><code>num=int(input(&#39;enter a number:&#39;))
+if num&gt;0:
+  print()//空四个空格
+elif num&lt;0:
+  print()
+else:
+  print()
+</code></pre><h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3></li>
+<li>x==y </li>
+<li>x&lt;y </li>
+<li>x&gt;y </li>
+<li>x&gt;=y </li>
+<li>x&lt;=y  </li>
+<li>x!=y  </li>
+<li>x is y      </li>
+<li>x is not y       </li>
+<li>x in y     </li>
+<li>x not in y<h3 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h3></li>
+<li>and  </li>
+<li>or  </li>
+<li>not <h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><pre><code>&gt;&gt;&gt;age=-1
+&gt;&gt;&gt;assert 0&lt;age&lt;100,&#39;The age must be realistic&#39;
+//等同 if not condition 
+              crash program
+</code></pre><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><pre><code>x=1
+while x&lt;=100：
+  print(x)
+  x+=1
+</code></pre><h3 id="for（根据需求定制）"><a href="#for（根据需求定制）" class="headerlink" title="for（根据需求定制）"></a>for（根据需求定制）</h3><pre><code>words=[&#39;this&#39;,&#39;is&#39;,&#39;an&#39;,&#39;ex&#39;,&#39;parrot&#39;]
+for word in words
+  print(word)
+</code></pre>遍历特定范围的数range（0,100）（左闭右开）<h3 id="选代时获取索引——值对-enumerate"><a href="#选代时获取索引——值对-enumerate" class="headerlink" title="选代时获取索引——值对 enumerate"></a>选代时获取索引——值对 enumerate</h3><pre><code>for index,string in enumerate(string)//index:索引,string:值
+  &#39;xxx&#39; in string:
+  strings [index]=&#39;[censored]&#39; 
+</code></pre><h3 id="while-Tme——break"><a href="#while-Tme——break" class="headerlink" title="while Tme——break"></a>while Tme——break</h3>跳出循环<h3 id="break——else"><a href="#break——else" class="headerlink" title="break——else"></a>break——else</h3>正常结束的情况<h3 id="推导（从其他列表创建列表）"><a href="#推导（从其他列表创建列表）" class="headerlink" title="推导（从其他列表创建列表）"></a>推导（从其他列表创建列表）</h3><pre><code>&gt;&gt;&gt;[xxx for x in range(10)]
+&gt;&gt;&gt;[(x,y) for x in range(3) for y in range(3)]
+</code></pre>等同于<pre><code>result=[ ]
+for x in range (3):
+  for y in range (3)
+      result.append((x,y))
+</code></pre><h2 id="pass-、del、-exec"><a href="#pass-、del、-exec" class="headerlink" title="pass 、del、 exec"></a>pass 、del、 exec</h2><h3 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h3>等同于‘{  }’<h3 id="del-删除名称，并不能删除指向的值（还在内存中）"><a href="#del-删除名称，并不能删除指向的值（还在内存中）" class="headerlink" title="del 删除名称，并不能删除指向的值（还在内存中）"></a>del 删除名称，并不能删除指向的值（还在内存中）</h3>值无用后由python 解释器自动删除<h3 id="exec（执行python语句-eval-返回python表达式的值"><a href="#exec（执行python语句-eval-返回python表达式的值" class="headerlink" title="exec（执行python语句)     eval(返回python表达式的值)"></a>exec（执行python语句)     eval(返回python表达式的值)</h3>设置命名空间避免变量被污染<pre><code>&gt;&gt;&gt;from math import sqrt 
+&gt;&gt;&gt;Scope={}     //字典
+&gt;&gt;&gt;exec(&#39;sqrt=1&#39;,scope)
+&gt;&gt;&gt;scope[&#39;sqrt&#39;]
+</code></pre><h1 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h1><h2 id="def"><a href="#def" class="headerlink" title="def"></a>def</h2><pre><code>def hello(name):
+return&#39;hello&#39;,+name+&#39;!&#39;
+</code></pre><h2 id="编写文档"><a href="#编写文档" class="headerlink" title="编写文档"></a>编写文档</h2><pre><code>def square(x):
+  &#39;Calculates the square of the number x&#39;
+  return x*x
+</code></pre>访问<pre><code>1.&gt;&gt;&gt;square._doc_
+2.&gt;&gt;&gt;help(square)
+</code></pre>注：当return没有返回值时返回None。<br>注：对序列执行切片，返回切片是副本。<pre><code>&gt;&gt;&gt;n=name[:]
+</code></pre><h2 id="关键字参数和默认值"><a href="#关键字参数和默认值" class="headerlink" title="关键字参数和默认值"></a>关键字参数和默认值</h2><pre><code>&gt;&gt;&gt;store(patient=&#39;Mr.&#39;,hour=10,munite=20)
+</code></pre><pre><code>def hello_3(greeting=&#39;hello&#39;,name=&#39;world&#39;)
+  print(&#39;{},{}!&#39;:format(greeting,name))
+</code></pre><h2 id="收集参数-（提供任意参数）"><a href="#收集参数-（提供任意参数）" class="headerlink" title="收集参数 （提供任意参数）"></a>收集参数 （提供任意参数）</h2><pre><code>def print_params (* params）:
+    print (params)
+</code></pre>(* 创建元组，将结果放在元组中）<br>收集关键字参数<pre><code>&gt;&gt;&gt;def print_params_3(**params):
+&gt;&gt;&gt;print(paramas)
+&gt;&gt;&gt;print_params_3(x=1,y=2,z=3)
+{&#39;z&#39;=3,&#39;x&#39;=1,&#39;y&#39;=2}
+</code></pre><h2 id="分配参数"><a href="#分配参数" class="headerlink" title="分配参数"></a>分配参数</h2>*: 分配元组<br>**: 分配字典<br>注意 ：声明和调用最好不同时使用<h2 id="作用域（命名空间）"><a href="#作用域（命名空间）" class="headerlink" title="作用域（命名空间）"></a>作用域（命名空间）</h2>globals( ):全局变量（局部变量会遮盖全局变量）<br>vars( ):作用域（看不见的字典）<h1 id="抽象二（多态，封装，继承）"><a href="#抽象二（多态，封装，继承）" class="headerlink" title="抽象二（多态，封装，继承）"></a>抽象二（多态，封装，继承）</h1><h2 id="多态（同一函数，不同对象，不同行为）"><a href="#多态（同一函数，不同对象，不同行为）" class="headerlink" title="多态（同一函数，不同对象，不同行为）"></a>多态（同一函数，不同对象，不同行为）</h2>（内置运算符和函数大量使用了多态）<br>Python编程方式的核心（可能并不有意为之）<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h3 id="创建-1"><a href="#创建-1" class="headerlink" title="创建"></a>创建</h3><pre><code>_metaclass_=type # python 2
+class person:
+  def set_name(self,name):
+      self_name=name
+</code></pre><h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><pre><code>&gt;&gt;&gt;foo=person()
+&gt;&gt;&gt;foo.set_name(&#39;luke skywalker&#39;)
+</code></pre>外部可以访问属性<pre><code>&gt;&gt;&gt;foo.name
+&gt;&gt;&gt;&#39;luke skywalker&#39;
+</code></pre><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2>使用方法或属性成为私有：_ _<pre><code>class Secretive
+  def_ _ inaccessible (self):
+      print(&quot; &quot;)
+</code></pre>外部访问私有：_类名     ：<pre><code>&gt;&gt;&gt;s._Secrective_ _in a&lt;cessible
+</code></pre><h2 id="函数vs方法"><a href="#函数vs方法" class="headerlink" title="函数vs方法"></a>函数vs方法</h2>函数    def methocl(self)  （类中 参数关联到所属实列）<br>方法     def funcion()    (不在类中)<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><pre><code>def foo(x): return x*x
+</code></pre>等同于<pre><code>foo=lambda x:x*x
+</code></pre>所有代码在类的命名空间（特殊）内执行<pre><code>class MemberCounter:
+    members=0        (相当于 ptublic static)
+  def init(self):
+      MemberCounter.members +=1   (同static概念)
+      \\(MemberCounter:类命名空间中的变量由类实例共享,等同于类中的全局变量)
+</code></pre><h2 id="继承（子类）"><a href="#继承（子类）" class="headerlink" title="继承（子类）"></a>继承（子类）</h2><pre><code>class SPAMFilter (Filter)
+</code></pre>可用函数：</li>
+<li>issubclass  </li>
+<li><em>bases</em>   </li>
+<li>isinstance<pre><code>&gt;&gt;&gt;is subclass (SPAMFilter,Filter)//SPAMFilter：子，Filter：父（超类）
+&gt;&gt;&gt;SPAMFilter._bases_
+&gt;&gt;&gt;isinstance(s,Filter)//s：实例，Filter：类
+</code></pre><h2 id="多个超类"><a href="#多个超类" class="headerlink" title="多个超类"></a>多个超类</h2><pre><code>class Talking Caloulation(Calculator,Talker) 
+  pass
+(注：慎用，顺序决定同种方法名的覆盖)
+</code></pre><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="raise-引发异常"><a href="#raise-引发异常" class="headerlink" title="raise 引发异常"></a>raise 引发异常</h2><pre><code>&gt;&gt;&gt;raise Exception (&#39;hyperdrive overload&#39;)  //内置异常类
+</code></pre><h2 id="自定义异常类-（对错误进行处理）"><a href="#自定义异常类-（对错误进行处理）" class="headerlink" title="自定义异常类 （对错误进行处理）"></a>自定义异常类 （对错误进行处理）</h2><pre><code>class SameCustomException(Exception):pass  //Exception：继承
+</code></pre><h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><pre><code>try:
+......
+except ZeroDivisonError:
+......
+</code></pre>继续向上传播：<pre><code>ecept ZeroDivision Error:
+  if  self.muffled:
+     print(&#39;Division&#39;)
+  else:
+    raise
+</code></pre><h2 id="捕获多个异常"><a href="#捕获多个异常" class="headerlink" title="捕获多个异常"></a>捕获多个异常</h2><pre><code>try:
+...
+except (ZeroDivisionError,TypeError):
+...
+</code></pre><h2 id="访问异常本身并继续运行"><a href="#访问异常本身并继续运行" class="headerlink" title="访问异常本身并继续运行"></a>访问异常本身并继续运行</h2><pre><code>except (Zero Divisionzmor,Type Error)as e:
+  print(e)
+</code></pre><h2 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h2>用于发生异常时执行清理工作<h1 id="魔法（特殊）方法、特性、迭代器"><a href="#魔法（特殊）方法、特性、迭代器" class="headerlink" title="魔法（特殊）方法、特性、迭代器"></a>魔法（特殊）方法、特性、迭代器</h1><h2 id="python2-gt-python3"><a href="#python2-gt-python3" class="headerlink" title="python2-&gt;python3"></a>python2-&gt;python3</h2><em>metaclass</em>=type<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><pre><code>class Foobar:
+  def_init_(self):
+      self.somevar=42
+&gt;&gt;&gt;f=Foobar()
+</code></pre>等同于<pre><code>&gt;&gt;&gt;f=Foobar()  //分配内存
+&gt;&gt;&gt;f.init            //创造
+</code></pre><h2 id="子类构造函数"><a href="#子类构造函数" class="headerlink" title="子类构造函数"></a>子类构造函数</h2><h3 id="未关联的方法（由类调用-）"><a href="#未关联的方法（由类调用-）" class="headerlink" title="未关联的方法（由类调用 ）"></a>未关联的方法（由类调用 ）</h3><pre><code>class SongBird(Bird):
+  def_init_(self):
+      Bird_init_(self)
+      self.sound=&#39;Squawk!&#39;
+</code></pre><h3 id="Super-新式类，返回所需的超类"><a href="#Super-新式类，返回所需的超类" class="headerlink" title="Super (新式类，返回所需的超类)"></a>Super (新式类，返回所需的超类)</h3><pre><code>class SongBird(Bird):
+  def _init_(self):
+      super()._init_()
+      self.sound=&#39;squank!&#39;
+</code></pre><h2 id="可变对象需要实现4个基本行为（协议）"><a href="#可变对象需要实现4个基本行为（协议）" class="headerlink" title="可变对象需要实现4个基本行为（协议）"></a>可变对象需要实现4个基本行为（协议）</h2></li>
+<li><em>len</em>(self)  </li>
+<li><em>getitem</em>(self,key):  </li>
+<li><em>setitem</em>(self,key,value)</li>
+<li><em>delitem</em>(self,key)<h2 id="property-避免重复代码，通过存取方法定义，使假象属性变为属性"><a href="#property-避免重复代码，通过存取方法定义，使假象属性变为属性" class="headerlink" title="property (避免重复代码，通过存取方法定义，使假象属性变为属性)"></a>property (避免重复代码，通过存取方法定义，使假象属性变为属性)</h2><pre><code>class Reetangle:
+  def _init_ (self):
+      self.width=0
+      self.height=0
+def set_size(self,size):
+  self.width,self.height=size
+size=property (get_size;set_size)
+</code></pre><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><pre><code>class Fibs:  (斐波那契)
+  def _init_(self):
+      self.a=0
+      self.b=1
+def _next_(self):
+  self.a,self.b=self.b,self.a+self.b
+  return self.a
+def _iter_(Self):
+  return self // (self:迭代器)
+</code></pre>应用<pre><code>&gt;&gt;&gt;fibs=fibs()
+&gt;&gt;&gt;for f in fibs://开始迭代
+&gt;&gt;&gt;if f&gt;1000
+&gt;&gt;&gt;break
+</code></pre><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2>yield<pre><code>def flatten(nested):
+  for Sublist in nested:
+      for elememt in Sublist:
+          yield element
+&gt;&gt;&gt;nested =[[1,2],[3,4],[5]]
+&gt;&gt;&gt;for num in flatten (nested):
+      frint(num)
+//生成多个值，每次一个
+</code></pre></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
+</ul>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/python/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">python</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/03/31/python实现excel数据处理/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="python实现excel数据处理">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/03/31/sql语法笔记-2/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="sql语法笔记">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/zhifu.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="/images/weixin.jpg">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/python语法笔记/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="https://www.doraengineer.xyz">Doraengineer's Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>Doraengineer's Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/dora.jpg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">14</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">22</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/1993zlorange" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:orange_working@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/学习笔记/">学习笔记</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/git/" class="tag-could" data-toggle="tooltip" data-placement="top" title="git">git</a></li>
+                    
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
+                    
+                      <li><a href="/tags/cmake/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmake ">cmake </a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
+                    
+                      <li><a href="/tags/前端/" class="tag-could" data-toggle="tooltip" data-placement="top" title="前端">前端</a></li>
+                    
+                      <li><a href="/tags/计算机视觉/" class="tag-could" data-toggle="tooltip" data-placement="top" title="计算机视觉">计算机视觉</a></li>
+                    
+                      <li><a href="/tags/全景相机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景相机">全景相机</a></li>
+                    
+                      <li><a href="/tags/全景立体/" class="tag-could" data-toggle="tooltip" data-placement="top" title="全景立体">全景立体</a></li>
+                    
+                      <li><a href="/tags/图像拼接/" class="tag-could" data-toggle="tooltip" data-placement="top" title="图像拼接">图像拼接</a></li>
+                    
+                      <li><a href="/tags/投影变换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="投影变换">投影变换</a></li>
+                    
+                      <li><a href="/tags/相机标定/" class="tag-could" data-toggle="tooltip" data-placement="top" title="相机标定">相机标定</a></li>
+                    
+                      <li><a href="/tags/CSS/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CSS">CSS</a></li>
+                    
+                      <li><a href="/tags/HTML/" class="tag-could" data-toggle="tooltip" data-placement="top" title="HTML">HTML</a></li>
+                    
+                      <li><a href="/tags/ubuntu/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ubuntu">ubuntu</a></li>
+                    
+                      <li><a href="/tags/docker/" class="tag-could" data-toggle="tooltip" data-placement="top" title="docker">docker</a></li>
+                    
+                      <li><a href="/tags/sql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sql">sql</a></li>
+                    
+                      <li><a href="/tags/数据库/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据库">数据库</a></li>
+                    
+                      <li><a href="/tags/数据处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据处理">数据处理</a></li>
+                    
+                      <li><a href="/tags/excel/" class="tag-could" data-toggle="tooltip" data-placement="top" title="excel">excel</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>
