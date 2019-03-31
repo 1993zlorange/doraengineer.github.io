@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>技术小白看懂网站第一步Doraengineer's Blog</title>
+  <title>理解cmakeDoraengineer's Blog</title>
   <link rel="shortcut icon" href="/images/dora.jpg">
   
     
@@ -119,13 +119,13 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>技术小白看懂网站第一步</h4>
-    <time datetime="2019-03-31T12:06:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    <h4>理解cmake</h4>
+    <time datetime="2019-03-31T12:49:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
     
     
     <span>
         <i class="fa fa-eye"></i>
-        <span id="/2019/03/31/技术小白看懂网站第一步-前端/" class="views views-post" title="技术小白看懂网站第一步"></span>
+        <span id="/2019/03/31/理解cmake/" class="views views-post" title="理解cmake"></span>
     </span>
     
     
@@ -133,7 +133,7 @@
 	
         <span><i class="fa fa-folder-o"></i>
     		
-    	       <a href="/categories/知识图谱/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">知识图谱</a>
+    	       <a href="/categories/工作经验/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">工作经验</a>
     		
         </span>
 	
@@ -143,221 +143,52 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>想看懂一个网站，但是发现所涉及到的知识点有点多，一两本书，学了某一方面的语法还是看不懂一个网站，就找一些资料为自己扫扫盲，先了解下各个部分技术的联系，再深入各个部分学习语法，最后去看懂网站。</p>
-<h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><ul>
-<li>前端人员指责定位<br>策划:方案-&gt;美工:设计图-&gt;前端：静态网页-&gt;后台：获取数据（替换占位符）</li>
-<li><p>web服务器（后台程序，监听着客户端服务）</p>
+                <p>一个好的代码需要跨平台，跨操作系统，日常编程，IDE都帮忙做，一条龙服务，集成编译，代码需要编译才能运行，但是比如想与别人分享代码，工程项目无所谓，打包发布给人家就行了，也不用给人家源码，实在需要源码就去一步步教人家怎么搭建开发环境，但是如果要分享实验代码，不知道对方是什么开发平台，又想让尽可能多的人能看到和跑起来代码，就要学习自己编译源代码而不是IDE，其实想想matlab还是挺好的，编译器大多就用那么一个，.m文件即开即用，但是比如c++语言，不同的平台差异巨大，同样用qt，ubuntu项目移植到windos得搞半天还不一定搞定，那还怎么和别人分享代码，这就需要有编译代码的工具，到哪只需要编译最后的结果就可了，因此就需要学习一下make，特此记录一下。</p>
+<h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><ul>
+<li><a href="https://www.zhihu.com/question/27455963" target="_blank" rel="noopener">首先cmake的概念</a></li>
+<li><a href="http://blog.csdn.net/dbzhang800/article/details/6314073" target="_blank" rel="noopener">cmake 工作过程</a></li>
+<li><a href="http://blog.csdn.net/k346k346/article/details/46898635" target="_blank" rel="noopener">cmake 语法</a><br>简单来说cmake 就是根据CmakeLists.txt生成一个编译规则，ubuntu下生成makefile文件，同编译器生成的工程文件一样，决定着中间件编译的规则。ubuntu下简单的cmake命令，windos下可以利用cmake软件，cmake软件将cmake过程分为两步，configure与generate,分别生成对应文件夹与生成编译规则。<br><img src="https://img-blog.csdn.net/20180905204234512?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
+</ul>
+<h1 id="make"><a href="#make" class="headerlink" title="make"></a>make</h1><ul>
+<li><a href="http://blog.csdn.net/haoel/article/details/2886" target="_blank" rel="noopener">makefile理解</a><br>简单来说编译器只能逐个文件编译，生成中间件，而makefile就是将这些中间件统一编译的规则。</li>
+<li><a href="http://www.cnblogs.com/ziyunlong/p/6023121.html" target="_blank" rel="noopener">.o文件（中间件）</a></li>
+<li>make的执行过程如下：<ul>
+<li>依次读取变量“MAKEFILES”定义的makefile文件列表</li>
+<li>读取工作目录下的makefile文件（根据命名的查找顺序“GNUmakefile”，“makefile”，“Makefile”，首先找到那个就读取那个）</li>
+<li>依次读取工作目录makefile文件中使用指示符“include”包含的文件</li>
+<li>查找重建所有已读取的makefile文件的规则（如果存在一个目标是当前读取的某一个makefile文件，则执行此规则重建此makefile文件，完成以后从第一步开始重新执行）</li>
+<li>初始化变量值并展开那些需要立即展开的变量和函数并根据预设条件确定执行分支</li>
+<li>根据“终极目标”以及其他目标的依赖关系建立依赖关系链表</li>
+<li>执行除“终极目标”以外的所有的目标的规则（规则中如果依赖文件中任一个文件的时间戳比目标文件新，则使用规则所定义的命令重建目标文件）</li>
+<li>执行“终极目标”所在的规则</li>
+</ul>
+</li>
+</ul>
+<h1 id="make-与-make-install"><a href="#make-与-make-install" class="headerlink" title="make 与 make install"></a>make 与 make install</h1><p>简单的说，make的过程是把各种语言写的源码文件，变成可执行文件和各种库文件。make install是把这些编译出来的可执行文件和库文件复制到合适的地方。<br>make install （对 make 命令来说）字面意思就是达成 install 这个目标。这个目标既然叫 install，当然是执行软件的安装了。</p>
 <ul>
-<li>主要web服务器产品：TOMCAT IIS APACHE（Httpd） 存储Web上内容信息，响应浏览器请求，安全功能等</li>
-<li>Apache:软件基金会，最常见的web服务器（商业）：Apache Httpd(可靠性高，速度快)</li>
-<li>查看系统打开的端口号（一个ip地址的计算机下每个服务对应一个端口号，一台共拥有65535个端口）确定服务是否启动，默认服务器占用80端口号<pre><code>net start Apache2.2
-netstat -and (statistic)
-</code></pre></li>
+<li><a href="http://blog.csdn.net/augusdi/article/details/6460415" target="_blank" rel="noopener">动态链接库与静态链接库的区别与联系</a><br>类 UNIX 系统的软件，有些不需要安装，执行可执行文件就可以直接用了。有些则不是这样，比如软件需要的配置文件、资源文件没有复制到相应的位置，包括动态链接库的软件需要更新动态链接库缓存否则会因为找不到刚刚编译出来的动态链接库而出错，等等。</li>
+<li>make<br>make后可执行的文件已经生成，在编译的目录下找到生成的可执行文件，运行./filename 就可以运行（如果有库文件生成，有可能因找不到库文件无法而运行），但要在其它地方运行就要把这个路径加进去，例如你的文件在/home/user/test目录下，在其它目录运行就要运行/home/user/test/filename，主要是因为test目录不在系统的环境变量中，可以通过添加系统环境变量然后在任意目录下运行filename来执行程序。</li>
+<li>make install<br>make install是根据编译配置将编译生成的可执行文件拷贝到/usr/bin或/usr/local/bin，编译生成的库文件拷贝到/usr/lib或/usr/local/lib,头文件在/usr/include和/usr/local/include,帮助文件在/usr/share 或/usr/local/share。执行make install后可以在任意位置通过命令：filename 来运行程序，如果是窗口程序的话，大多可以在启动菜单种找到。</li>
 </ul>
-</li>
-<li>使用浏览器访问httpd服务<pre><code>http://127.0.0.1（为当前计算机ip）
-</code></pre></li>
-<li><p>将网页放到web服务器可识别的路径</p>
-<pre><code>htdocs
-</code></pre><p>默认首页:index.html</p>
-</li>
-<li><p>服务器端技术与客户端技术<br>服务器端技术（运行在服务器上）：JSP,PHP,ASPX<br>客户端技术（运行在浏览器上）：HTML,CSS,JS,SWF</p>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1></li>
-<li>定位<br>撰稿人——负责内容(content)<br> 排版人——负责表现(presentation)<br>样式：字体、前景色、背景色、背景图、间距、边框</li>
-<li>HTML4.0将内容和表现混杂在一起，因此XHTML1.0废除了很多标签和属性，使用css来描述页面样式<br>过渡板：使用严格的xml语法，允许使用废弃的样式相关标签和属性<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0
-Transitional//EN&quot;
-&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
-（定义了具体规则）
-</code></pre></li>
-<li>Cascade Style Sheet 级联样式单（单独写的纸，单子）<br>内联样式（inline)(只对当前元素有效)<pre><code>&lt;div style=&quot;&quot;&gt;&lt;/div&gt;   
-</code></pre>内部样式（inner）(对当前页面)<pre><code>&lt;head&gt;&lt;style type=&quot;text/css&quot;&gt; &lt;/style&gt;&lt;/head&gt;
-</code></pre>外部样式（outer）:创建一个独立的css文件*（对所有引用它的页面都有效，可用于控制全站的风格）<pre><code>&lt;head&gt;
-    &lt;link ref=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;x.css&quot;/&gt;
-&lt;/head&gt;
-</code></pre></li>
-<li>css样式优先级<br>！important&gt;内联样式&gt;内部/外部样式&gt;浏览器预定义样式<h1 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h1></li>
-<li>前端三大基础知识<ul>
-<li>HTML:专门编写网页内容</li>
-<li>CSS:专门设计网页样式</li>
-<li>javascripy:专门设计网页交互</li>
-</ul>
-</li>
-<li>javascript<ul>
-<li>专门设计网页交互的语言</li>
-<li>运行在javascript解释器中</li>
-<li>”解释“执行</li>
-<li>互联网第一大语言</li>
-</ul>
-</li>
-<li>标准<br>W3C：专门制定通信标准 <ul>
-<li>核心ECMAScript:JavaScript核心语法</li>
-<li>文档对象模型DOM(Document Object Model)标准：专门操作 HTML元素，CSS样式，事件的统一标准（一套代码，多个浏览器）</li>
-<li>浏览器对象模型BOM(Browser Object Model)：专门操作浏览器窗口的工具（没标准，由浏览器厂商自行实现）<br>JavaScript=ECMAScript+DOM+BOM</li>
-</ul>
-</li>
-<li>典型用途<ul>
-<li>客户端数据计算（在浏览器中进行，不用发给服务器）</li>
-<li>客户端表单验证</li>
-<li>动画</li>
-</ul>
-</li>
-<li><p>如何使用</p>
-<ul>
-<li>使用浏览器自带的js解释器：（区分大小写）<br> F12-&gt;控制台 （shift+回车=换行）</li>
-<li>单独安装专门解释器软件：node.js （Chrome V8引擎做的）<br>win+r-&gt;cmd-&gt;node<br>退出：两次ctrl+c<br>执行：1）cd到.js文件所在路径<pre><code>   2）node 文件名
-</code></pre>.js专门保存js脚本文件</li>
-<li><p>随网页一同运行<br>浏览器包含两种工具：<br>排版引擎：专门加载HTML内容和CSS样式<br>解释引擎：专门运行js脚本</p>
-<pre><code>&lt;script&gt;
- script 脚本块（js语法）
-&lt;/script&gt;
-</code></pre></li>
-<li><p>一次定义处处使用，一次修改处处生效<br>解决：凡是看到重复使用的代码块，都要封装成一个方法<br>方法：执行一个专门功能的一组代码的序列</p>
-<pre><code>//定义在&lt;head&gt;下的&lt;script&gt;中
-&lt;head&gt;
-&lt;meta charest=&quot;utf-8&quot;&gt;
-&lt;script&gt;
-     function cook()
-    {
-    }
-&lt;/script&gt;
-&lt;/head&gt;
-</code></pre><p>使用</p>
-<pre><code>&lt;button onclick=&quot;cook()&quot;&gt;
-alert
-&lt;/button&gt;
-</code></pre><p><script>脚本块中的错误，仅影响当前脚本块中出错位置之后的脚本执行，不影响<script>脚本块外的元素加载或脚本块执行</p>
-</li>
-</ul>
-</li>
-<li>页面内部脚本块问题：仅当前页面可用<br>解决：外部.js文件<pre><code>&lt;script src=&quot;1_index.js&quot;&gt;&lt;/script&gt; (属性带了src，内部代码自动失效)
-</code></pre></li>
-<li>注释（注释也占网页流量，生产环境必须去掉）<pre><code>HTML:&lt;!----&gt;
-CSS:/* */
-JS:// 单行  /*多行注释*/
-</code></pre></li>
-<li>语句，脚本块，程序<ul>
-<li>语句：让程序可以做一件事的一行命令</li>
-<li>脚本块：多行语句的序列</li>
-<li>程序：让计算机模拟人类的想法<h1 id="dom-编程"><a href="#dom-编程" class="headerlink" title="dom 编程"></a>dom 编程</h1></li>
-</ul>
-</li>
-<li>DHTML<br>DHTML=HTML+CSS+JavaScript<br>DHTML就是将已经存在的三项技术整合起来进行组合应用，使JavaScript来“增删改查“HTML元素和CSS样式，最终使得页面呈现一个更友好的交互效果</li>
-<li>DHTML对象<ul>
-<li>BOM（用来访问和操纵浏览器窗口）：window,history,location,document,screen,event,navigator<br>用于javascript脚本与浏览器进行交互</li>
-<li>DOM（用来操作文档）:<br>HTML页面中的每个元素都被JavaScript理解为一个DOM对象<br>用于javascript脚本与当前显示HTML文档进行交互<br>*DOM概述<br>文档中所有节点组成了一个文档树（或节点树），document对象是一棵文档树的根</li>
-</ul>
-</li>
-<li><p>例子</p>
-<pre><code>&lt;script&gt;
-  var node0=document;
-  var node1=document.firstchild;
-&lt;/script&gt;
-</code></pre><h1 id="服务器开发"><a href="#服务器开发" class="headerlink" title="服务器开发"></a>服务器开发</h1><p>HTML/CSS/JS/Flash/AS3/GIF/JPG存储于服务器，供客户端申请下载，但服务器看来这些数据只是普通的字符、字节文件而已有些服务器自己没有图形界面，仅仅提供服务</p>
-</li>
-<li><p>服务器技术：<br>存储于服务器，供客户端进行请求，但在返回客户端之前，其中代码会在会在服务器端获得执行，执行后的结果是纯的客户端技术（静态）数据，发送给客户端</p>
-</li>
-<li>服务器：网络环境中的高性能计算机<ul>
-<li>静态Web服务器：只能提供静态资源，读取数据发送</li>
-<li>动态Web服务器：即能提供静态资源，也能提供动态资源，可以对资源进行处理<br>有时候会搭两个服务器，一个静态一个动态，静态较快</li>
-</ul>
-</li>
-<li>动态服务器技术<br>JSP/PHP/ASPX,ASP.NET</li>
-<li>PHP<ul>
-<li>服务器端搭建PHP运行环境（Personal Home Page-&gt;Hypertext Preprocess）</li>
-<li>特点：开源，简单，跨平台，占用资源少，适合中小型应用，学习可以使用官方手册（LAMP架构Linux+Apache+MySQL+PHP）</li>
-<li>PHP解释器一般嵌入在某种WEB服务器中（Httpd,IIS）</li>
-<li>搭建PHP服务器环境：<br>1）下载安装一款静态Web服务器，如HTTPD,IIS<br>2)  下载安装PHP引擎<br>3）在静态服务器配置，声明PHP引擎的存在<br>注：上述三步可以使用PHP服务器套件完成（例如XMPP）<br>例：<pre><code>//由客户端（浏览器）执行
-&lt;script&gt;
-for (var i=0;i&lt;50;i++){
-document.write(&#39;*&#39;);
-document.write(&#39;&lt;hr/&gt;&#39;);
-}
-&lt;/script&gt;
-</code></pre><pre><code>//通过.PHP启动PHP引擎(提示需要服务器端调用动态资源)，服务器端执行完后直接将结果给客户端
-&lt;?php
-for($i=0; $i&lt;50;i++){
-echo &#39;*&#39;;
-}
-echo &#39;&lt;hr/&gt;&#39;;
-?&gt;
-</code></pre></li>
-</ul>
-</li>
-<li>JSP<ul>
-<li>java分为三个版本<br>JavaME    MicroEdirtion    用于嵌入式应用（已经没有了，原来塞班可以运行java小游戏）<br>JavaSE    StandardEdition    用于桌面应用（word,qq）<br>JavaEE    EnterpriseEdition    用于企业级应用</li>
-<li>特点：跨平台、功能丰富、开发社区和第三方框架/插件繁多，适合中大型企业级应用（开发周期长，经费多，团队型）搭建平台复杂<br>(Linux+Tomcat+MySQL+Java 免费)<br>(Unix+Websphere+Orcle/DB2+java 收费，提供技术支持)</li>
-<li>服务器端搭建JSP运行环境<br>1)下载并安装JDK(JavaDevelopmentKit)(Java版本就是JDK版本)=编译器+虚拟机+类库<br>2)配置操作系统的环境变量PATH（需要运行可执行程序）<br>3)加载并安装一款JSP服务器，如Apache Tomcat,JBoss,Websphere,Weblogic<br>4)启动JSP服务器即可，在特定的目录下放置jsp网页</li>
-<li>例JSP动态网页<br>tomcat不能直接放在根目录下，JSP网页保存在TOMCAT_HOME/webapps<pre><code>//主体仍然是HTML标签
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html&quot; pageEncoding=&quot;UTF-8&quot; %&gt;//JSP加入简单声明
-&lt;% 
-out.print(&quot;hello&quot;); //类似console.log()向客户端输出
-%&gt;//动态代码
-</code></pre></li>
-</ul>
-</li>
-<li>c#<br>c#语言的编译和运行需要.NET Framework（先编译成虚拟机即.net框架中的中间件，再在cpu运行）来完成，限于微软的战略，目前只能运行于windos系统（中大型一般不用windos），最纯的面向对象的语言，可用于企业级应用、桌面应用、Web应用<ul>
-<li>服务器端搭建ASP.NET运行环境<br>1)启用操作系统中的IIS Web 服务器（windos自带）<br>2)安装.NET Framework——c#语言编译和运行环境<br>3）启动IIS服务器（外围网发布服务），编写的网页默认放在C:\inetpub\wwwroot下（保证80端口未被占用）<br>4）网站-&gt;新添网站</li>
-<li>例：<pre><code>//另存为.aspx（本质是HTML网页）
-&lt;%@ page language=&quot;C#&quot; contentType=&quot;text/html&quot; pageEncoding=&quot;gbk&quot; %&gt;//JSP加入简单声明
-&lt;% 
-Response.Write(&quot;8888&quot;); //嵌入的C#语法的语句
-%&gt;//动态代码
-</code></pre><h1 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a>Jquery</h1></li>
-</ul>
-</li>
-<li>对javascript进行进一步的封装（js库）<br>可以模拟Jquery的常用操作，对自己的JS库进行封装</li>
-<li>Jquery<ul>
-<li>选择器的封装（选取希望应用效果的元素）</li>
-<li>操作方法（对属性或者样式或者其他进行操作）</li>
-<li>动画（简单动画，复杂得自己写，利用现有库）</li>
-</ul>
-</li>
-<li>Jquery插件<br>为提高效率，使用现有插件进行调用（例如ztree树形插件，zqgreed操作表格）<h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1></li>
-<li>提升用户体验（打开网站速度，重复填写注册信息）</li>
-<li>Asynchronous JavaScript and Xml (异步的JavaScript和Xml)<ul>
-<li>同步：做多件事只能一件一件做（要么与客户端交互要么与服务器交互，服务器返回完整html页面代码）<br>*异步：同一时间段可以做多件事情，服务器返回部分数据，而不是一个完整的页面（html代码），以页面无刷新的效果更改页面中的局部内容</li>
-<li>实质是使用异步地Javascript对象XMLHttpRequest对象异步地向服务器发送请求</li>
-<li>例如验证用户名是否存在，如果同步，服务器返回完整页面，若用户名已存在，之前填的其他信息也都失效，需要重新填写</li>
-<li>回调函数（事件处理函数）判断响应的信息处于什么状态，放到什么函数处理(用的也是XMLHttpReques)</li>
-</ul>
-</li>
-<li>适用对象,判断用户使用的浏览器类型编写代码调用XMLHttpRequest<ul>
-<li>IE 5及以下不支持XMLHttpReques</li>
-<li>IE 5.5 ,6：ActiveXObject(“Microsoft.XMLHttp”) </li>
-<li>IE7,8,9..Chrome,FireFox:  new XMLHttpRequest()<pre><code>if(window.XMLHttpRequest){
-//该浏览器支持XMLHttpRequest可以直接new XMLHttpRequest()
-}else{
-//创建ActiveXObject(&quot;Microsoft.XMLHttp&quot;) 
-}
-</code></pre><h1 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h1></li>
-</ul>
-</li>
-<li>框架：开发过程中的半成品（例如考试时候在填空题里填答案即可），程序中重复工作可省去，提高开发效率</li>
-<li>IDE:可视化集成集成开发环境(测试集成运行一体)，不同公司不同行业</li>
-<li>GIT:分布式（多服务器，客户端借助一台服务器做交换，但服务器是谁无所谓）版本控制工具（集中式管理：cvs,svn,vss），防止所写代码丢失，通过服务器集中管理</li>
-<li>推荐:Editplus,Aptana,WebMetric<br>常见：Dreamweaver,WebStorm,MyEclipse,Visual Studio<br>编码格式： ISO-8859-1,utf-8</li>
-<li>Bootstrap（Github热门开源项目）<br>简洁直观强悍的前端开发框架，所有主流浏览器都支持Bootstrap（好的帮助文档Bootstrap3中文文档（v3.3.4））,移动设备优先，由动态CSS语言Less写成<br>HTML+CSS+JS脚本，搭好组件，插件可以调用，也可以定制</li>
-<li>需要先加载完Jquery</li>
-<li>使用<ul>
-<li>解压bootstrap到根目录（css,font,js）(预编译版本，已编译好执行速度较快)</li>
-<li>加入语句调用 <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;bootstrap/css/bootstrap.min.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;styles/site.css&quot;&gt;//若与用户自定义样式冲突或重复定义则由下面覆盖
-</code></pre></li>
-</ul>
-</li>
+<h1 id="opencv为例"><a href="#opencv为例" class="headerlink" title="opencv为例"></a>opencv为例</h1><ul>
+<li>首先进行configure 进行配置，生成需要的文件夹及准备文件<br><img src="https://img-blog.csdn.net/20180905204317358?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180905204407462?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
+<li>再generate生成工程文件，如果编译器选择vs，则生成vs工程文件，如果是ubuntu，则生成makefile<br><img src="https://img-blog.csdn.net/2018090520440099?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180905204425669?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
+<li>最后就是执行生成的工程文件，vs就是执行工程，对应着ubuntu里的make命令。</li>
 </ul>
 <hr>
 <ul>
-<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190">Doraengineer’s blog说明</a></li>
+<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
 </ul>
-</script></p></li></ul></li></ul>
+
             
         </section>
         <footer class="blog-post-page-tags">
         
 			
 				
-			<a href="/tags/前端/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">前端</a>
+			<a href="/tags/c/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">c++</a>
+				
+			<a href="/tags/cmake/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">cmake </a>
 				
 			
 		
@@ -367,12 +198,10 @@ Response.Write(&quot;8888&quot;); //嵌入的C#语法的语句
     	
     	
 		
-			<a href="/2019/03/31/git学习笔记/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="git学习笔记">上一篇</a>
-		
 
 		
 		
-			<a href="/2019/03/31/python科学计算包/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="python科学计算包">下一篇</a>
+			<a href="/2019/03/31/git学习笔记/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="git学习笔记">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -475,7 +304,7 @@ Response.Write(&quot;8888&quot;); //嵌入的C#语法的语句
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/技术小白看懂网站第一步-前端/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/理解cmake/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
