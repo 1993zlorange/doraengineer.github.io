@@ -223,18 +223,15 @@ cout &lt;&lt;w[weekday];             //string 类的数组
 <li>二维数组<br>int a[3][4];<ul>
 <li>数组定义后必须初始化<pre><code>int a[3][4]={1,5,6,0,0,11}//从左至右，从上至下，申请了内存但未赋值的默认赋为为0
 </code></pre></li>
-<li>语句赋值</li>
+<li>语句赋值<pre><code>for (row=0;row&lt;3;row++){
+for(col=0,col&lt;row,col++){
+a[row][col]=1;
+a[row][col]=3;
+}
+}
+</code></pre></li>
 </ul>
 </li>
-</ul>
-<pre><code>for (row=0;row&lt;3;row++){
-    for(col=0,col&lt;row,col++){
-    a[row][col]=1;
-    a[row][col]=3;
-    }
-}
-
-</code></pre><ul>
 <li>二维数组尤其明确行是什么，列是什么<pre><code>for(int i=0; i&lt;5; i++){
 cin &gt;&gt; SName[i];
   for(j=0;j&lt;3;j++){
@@ -570,12 +567,12 @@ for(int i=0;i&lt;10;i++){
                   
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/学习笔记/">学习笔记</a>
+                          <a href="/categories/知识图谱/">知识图谱</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <a href="/categories/学习笔记/">学习笔记</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
@@ -597,11 +594,11 @@ for(int i=0;i&lt;10;i++){
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
-                    
                       <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
                     
                       <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
                     
                       <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
                     
