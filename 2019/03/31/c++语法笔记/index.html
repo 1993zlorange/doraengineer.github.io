@@ -145,134 +145,162 @@
             
                 <p>第一次学习c++是在大二，也是编程学的第一门语言，学习的时候大多时间花在理解概念，所以说第一门语言基础打好了学习其他语言都是大同小异，相同的概念再看下语法就可以了。c++属于基础语言，因为专业是系统工程，大多课程需要应用算法进行系统优化，运筹等，比较注重算法效率，因此课程安排了c++语言，至今也觉得比较受用，因为很多硬件设备提供的都是c++接口，因此c++在做算法以及硬件实现方面都十分实用。都说c++难，可能难在基础语言，以及指针等一些概念上，这些都是只有做算法才会用上，一般反正如果自己做小应用的时候是很少用上这些概念，最多的就是控制，循环，函数，面向对象等。现在很多语言也是基于c++语言演化来的例如python，手感更好但是毕竟演化经过了包装，效率肯定不及c++，就循环而言就慢很多。</p>
 <h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><ul>
-<li><p>while </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//一个保留最大两个数的例子</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line">int max=n;</span><br><span class="line">int larger=n;</span><br><span class="line">while (n&lt;10)&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    if(n&lt;larger)&#123;&#125;</span><br><span class="line">    else if (n&gt;max)&#123;</span><br><span class="line">    larger=max;</span><br><span class="line">    max=n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for<br>注意变量的数据类型以及循环，赋值放置的区域</p>
-</li>
+<li>while <pre><code>//一个保留最大两个数的例子
+cin&gt;&gt;n;
+int max=n;
+int larger=n;
+while (n&lt;10){
+  cin&gt;&gt;n;
+  if(n&lt;larger){}
+  else if (n&gt;max){
+  larger=max;
+  max=n;
+  }
+}
+</code></pre></li>
+<li>for<br>注意变量的数据类型以及循环，赋值放置的区域</li>
 <li>switch<br>注意声明的变量类型自己default条件<br>注意使用换行符，“=”与“==”<ul>
 <li>switch(a)://a指明类型</li>
 <li>break;<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1></li>
 </ul>
 </li>
-<li><p>定义函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(void/返回类型参数)return type function Name( parametres形参)&#123;</span><br><span class="line">statement;</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数原型（prototypes）：returntype name(必须明确指明参数类型);</p>
-<blockquote>
+<li>定义函数<pre><code>(void/返回类型参数)return type function Name( parametres形参){
+statement;
+return;
+}
+</code></pre></li>
+<li>函数原型（prototypes）：returntype name(必须明确指明参数类型);<blockquote>
 <p>函数原型可以存在于头文件中，与具体实现分离，也可以写在同一个cpp中，原型需写在main函数上面，实现可以写在main函数下面，否则全部实现都写在main函数上面虽然不用写原型但是整个cpp文件函数多的话就炸了</p>
 </blockquote>
 </li>
 <li>argument（实参）强制转换成形参的类型</li>
 <li>一个函数最多只有一个返回值</li>
-<li><p>传递实参</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void swapByRef(int &amp; ,int &amp; )</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int count;</span><br><span class="line">int&amp; cRef=count;</span><br><span class="line">//CRef是count的别名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义中初始化，调用可不带参数，即具有了缺省参数</p>
-</li>
+<li>传递实参<pre><code>void swapByRef(int &amp; ,int &amp; )
+</code></pre></li>
+<li>别名<pre><code>int count;
+int&amp; cRef=count;
+//CRef是count的别名
+</code></pre></li>
+<li>定义中初始化，调用可不带参数，即具有了缺省参数</li>
 <li>c1=cin.get() 可以输入包括回车键<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1></li>
-<li>输出c[0]的地址<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt;c;</span><br><span class="line">等同于</span><br><span class="line">cout&lt;&lt; &amp;c[0];</span><br><span class="line">``` </span><br><span class="line">* 禁止给数组赋值，可以初始化，初始化后才可以改变其中某一个元素的值</span><br><span class="line">* 注意数组不能越界访问</span><br><span class="line">* 初始化必须有值</span><br></pre></td></tr></table></figure>
+<li>输出c[0]的地址<pre><code>cout &lt;&lt;c;
+等同于
+cout&lt;&lt; &amp;c[0];
+</code></pre></li>
+<li>禁止给数组赋值，可以初始化，初始化后才可以改变其中某一个元素的值</li>
+<li>注意数组不能越界访问</li>
+<li>初始化必须有值<pre><code>//错误事例
+float fb[3(整数或整型表达式)]={};
+</code></pre></li>
+<li>定义常量<pre><code># define size 10;
+</code></pre></li>
+<li>char 字符数组<pre><code>char s1[]=&quot;hello&quot;;
+等同于
+char s1[]={&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0(字符串结尾)&#39;}
+</code></pre><ul>
+<li>将字符数组当成字符串(避免越界即超出了申请的内存)<pre><code>char str[20];
+cin &gt;&gt; str;
+</code></pre>例：<pre><code># include &lt;string&gt;
+string s1,s2;
+cin &gt;&gt;s1;
+cin &gt;&gt;s2;
+cout &lt;&lt; s1 +‘ ’+ s2 &lt;&lt; endl; //s2拼接到s1后
+cout &lt;&lt; s1.size();                 // 输出s1的长度
+string w[7]={&quot;sunday&quot;,&quot;monday&quot;,...,&quot;saturday&quot;};
+cout &lt;&lt;w[weekday];             //string 类的数组
+</code></pre></li>
+</ul>
+</li>
+<li>数组倒序<pre><code>for (j=0;j&lt;size;j++)
+{
+  for (i=0;i&lt;size-1-j;i++){
+  t=x[i];
+  x[i]=x[i+1];
+  x[i+1]=t;
+}
+</code></pre></li>
+<li>从第一行起始地址(下标从0开始)</li>
+<li>二维数组<br>int a[3][4];<ul>
+<li>数组定义后必须初始化<pre><code>int a[3][4]={1,5,6,0,0,11}//从左至右，从上至下，申请了内存但未赋值的默认赋为为0
+</code></pre></li>
+<li>语句赋值<br><code>`</code><br>for (row=0;row&lt;3;row++){<br>for(col=0,col&lt;row,col++){<br>a[row][col]=1;<br>a[row][col]=3;<br>}<br>}</li>
+</ul>
 </li>
 </ul>
-<p>//错误事例<br>float fb[3(整数或整型表达式)]={};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 定义常量</span><br></pre></td></tr></table></figure></p>
-<h1 id="define-size-10"><a href="#define-size-10" class="headerlink" title="define size 10;"></a>define size 10;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* char 字符数组</span><br></pre></td></tr></table></figure>
-<p>char s1[]=”hello”;<br>等同于<br>char s1[]={‘h’,’e’,’l’,’l’,’o’,’\0(字符串结尾)’}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 将字符数组当成字符串(避免越界即超出了申请的内存)</span><br></pre></td></tr></table></figure></p>
-<p>char str[20];<br>cin &gt;&gt; str;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br></pre></td></tr></table></figure></p>
-<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <string></string></h1><p>string s1,s2;<br>cin &gt;&gt;s1;<br>cin &gt;&gt;s2;<br>cout &lt;&lt; s1 +‘ ’+ s2 &lt;&lt; endl; //s2拼接到s1后<br>cout &lt;&lt; s1.size();                 // 输出s1的长度<br>string w[7]={“sunday”,”monday”,…,”saturday”};<br>cout &lt;&lt;w[weekday];             //string 类的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 数组倒序</span><br></pre></td></tr></table></figure></p>
-<p>for (j=0;j&lt;size;j++)<br>{<br>    for (i=0;i&lt;size-1-j;i++){<br>    t=x[i];<br>    x[i]=x[i+1];<br>    x[i+1]=t;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 从第一行起始地址(下标从0开始)</span><br><span class="line">* 二维数组</span><br><span class="line">int a[3][4];</span><br><span class="line">  * 数组定义后必须初始化</span><br></pre></td></tr></table></figure></p>
-<p>int a[3][4]={1,5,6,0,0,11}//从左至右，从上至下，申请了内存但未赋值的默认赋为为0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 语句赋值</span><br></pre></td></tr></table></figure></p>
-<p>for (row=0;row&lt;3;row++){<br>    for(col=0,col&lt;row,col++){<br>    a[row][col]=1;<br>    a[row][col]=3;<br>    }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 二维数组尤其明确行是什么，列是什么</span><br></pre></td></tr></table></figure>
-<p>for(int i=0; i&lt;5; i++){<br>cin &gt;&gt; SName[i];<br>    for(j=0;j&lt;3;j++){<br>    cin  &gt;&gt; fscore[j][i]<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指针</span><br><span class="line">* &quot;*&quot;与“&amp;”</span><br></pre></td></tr></table></figure></p>
-<p><em>：间接引用（地址所指向的值），&amp;：取址，</em>&amp;：相抵消(<em>&amp;=&amp;</em>)<br>bptr=&amp;b[10];<br>for(int i=0;i&lt;10;i++){<br>    cout &lt;&lt; *(pbtr+1);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">    cin&gt;&gt;*(aptr+2);</span><br><span class="line">    等同于</span><br><span class="line">    cin&gt;&gt;a[2];</span><br></pre></td></tr></table></figure></p>
-<p>错误范例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//错误范例</span><br><span class="line">char s[]=&quot;Hello&quot;;</span><br><span class="line">char *p=&amp;s</span><br><span class="line">//s本身就是地址</span><br></pre></td></tr></table></figure></p>
-<p>下列等同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;b[2];    //b与bptr是地址（指针是常量，无法修改）</span><br><span class="line">    &lt;&lt; *(bptr+2);</span><br><span class="line">    &lt;&lt; bptr[2];</span><br><span class="line">    &lt;&lt;*[b+2];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>逐一输出Hello</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chara[10]=&quot;Hello&quot;;</span><br><span class="line">char *p=a;//注意定义一个指针p，这里*为定义p为指针，赋值需赋值指针，使用的时候，*p才是指针p指向的值</span><br><span class="line">while(*p!=10)</span><br><span class="line">cout&lt;&lt;*p++;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再看一例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(numptr[i]&gt;*maxptr)</span><br><span class="line">    maxptr=&amp;numptr[i] //等价于maxptr=numptr+i</span><br><span class="line">cout&lt;&lt; *maxptr</span><br><span class="line">cout&lt;&lt; maxptr-numptr(即&amp;numptr[0])//下标：两地址差</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>申请可变内存空间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; n;</span><br><span class="line">numptr=new int[n];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cin&gt;&gt; n;</span><br><span class="line">int * PData;</span><br><span class="line">PData=new int[n];</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">    cout &lt;&lt; PData[i];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>赋值字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正确： char *p=&quot;Hello&quot;</span><br><span class="line">错误： char str[14];</span><br><span class="line">            str[]=&quot;Hello&quot;;// 数组不能赋值字符串</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>交换x,y指向的东西</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void swap_addr(int *x,int *y)&#123;</span><br><span class="line">int t=*x;</span><br><span class="line">*x=*y;*y=t;</span><br><span class="line">&#125;</span><br><span class="line">swap-addr(&amp;na,&amp;nb); //传指</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随机数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;sctdlib&gt;</span><br><span class="line"># include &lt;ctime&gt;//随机数需要添加这两个头文件（系统函数）</span><br><span class="line">strand(time(0));</span><br><span class="line">for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">    n=rand()</span><br><span class="line">    pn[i]=new int[n];</span><br><span class="line">    for(int j=0;i&lt;n;j++)</span><br><span class="line">    pn[i][j]=rand();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date &amp;ref=date;//ref-&gt;dare的别名（引用）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>++p(不同于p++)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; *(++p);从第二位开始输出p地址的值</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>二维指针</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int **pn;</span><br><span class="line">cin&gt;&gt;np;</span><br><span class="line">pn=new(int t*)[np]//*pn为列向量的地址</span><br><span class="line">//ptr[1]等价于*(ptr+1)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><ul>
-<li><p>链表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct Node&#123;</span><br><span class="line">    int data;    </span><br><span class="line">    Node *Next</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一个高冷的语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hour=(h&gt;=&amp;&amp;h&lt;24)?h:0;//给hour赋值，若0&lt;h&lt;24，则赋值为h,否则赋值为0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构造函数，初始化数据（只能被系统调用）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Time::Time()&#123;</span><br><span class="line">hout=0;</span><br><span class="line">minute=0;</span><br><span class="line">second=0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>等同于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Time::Time(int h,int m,int s)&#123;</span><br><span class="line">SetTime(h,m,s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>指针访问类的成员</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Time *tptr;</span><br><span class="line">tptr=&amp;t;</span><br><span class="line">tptr-&gt;printStandard();//指针访问类的成员</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Time Time::SetTime(int h,int m,int s)&#123;</span><br><span class="line">    this-&gt;hour=h;</span><br><span class="line">    this-&gt;minute=m;</span><br><span class="line">    return *this;//传递自己</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h1><ul>
-<li><p>继承</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//定义student类继承person</span><br><span class="line">Class student:public person&#123;</span><br><span class="line">    public:</span><br><span class="line">    student(string n,int a,float s);</span><br><span class="line">    void print();</span><br><span class="line">    private:</span><br><span class="line">    float school;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问父类函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.point::print();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">circle::circle(int xvalue,int yvalue,double radius)::point (xvalue,yvalue&#123;</span><br><span class="line">    setRadius(radius);</span><br><span class="line">&#125;</span><br><span class="line">//或在基类中写缺省函数-&gt;构造函数的继承</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//模板定义一系列方程</span><br><span class="line">template &lt;typename T&gt;&#123;</span><br><span class="line">&#125;</span><br><span class="line">Rect(int) ir(10,5);    //类函数模板使用（说明什么类型）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多态</p>
-<blockquote>
-<p>c++使用指针和虚函数实现多态，因为默认的赋值运算符并不会操作虚函数表，虚函数也就是基类能直接指向派生类对象的函数，大家名字都一样不过不同的对象实现不一样</p>
-</blockquote>
-</li>
-</ul>
-<p>一接口多实现（避免多”if”繁琐语句），使派生类同时完成一个动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animal *p[10];</span><br><span class="line">for(int i=0;i&lt;100;i++)&#123;</span><br><span class="line">    p[i]-&gt;shout();</span><br><span class="line">    p[i]-&gt;run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多态性polymophism-&gt;继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Dog d,*pd;</span><br><span class="line">Animal a,*pa;//pa可指Dog类，因为Animal是Dog基类</span><br><span class="line">pa=pd;</span><br><span class="line">pa-&gt;move();//Animal move</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>地址调用函数为a-&gt;b(),普通对象调用函数为a.b();</p>
-</blockquote>
-<p>一个多态实现的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void recognize(Animal * pa)&#123;</span><br><span class="line">    pa-&gt;shout();</span><br><span class="line">    pa-&gt;run;</span><br><span class="line">&#125;//recognize函数根据不同的动物指针pa来实现跑和叫，当然跑和叫函数需要在不同动物类型下具体定义</span><br><span class="line">Animal *pselect[10];//实例化10个动物</span><br><span class="line">for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">    recognize(pselect[i]);</span><br><span class="line">&#125;//10个动物依次跑和叫</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>虚函数<br>指针指向对象，实现多态性（基类指针指向派生类对象）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">virtual void print();</span><br><span class="line"></span><br><span class="line">circleptr=&amp;c;</span><br><span class="line">circleptr-&gt;print();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>纯虚函数，派生类中必须重新定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Virtual void print()=0;</span><br></pre></td></tr></table></figure></p>
+<pre><code>* 二维数组尤其明确行是什么，列是什么
+</code></pre><p>for(int i=0; i&lt;5; i++){<br>cin &gt;&gt; SName[i];<br>    for(j=0;j&lt;3;j++){<br>    cin  &gt;&gt; fscore[j][i]<br>    }<br>}</p>
+<pre><code># 指针
+* &quot;*&quot;与“&amp;”
+</code></pre><p><em>：间接引用（地址所指向的值），&amp;：取址，</em>&amp;：相抵消(<em>&amp;=&amp;</em>)<br>bptr=&amp;b[10];<br>for(int i=0;i&lt;10;i++){<br>    cout &lt;&lt; *(pbtr+1);<br>}</p>
+<pre><code>
+</code></pre><pre><code>cin&gt;&gt;*(aptr+2);
+等同于
+cin&gt;&gt;a[2];
+</code></pre><pre><code>错误范例
+</code></pre><p>//错误范例<br>char s[]=”Hello”;<br>char *p=&amp;s<br>//s本身就是地址</p>
+<pre><code>下列等同
+
+</code></pre><p>cout&lt;&lt;b[2];    //b与bptr是地址（指针是常量，无法修改）<br>    &lt;&lt; <em>(bptr+2);<br>    &lt;&lt; bptr[2];<br>    &lt;&lt;</em>[b+2];</p>
+<pre><code>* 逐一输出Hello
+</code></pre><p>chara[10]=”Hello”;<br>char <em>p=a;//注意定义一个指针p，这里</em>为定义p为指针，赋值需赋值指针，使用的时候，<em>p才是指针p指向的值<br>while(</em>p!=10)<br>cout&lt;&lt;*p++;</p>
+<pre><code>* 再看一例
+</code></pre><p>if(numptr[i]&gt;<em>maxptr)<br>    maxptr=&amp;numptr[i] //等价于maxptr=numptr+i<br>cout&lt;&lt; </em>maxptr<br>cout&lt;&lt; maxptr-numptr(即&amp;numptr[0])//下标：两地址差</p>
+<pre><code>* 申请可变内存空间
+</code></pre><p>cin &gt;&gt; n;<br>numptr=new int[n];</p>
+<pre><code>
+</code></pre><p>cin&gt;&gt; n;<br>int * PData;<br>PData=new int[n];<br>for(int i=0;i&lt;n;i++)<br>    cout &lt;&lt; PData[i];</p>
+<pre><code>* 赋值字符串
+</code></pre><p>正确： char *p=”Hello”<br>错误： char str[14];<br>            str[]=”Hello”;// 数组不能赋值字符串</p>
+<pre><code>* 交换x,y指向的东西
+</code></pre><p>void swap_addr(int <em>x,int </em>y){<br>int t=<em>x;
+</em>x=<em>y;</em>y=t;<br>}<br>swap-addr(&amp;na,&amp;nb); //传指</p>
+<pre><code>* 随机数
+</code></pre><h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <sctdlib></sctdlib></h1><h1 id="include-随机数需要添加这两个头文件（系统函数）"><a href="#include-随机数需要添加这两个头文件（系统函数）" class="headerlink" title="include //随机数需要添加这两个头文件（系统函数）"></a>include <ctime>//随机数需要添加这两个头文件（系统函数）</ctime></h1><p>strand(time(0));<br>for(int i=0;i&lt;10;i++){<br>    n=rand()<br>    pn[i]=new int[n];<br>    for(int j=0;i&lt;n;j++)<br>    pn[i][j]=rand();<br>}</p>
+<pre><code>* 别名
+</code></pre><p>Date &amp;ref=date;//ref-&gt;dare的别名（引用）</p>
+<pre><code>* ++p(不同于p++)
+</code></pre><p>cout &lt;&lt; *(++p);从第二位开始输出p地址的值</p>
+<pre><code>* 二维指针
+</code></pre><p>int *<em>pn;<br>cin&gt;&gt;np;<br>pn=new(int t</em>)[np]//<em>pn为列向量的地址<br>//ptr[1]等价于</em>(ptr+1)</p>
+<pre><code># 面向对象
+* 链表
+</code></pre><p>struct Node{<br>    int data;<br>    Node *Next<br>}</p>
+<pre><code>* 一个高冷的语句
+</code></pre><p>hour=(h&gt;=&amp;&amp;h&lt;24)?h:0;//给hour赋值，若0&lt;h&lt;24，则赋值为h,否则赋值为0</p>
+<pre><code>* 构造函数，初始化数据（只能被系统调用）
+</code></pre><p>Time::Time(){<br>hout=0;<br>minute=0;<br>second=0;<br>}</p>
+<pre><code>等同于
+</code></pre><p>Time::Time(int h,int m,int s){<br>SetTime(h,m,s);<br>}</p>
+<pre><code>* 指针访问类的成员
+</code></pre><p>Time *tptr;<br>tptr=&t;<br>tptr-&gt;printStandard();//指针访问类的成员</p>
+<pre><code>* this
+</code></pre><p>Time Time::SetTime(int h,int m,int s){<br>    this-&gt;hour=h;<br>    this-&gt;minute=m;<br>    return *this;//传递自己<br>}</p>
+<pre><code># 继承和多态
+* 继承
+</code></pre><p>//定义student类继承person<br>Class student:public person{<br>    public:<br>    student(string n,int a,float s);<br>    void print();<br>    private:<br>    float school;<br>};</p>
+<pre><code>* 访问父类函数
+</code></pre><p>a.point::print();</p>
+<pre><code>* 初始化器
+</code></pre><p>circle::circle(int xvalue,int yvalue,double radius)::point (xvalue,yvalue{<br>    setRadius(radius);<br>}<br>//或在基类中写缺省函数-&gt;构造函数的继承<br>)</p>
+<pre><code>* 模板
+</code></pre><p>//模板定义一系列方程<br>template <typename t>{<br>}<br>Rect(int) ir(10,5);    //类函数模板使用（说明什么类型）</typename></p>
+<pre><code>* 多态
+&gt;c++使用指针和虚函数实现多态，因为默认的赋值运算符并不会操作虚函数表，虚函数也就是基类能直接指向派生类对象的函数，大家名字都一样不过不同的对象实现不一样
+
+一接口多实现（避免多&quot;if&quot;繁琐语句），使派生类同时完成一个动作
+</code></pre><p>animal *p[10];<br>for(int i=0;i&lt;100;i++){<br>    p[i]-&gt;shout();<br>    p[i]-&gt;run();<br>}</p>
+<pre><code>多态性polymophism-&gt;继承
+</code></pre><p>Dog d,<em>pd;<br>Animal a,</em>pa;//pa可指Dog类，因为Animal是Dog基类<br>pa=pd;<br>pa-&gt;move();//Animal move</p>
+<pre><code>&gt;地址调用函数为a-&gt;b(),普通对象调用函数为a.b();
+
+一个多态实现的例子
+</code></pre><p>void recognize(Animal <em> pa){<br>    pa-&gt;shout();<br>    pa-&gt;run;<br>}//recognize函数根据不同的动物指针pa来实现跑和叫，当然跑和叫函数需要在不同动物类型下具体定义<br>Animal </em>pselect[10];//实例化10个动物<br>for(int i=0;i&lt;10;i++){<br>    recognize(pselect[i]);<br>}//10个动物依次跑和叫</p>
+<pre><code>* 虚函数
+指针指向对象，实现多态性（基类指针指向派生类对象）
+</code></pre><p>virtual void print();</p>
+<p>circleptr=&c;<br>circleptr-&gt;print();</p>
+<pre><code>纯虚函数，派生类中必须重新定义
+</code></pre><p>Virtual void print()=0;<br><code>`</code></p>
 <hr>
 <ul>
 <li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>

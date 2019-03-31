@@ -163,28 +163,26 @@
 <p><strong>打开anaconda prompt</strong><br><img src="https://img-blog.csdnimg.cn/20190212172518274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 </li>
 <li><p>添加Anaconda的TUNA镜像并设置搜索时显示通道地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>首先更新conda,因为通过conda创建新环境时要下载相关包，保证最新状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda update conda </span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建新环境（这些其实可以在IDE中设置）并查看已安装的package</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python35 python=3.5 anaconda</span><br><span class="line">conda list -n python35</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20190212172626586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过conda创建的新环境创建在envs文件夹内<br><img src="https://img-blog.csdnimg.cn/20190212173221330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入刚创建的环境，比较关键的是<code>python.exe</code>编译器和<code>lib</code>包目录<br><img src="https://img-blog.csdnimg.cn/20190212174046979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入到Lib中 ,这里有python自带的包, 如<code>日志包logging</code>, <code>异步包 concurrent</code>, 而所有的第三方包都放在<code>site-packages</code>文件夹里面</p>
-<ul>
-<li><p>查看当前存在的环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>It looks like conda is already doing something（如果遇到conda被锁定问题）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda clean --lock</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新环境安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">activate python35 # 进入某环境</span><br><span class="line">conda install # 安装某包</span><br><span class="line">conda update # 升级某包</span><br><span class="line">conda update -- all#升级所有包</span><br><span class="line">deactivate python35 #退出环境</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择interpreter<br>因为pycharm只是一个IDE，没有自带编译器，通过anaconda新建一个自己的编译环境，其中包含了集成的科学包，以及编译器python.exe，而后项目通过这个编译器来编译，不用新建项目的时候再新建一个编译器<br><strong>default setting-&gt;project-&gt;project interpreter</strong><br><img src="https://img-blog.csdn.net/20180906084810528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择编译器</p>
-</li>
+<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+</code></pre></li>
+<li>首先更新conda,因为通过conda创建新环境时要下载相关包，保证最新状态<pre><code>conda update conda 
+`
+</code></pre></li>
+<li>创建新环境（这些其实可以在IDE中设置）并查看已安装的package<pre><code>conda create -n python35 python=3.5 anaconda
+conda list -n python35
+</code></pre><img src="https://img-blog.csdnimg.cn/20190212172626586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过conda创建的新环境创建在envs文件夹内<br><img src="https://img-blog.csdnimg.cn/20190212173221330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入刚创建的环境，比较关键的是<code>python.exe</code>编译器和<code>lib</code>包目录<br><img src="https://img-blog.csdnimg.cn/20190212174046979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入到Lib中 ,这里有python自带的包, 如<code>日志包logging</code>, <code>异步包 concurrent</code>, 而所有的第三方包都放在<code>site-packages</code>文件夹里面</li>
+<li>查看当前存在的环境<pre><code>conda info --envs
+</code></pre></li>
+<li>It looks like conda is already doing something（如果遇到conda被锁定问题）<pre><code>conda clean --lock
+</code></pre></li>
+<li>新环境安装包<pre><code>activate python35 # 进入某环境
+conda install # 安装某包
+conda update # 升级某包
+conda update -- all#升级所有包
+deactivate python35 #退出环境 
+</code></pre></li>
+<li>选择interpreter<br>因为pycharm只是一个IDE，没有自带编译器，通过anaconda新建一个自己的编译环境，其中包含了集成的科学包，以及编译器python.exe，而后项目通过这个编译器来编译，不用新建项目的时候再新建一个编译器<br><strong>default setting-&gt;project-&gt;project interpreter</strong><br><img src="https://img-blog.csdn.net/20180906084810528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择编译器</li>
 <li>新建一个project时<br><img src="https://img-blog.csdn.net/20180906084850531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择已存在的编译器<br><img src="https://img-blog.csdn.net/20180906084907474?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择之前创建的编译器<h1 id="python实用库"><a href="#python实用库" class="headerlink" title="python实用库"></a>python实用库</h1></li>
 <li>python 语法好的整理网站<br><a href="http://www.runoob.com/python/python-tutorial.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-tutorial.html</a></li>
 <li>matplotlib<ul>
@@ -194,11 +192,10 @@
 <li>pandas</li>
 <li>scrapy</li>
 <li>tensorflow<br>中文手册<br><a href="http://www.tensorfly.cn/tfdoc/api_docs/index.html" target="_blank" rel="noopener">http://www.tensorfly.cn/tfdoc/api_docs/index.html</a></li>
-<li><p>解决出现无编译的warning</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;]=&apos;2&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>opencv<br>官网直接下载opencv，Browse Files at SourceForge.net，下载合适的版本，直接执行exe文件，安装完成后，到C:\python\opencv\build\python\2.7\x64选中cv2.pyd(64还是86根据自己版本)，复制到Anaconda3\Lib\site-packages。</p>
-</li>
+<li>解决出现无编译的warning<pre><code>import os
+os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;]=&#39;2&#39;
+</code></pre></li>
+<li>opencv<br>官网直接下载opencv，Browse Files at SourceForge.net，下载合适的版本，直接执行exe文件，安装完成后，到C:\python\opencv\build\python\2.7\x64选中cv2.pyd(64还是86根据自己版本)，复制到Anaconda3\Lib\site-packages。</li>
 </ul>
 <hr>
 <ul>
