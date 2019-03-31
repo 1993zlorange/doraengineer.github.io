@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>Hello WorldDoraengineer's Blog</title>
+  <title>windos下配置python环境（pycharm+anaconda）Doraengineer's Blog</title>
   <link rel="shortcut icon" href>
   
     
@@ -94,13 +94,13 @@
                         
                           <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
                         
-                          <li class="blog-nav-item"><a href="/notes/" class="transition">学习笔记</a></li>
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
                         
-                          <li class="blog-nav-item"><a href="/env/" class="transition">环境搭设</a></li>
+                          <li class="blog-nav-item"><a href="/categories/环境搭设" class="transition">环境搭设</a></li>
                         
-                          <li class="blog-nav-item"><a href="/experience/" class="transition">工作经验</a></li>
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
                         
-                          <li class="blog-nav-item"><a href="/graph/" class="transition">知识图谱</a></li>
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
                         
                           <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
                         
@@ -119,12 +119,18 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>Hello World</h4>
-    <time datetime="2019-03-30T15:20:14.027Z"><i class="fa fa-clock-o"></i>2019-03-30</time>
+    <h4>windos下配置python环境（pycharm+anaconda）</h4>
+    <time datetime="2019-03-31T07:25:33.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
     
     
     
     
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/环境搭建/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">环境搭建</a>
+    		
+        </span>
 	
     
 </header>
@@ -132,20 +138,80 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <p>@[toc]</p>
+<blockquote>
+<p>参考<br><a href="https://www.jianshu.com/p/eaee1fadc1e9" target="_blank" rel="noopener">关于python、pycharm、anaconda三者的关系及目录结构，一个好的博文</a></p>
+</blockquote>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p><code>win7-64位+pycharm2018.1+anaconda3-4.1.1</code><br>最新版本可以到pycharm和anaconda官网下载</p>
+<h1 id="pycharm"><a href="#pycharm" class="headerlink" title="pycharm"></a>pycharm</h1><blockquote>
+<p>pycharm是python使用以后比较而言比较好的IDE了，感觉无论调试还是编写代码都比较舒服，这里如何安装pycharm就不写了网上随便搜搜就行了。</p>
+</blockquote>
+<ul>
+<li>一些命令<br>Ctrl + Space 基本的代码完成（类、方法、属性）<br>Ctrl + Alt + Space 类名完成<br>Ctrl + Shift + Enter 语句完成<br>Ctrl + P 参数信息（在方法中调用参数）<br>Ctrl + Q 快速查看文档<br>Shift + F1 外部文档<br>Ctrl + 鼠标 简介<br>Ctrl + F1 显示错误描述或警告信息<br>Alt + Insert 自动生成代码<br>Ctrl + O 重新方法<br>Ctrl + Alt + T 选中<br>Ctrl + / 行注释<br>Ctrl + Shift + / 块注释<br>Ctrl + W 选中增加的代码块<br>Ctrl + Shift + W 回到之前状态<br>Ctrl + Shift + ]/[ 选定代码块结束、开始<br>Alt + Enter 快速修正<br>Ctrl + Alt + L 代码格式化<br>Ctrl + Alt + O 优化导入<br>Ctrl + Alt + I 自动缩进</li>
+<li>注释乱码<br>通过比如notepad++转为utf8 </li>
+<li>.pyc,.pyd<br>.pyc:隐藏源代码，提高运行速度，当编译.py则生成.pyc<br>.pyd:python动态模块，实质上是.dll文件(源代码经过编译)</li>
+<li>path<br>搜索目录只包含代码所在目录和site-package</li>
+<li><p>去除不必要的检查<br>file-&gt;default settings-&gt;editor-&gt;inspection/spelling</p>
+<h1 id="anaconda"><a href="#anaconda" class="headerlink" title="anaconda"></a>anaconda</h1><blockquote>
+<p>因为pycharm只是一个IDE，没有编译器，就像java除了安装eclipse等IDE还要装JDK，JDK就是java的编译器。anaconda是一个虚拟环境，处理提供编译器，还集成了各种开源库包，否则用户就要自己一个一个下载。</p>
+</blockquote>
+<p><strong>打开anaconda prompt</strong><br><img src="https://img-blog.csdnimg.cn/20190212172518274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>添加Anaconda的TUNA镜像并设置搜索时显示通道地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先更新conda,因为通过conda创建新环境时要下载相关包，保证最新状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda update conda </span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建新环境（这些其实可以在IDE中设置）并查看已安装的package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python35 python=3.5 anaconda</span><br><span class="line">conda list -n python35</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190212172626586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过conda创建的新环境创建在envs文件夹内<br><img src="https://img-blog.csdnimg.cn/20190212173221330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入刚创建的环境，比较关键的是<code>python.exe</code>编译器和<code>lib</code>包目录<br><img src="https://img-blog.csdnimg.cn/20190212174046979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入到Lib中 ,这里有python自带的包, 如<code>日志包logging</code>, <code>异步包 concurrent</code>, 而所有的第三方包都放在<code>site-packages</code>文件夹里面</p>
+<ul>
+<li><p>查看当前存在的环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>It looks like conda is already doing something（如果遇到conda被锁定问题）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda clean --lock</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新环境安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">activate python35 # 进入某环境</span><br><span class="line">conda install # 安装某包</span><br><span class="line">conda update # 升级某包</span><br><span class="line">conda update -- all#升级所有包</span><br><span class="line">deactivate python35 #退出环境</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择interpreter<br>因为pycharm只是一个IDE，没有自带编译器，通过anaconda新建一个自己的编译环境，其中包含了集成的科学包，以及编译器python.exe，而后项目通过这个编译器来编译，不用新建项目的时候再新建一个编译器<br><strong>default setting-&gt;project-&gt;project interpreter</strong><br><img src="https://img-blog.csdn.net/20180906084810528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择编译器</p>
+</li>
+<li>新建一个project时<br><img src="https://img-blog.csdn.net/20180906084850531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择已存在的编译器<br><img src="https://img-blog.csdn.net/20180906084907474?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>选择之前创建的编译器<h1 id="python实用库"><a href="#python实用库" class="headerlink" title="python实用库"></a>python实用库</h1></li>
+<li>python 语法好的整理网站<br><a href="http://www.runoob.com/python/python-tutorial.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-tutorial.html</a></li>
+<li>matplotlib<ul>
+<li>解决闪退<br>python2.<em>后面加上：raw_input()<br> python3.</em>后面加上：input()</li>
+</ul>
+</li>
+<li>pandas</li>
+<li>scrapy</li>
+<li>tensorflow<br>中文手册<br><a href="http://www.tensorfly.cn/tfdoc/api_docs/index.html" target="_blank" rel="noopener">http://www.tensorfly.cn/tfdoc/api_docs/index.html</a></li>
+<li><p>解决出现无编译的warning</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;]=&apos;2&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>opencv<br>官网直接下载opencv，Browse Files at SourceForge.net，下载合适的版本，直接执行exe文件，安装完成后，到C:\python\opencv\build\python\2.7\x64选中cv2.pyd(64还是86根据自己版本)，复制到Anaconda3\Lib\site-packages。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
+</ul>
 
             
         </section>
         <footer class="blog-post-page-tags">
         
+			
+				
+			<a href="/tags/python/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">python</a>
+				
+			<a href="/tags/windos/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">windos</a>
+				
+			<a href="/tags/anaconda/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">anaconda</a>
+				
 			
 		
         </footer>
@@ -154,10 +220,12 @@
     	
     	
 		
-			<a href="/2019/03/30/test2/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="test2">上一篇</a>
+			<a href="/2019/03/31/c++语法笔记/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="c++语法笔记">上一篇</a>
 		
 
 		
+		
+			<a href="/2019/03/31/进击的工程师/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="进击的工程师">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -260,7 +328,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/03/30/hello-world/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/03/31/windos下配置python环境（pycharm-anaconda）/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
@@ -286,11 +354,11 @@
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">3</p>
+                    <p class="blog-sidebar-count-p">4</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">2</p>
+                    <p class="blog-sidebar-count-p">5</p>
                     <span class="blog-sidebar-count-span">标签</span>
                 </div>
                 <div style="clear: both;"></div>
@@ -311,12 +379,22 @@
                   
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/c1/">c1</a>
+                          <a href="/categories/学习笔记/">学习笔记</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/c2/">c2</a>
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
@@ -328,9 +406,15 @@
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/open/" class="tag-could" data-toggle="tooltip" data-placement="top" title="open">open</a></li>
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
                     
-                      <li><a href="/tags/open-t2-t3/" class="tag-could" data-toggle="tooltip" data-placement="top" title="open t2 t3">open t2 t3</a></li>
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
                     
                   
                 </ul>

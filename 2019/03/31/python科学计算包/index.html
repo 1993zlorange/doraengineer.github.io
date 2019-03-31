@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>test1Doraengineer's Blog</title>
+  <title>python科学计算包Doraengineer's Blog</title>
   <link rel="shortcut icon" href>
   
     
@@ -94,13 +94,13 @@
                         
                           <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
                         
-                          <li class="blog-nav-item"><a href="/notes/" class="transition">学习笔记</a></li>
+                          <li class="blog-nav-item"><a href="/categories/学习笔记" class="transition">学习笔记</a></li>
                         
-                          <li class="blog-nav-item"><a href="/env/" class="transition">环境搭设</a></li>
+                          <li class="blog-nav-item"><a href="/categories/环境搭设" class="transition">环境搭设</a></li>
                         
-                          <li class="blog-nav-item"><a href="/experience/" class="transition">工作经验</a></li>
+                          <li class="blog-nav-item"><a href="/categories/工作经验" class="transition">工作经验</a></li>
                         
-                          <li class="blog-nav-item"><a href="/graph/" class="transition">知识图谱</a></li>
+                          <li class="blog-nav-item"><a href="/categories/知识图谱" class="transition">知识图谱</a></li>
                         
                           <li class="blog-nav-item"><a href="/travel/" class="transition">旅游剪影</a></li>
                         
@@ -119,8 +119,8 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>test1</h4>
-    <time datetime="2019-03-30T15:43:38.000Z"><i class="fa fa-clock-o"></i>2019-03-30</time>
+    <h4>python科学计算包</h4>
+    <time datetime="2019-03-31T07:26:10.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
     
     
     
@@ -128,7 +128,7 @@
 	
         <span><i class="fa fa-folder-o"></i>
     		
-    	       <a href="/categories/c1/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">c1</a>
+    	       <a href="/categories/知识图谱/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">知识图谱</a>
     		
         </span>
 	
@@ -138,14 +138,51 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                
+                <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>之前做数据处理用的比较多的是Matlab,因为环境配置简单，不像c++,java在配置上存在一下一些问题</p>
+<ul>
+<li>编译器会生成工程文件，这些工程能文件通常较大，在上传例如<code>github</code>时需要剔除较大的工程文件例如<code>.proj</code>等是c++、java创建工程时生成的一些文件，而分享只需分享<code>.cpp</code>,<code>.h</code>,<code>.java</code>等实际功能代码文件，其他人需要将这些重新在编译器中进行导入，配置，运行含main函数的<code>.cpp</code></li>
+<li>在引用其他<code>.cpp</code>中的函数时需要写头文件<code>.h</code>，在头文件里写函数原型，在主<code>.cpp</code>中<code>include  .h</code>,或者在主<code>cpp</code>中开头写所有需要引用函数的函数原型</li>
+<li>一个工程里只能存在一个main函数，当运行其他功能时需要将冲突的功能注释掉</li>
+<li>经常要配置连接一些打包的函数例如<code>.dll</code>,<code>.lib</code>,很多开源包也是以打包的形式发布，无法看到源代码。<br><strong>因此c++、java等基础语言适合做大型实用性工程 ，优化等方面技术，但对于代码分享复现存在一定门槛</strong></li>
+</ul>
+<p>而matlab在基本数据处理方面有一下一些优点</p>
+<ul>
+<li>.m文件可以独立运行不需要复杂配置，引用其他.m中的函数只需确保放在统一文件夹下，或者添加文件夹路径</li>
+<li>IDE不需要复杂的配置，.m文件即开即用</li>
+<li>后台变量数据查看较为方便，不以缓存的形式消亡</li>
+</ul>
+<p>而python在matlab基础上又具备了数据处理方面的一些优势</p>
+<ul>
+<li>matlab具备的优点python都具备</li>
+<li>数据处理方面的科学包比较丰富且比较系统</li>
+<li>有例如anaconda的包管理工具</li>
+</ul>
+<p>以下整理一些python关于数据处理相关的开源库<br><img src="https://img-blog.csdnimg.cn/20190214100655438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="https://scipy.org/" target="_blank" rel="noopener">https://scipy.org/</a><br>官方文档里面分里几个层次的指南</p>
+<ul>
+<li>developer guide 开发者指南</li>
+<li>reference guide 用户参考指南（介绍得更为详细）</li>
+<li>user guide 用户指南（偏重用户使用）<h2 id="好的学习笔记（Lecture-Note）"><a href="#好的学习笔记（Lecture-Note）" class="headerlink" title="好的学习笔记（Lecture Note）"></a>好的学习笔记（Lecture Note）</h2><a href="http://scipy-lectures.org/" target="_blank" rel="noopener">http://scipy-lectures.org/</a><h1 id="好的中文手册，"><a href="#好的中文手册，" class="headerlink" title="好的中文手册，"></a>好的中文手册，</h1></li>
+<li>Numpy <a href="https://www.numpy.org.cn/" target="_blank" rel="noopener">https://www.numpy.org.cn/</a></li>
+<li>Pandas <a href="https://www.pypandas.cn/" target="_blank" rel="noopener">https://www.pypandas.cn/</a><br>pandas API速查 <a href="https://www.jianshu.com/p/a77b0bc736f2" target="_blank" rel="noopener">https://www.jianshu.com/p/a77b0bc736f2</a> 翻译自 (<a href="https://www.dataquest.io/blog/pandas-cheat-sheet/" target="_blank" rel="noopener">https://www.dataquest.io/blog/pandas-cheat-sheet/</a> )</li>
+<li>Matplotlib <a href="http://reverland.org/python/2012/09/07/matplotlib-tutorial/" target="_blank" rel="noopener">http://reverland.org/python/2012/09/07/matplotlib-tutorial/</a></li>
+<li>keras <a href="https://keras.io/zh/" target="_blank" rel="noopener">https://keras.io/zh/</a></li>
+<li>Scikit-Learn <a href="http://sklearn.apachecn.org/#/" target="_blank" rel="noopener">http://sklearn.apachecn.org/#/</a>* </li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
+</ul>
+
             
         </section>
         <footer class="blog-post-page-tags">
         
 			
 				
-			<a href="/tags/open/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">open</a>
+			<a href="/tags/python/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">python</a>
+				
+			<a href="/tags/scipy/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">scipy</a>
 				
 			
 		
@@ -158,7 +195,7 @@
 
 		
 		
-			<a href="/2019/03/30/test2/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="test2">下一篇</a>
+			<a href="/2019/03/31/c++语法笔记/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="c++语法笔记">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -261,7 +298,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/03/30/test1/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/03/31/python科学计算包/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
@@ -287,11 +324,11 @@
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">3</p>
+                    <p class="blog-sidebar-count-p">4</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">2</p>
+                    <p class="blog-sidebar-count-p">5</p>
                     <span class="blog-sidebar-count-span">标签</span>
                 </div>
                 <div style="clear: both;"></div>
@@ -312,12 +349,22 @@
                   
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/c1/">c1</a>
+                          <a href="/categories/学习笔记/">学习笔记</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/c2/">c2</a>
+                          <a href="/categories/知识图谱/">知识图谱</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/环境搭建/">环境搭建</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/工作经验/">工作经验</a>
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
@@ -329,9 +376,15 @@
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/open/" class="tag-could" data-toggle="tooltip" data-placement="top" title="open">open</a></li>
+                      <li><a href="/tags/c/" class="tag-could" data-toggle="tooltip" data-placement="top" title="c++">c++</a></li>
                     
-                      <li><a href="/tags/open-t2-t3/" class="tag-could" data-toggle="tooltip" data-placement="top" title="open t2 t3">open t2 t3</a></li>
+                      <li><a href="/tags/python/" class="tag-could" data-toggle="tooltip" data-placement="top" title="python">python</a></li>
+                    
+                      <li><a href="/tags/scipy/" class="tag-could" data-toggle="tooltip" data-placement="top" title="scipy">scipy</a></li>
+                    
+                      <li><a href="/tags/windos/" class="tag-could" data-toggle="tooltip" data-placement="top" title="windos">windos</a></li>
+                    
+                      <li><a href="/tags/anaconda/" class="tag-could" data-toggle="tooltip" data-placement="top" title="anaconda">anaconda</a></li>
                     
                   
                 </ul>
