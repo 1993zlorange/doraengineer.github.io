@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>c++语法笔记Doraengineer's Blog</title>
+  <title>git学习笔记Doraengineer's Blog</title>
   <link rel="shortcut icon" href="/images/dora.jpg">
   
     
@@ -119,23 +119,17 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>c++语法笔记</h4>
-    <time datetime="2019-03-31T07:25:52.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
+    <h4>git学习笔记</h4>
+    <time datetime="2019-03-31T12:09:00.000Z"><i class="fa fa-clock-o"></i>2019-03-31</time>
     
     
     <span>
         <i class="fa fa-eye"></i>
-        <span id="/2019/03/31/c++语法笔记/" class="views views-post" title="c++语法笔记"></span>
+        <span id="/2019/03/31/git学习笔记/" class="views views-post" title="git学习笔记"></span>
     </span>
     
     
     
-	
-        <span><i class="fa fa-folder-o"></i>
-    		
-    	       <a href="/categories/学习笔记/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">学习笔记</a>
-    		
-        </span>
 	
     
 </header>
@@ -143,251 +137,72 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>第一次学习c++是在大二，也是编程学的第一门语言，学习的时候大多时间花在理解概念，所以说第一门语言基础打好了学习其他语言都是大同小异，相同的概念再看下语法就可以了。c++属于基础语言，因为专业是系统工程，大多课程需要应用算法进行系统优化，运筹等，比较注重算法效率，因此课程安排了c++语言，至今也觉得比较受用，因为很多硬件设备提供的都是c++接口，因此c++在做算法以及硬件实现方面都十分实用。都说c++难，可能难在基础语言，以及指针等一些概念上，这些都是只有做算法才会用上，一般反正如果自己做小应用的时候是很少用上这些概念，最多的就是控制，循环，函数，面向对象等。现在很多语言也是基于c++语言演化来的例如python，手感更好但是毕竟演化经过了包装，效率肯定不及c++，就循环而言就慢很多。</p>
-<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><ul>
-<li>while <pre><code>//一个保留最大两个数的例子
-cin&gt;&gt;n;
-int max=n;
-int larger=n;
-while (n&lt;10){
-  cin&gt;&gt;n;
-  if(n&lt;larger){}
-  else if (n&gt;max){
-  larger=max;
-  max=n;
-  }
-}
+                <p>#使用git的好处</p>
+<ul>
+<li>可以保存每个版本，只要在每个版本做完后进行上传<br><div align="center"><br><img src="https://img-blog.csdn.net/20180907100304901?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></div></li>
+<li>可以异地读取更新自己完整的信息，不用每次都整个进行复制粘贴</li>
+<li>可以多人合作进行同一个项目或者文章的撰写<h1 id="新电脑安装ssh"><a href="#新电脑安装ssh" class="headerlink" title="新电脑安装ssh"></a>新电脑安装ssh</h1>1.安装windows版本git<br>2.进入git，输入  git config –global user.name “yourusername”<br><code>git config --global user.email &quot;youremail@xx.xxx&quot;
+生成ssh ：ssh-keygen -t rsa -C &quot;youremail@xx.xxx&quot;
+获取生成key：cat ~/.ssh/id_rsa.pub
+复制key</code><br>3.进入阿里云code，修改profile中的username 为上述设置username，password修改为自己的<br>添加ssh key： profile &gt;&gt; sshKeys &gt;&gt; ADD SSH KEYS &gt;&gt; 粘贴，命名保存。<br>#建仓库</li>
+<li>初始化（创建一个库）<pre><code>git init
 </code></pre></li>
-<li>for<br>注意变量的数据类型以及循环，赋值放置的区域</li>
-<li>switch<br>注意声明的变量类型自己default条件<br>注意使用换行符，“=”与“==”<ul>
-<li>switch(a)://a指明类型</li>
-<li>break;<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1></li>
-</ul>
+<li>配置git用户名（告诉是谁在用这个库）<pre><code>git config --global user.email &quot;orange_register@163.com&quot;
+git config --global user.name &quot;zhu ling&quot;
+</code></pre></li>
+<li>往数据仓库添加修改的文件内容(缓存区，可以多次add，最后在commit)<pre><code>git add .
+</code></pre></li>
+<li>正式递交<pre><code>git commit -m &#39;第一 次提交代码&#39;
+</code></pre></li>
+<li>查看目前分支状态<pre><code>git status
+</code></pre></li>
+<li>查看修改的部分<pre><code>git diff
+</code></pre><h1 id="下载已有的仓库并修改"><a href="#下载已有的仓库并修改" class="headerlink" title="下载已有的仓库并修改"></a>下载已有的仓库并修改</h1></li>
+<li>下载.git到目标文件夹<pre><code>git clone https://github.com/opencv/opencv.git
+</code></pre></li>
+<li>进行修改<pre><code>git add b.cpp
+git commit -m &#39;修改 了b.cpp，增加了某功能&#39;
+</code></pre></li>
+<li>查看分支历史日志<pre><code>git log
+</code></pre></li>
+<li>进入到分支某一版本<pre><code>git checkout 5f7c7208a289b26247fb244b9c044823aec8662e
+</code></pre><h1 id="与网络托管平台交互"><a href="#与网络托管平台交互" class="headerlink" title="与网络托管平台交互"></a>与网络托管平台交互</h1></li>
+<li><p>好的git平台</p>
+<pre><code>https://code.aliyun.com/
+</code></pre><p><a href="http://blog.csdn.net/dark00800/article/details/54571859" target="_blank" rel="noopener">使用说明</a></p>
 </li>
-<li>定义函数<pre><code>(void/返回类型参数)return type function Name( parametres形参){
-statement;
-return;
-}
-</code></pre></li>
-<li>函数原型（prototypes）：returntype name(必须明确指明参数类型);<blockquote>
-<p>函数原型可以存在于头文件中，与具体实现分离，也可以写在同一个cpp中，原型需写在main函数上面，实现可以写在main函数下面，否则全部实现都写在main函数上面虽然不用写原型但是整个cpp文件函数多的话就炸了</p>
-</blockquote>
+<li><p>从平台上同步git(把项目拉下来)</p>
+<pre><code>git pull git@code.aliyun.com:orange4code/transform.git
+</code></pre><p>大多数情况是新建一个文件夹，初始化一个git,将已有项目pull下来然后进行修改，再add,commit,再push上去。</p>
 </li>
-<li>argument（实参）强制转换成形参的类型</li>
-<li>一个函数最多只有一个返回值</li>
-<li>传递实参<pre><code>void swapByRef(int &amp; ,int &amp; )
+<li><p>将本地分支push（即上传）到平台上某分支（例子中本地master到平台上test_push）</p>
+<pre><code>git push origin master:test_push
+</code></pre><p>注意有时会报错，大多是情况只需要添加git remote add origin,告诉git文件你要上传的git项目是哪个</p>
+<pre><code>git remote add origin git@code.aliyun.com:orange4code/stitching.git（注意项目名根据上图具体情况进行替换）
 </code></pre></li>
-<li>别名<pre><code>int count;
-int&amp; cRef=count;
-//CRef是count的别名
+<li><p>创建project后上传本地git</p>
+<pre><code>cd existing_folder
+git init
+git remote add origin git@code.aliyun.com:orange4code/stitching.git
+git add .
+git commit
+git push -u origin master
 </code></pre></li>
-<li>定义中初始化，调用可不带参数，即具有了缺省参数</li>
-<li>c1=cin.get() 可以输入包括回车键<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1></li>
-<li>输出c[0]的地址<pre><code>cout &lt;&lt;c;
-等同于
-cout&lt;&lt; &amp;c[0];
-</code></pre></li>
-<li>禁止给数组赋值，可以初始化，初始化后才可以改变其中某一个元素的值</li>
-<li>注意数组不能越界访问</li>
-<li>初始化必须有值<pre><code>//错误事例
-float fb[3(整数或整型表达式)]={};
-</code></pre></li>
-<li>定义常量<pre><code># define size 10;
-</code></pre></li>
-<li>char 字符数组<pre><code>char s1[]=&quot;hello&quot;;
-等同于
-char s1[]={&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0(字符串结尾)&#39;}
-</code></pre><ul>
-<li>将字符数组当成字符串(避免越界即超出了申请的内存)<pre><code>char str[20];
-cin &gt;&gt; str;
-</code></pre>例：<pre><code># include &lt;string&gt;
-string s1,s2;
-cin &gt;&gt;s1;
-cin &gt;&gt;s2;
-cout &lt;&lt; s1 +‘ ’+ s2 &lt;&lt; endl; //s2拼接到s1后
-cout &lt;&lt; s1.size();                 // 输出s1的长度
-string w[7]={&quot;sunday&quot;,&quot;monday&quot;,...,&quot;saturday&quot;};
-cout &lt;&lt;w[weekday];             //string 类的数组
+<li><p>如果自己已经在本地建好git并commit了</p>
+<ul>
+<li>首先建立工程<br><div align="center"><br><img src="https://img-blog.csdn.net/20180907100342484?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></div></li>
+<li>根据需要复制git代码<br><div align="center"><br><img src="https://img-blog.csdn.net/20180907100352457?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY0MTM5NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></div></li>
+<li>提前建立好库的话就是以下两行代码</li>
+</ul>
+<pre><code>git remote add origin git@code.aliyun.com:orange4code/stitching.git（注意项目名根据上图具体情况进行替换）
+git push -u origin master
 </code></pre></li>
 </ul>
-</li>
-<li>数组倒序<pre><code>for (j=0;j&lt;size;j++)
-{
-  for (i=0;i&lt;size-1-j;i++){
-  t=x[i];
-  x[i]=x[i+1];
-  x[i+1]=t;
-}
-</code></pre></li>
-<li>从第一行起始地址(下标从0开始)</li>
-<li>二维数组<br>int a[3][4];<ul>
-<li>数组定义后必须初始化<pre><code>int a[3][4]={1,5,6,0,0,11}//从左至右，从上至下，申请了内存但未赋值的默认赋为为0
-</code></pre></li>
-<li>语句赋值<pre><code>for (row=0;row&lt;3;row++){
-for(col=0,col&lt;row,col++){
-a[row][col]=1;
-a[row][col]=3;
-}
-}
-</code></pre></li>
+<h1 id="好的参考阅读资料"><a href="#好的参考阅读资料" class="headerlink" title="好的参考阅读资料"></a>好的参考阅读资料</h1><ul>
+<li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">git形象使用</a></li>
+<li><a href="https://my.oschina.net/xdev/blog/114383" target="_blank" rel="noopener">git 各命令原理</a></li>
 </ul>
-</li>
-<li>二维数组尤其明确行是什么，列是什么<pre><code>for(int i=0; i&lt;5; i++){
-cin &gt;&gt; SName[i];
-  for(j=0;j&lt;3;j++){
-  cin  &gt;&gt; fscore[j][i]
-  }
-}
-</code></pre><h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1></li>
-<li>“*”与“&amp;”<pre><code>*：间接引用（地址所指向的值），&amp;：取址，*&amp;：相抵消(*&amp;=&amp;*)
-bptr=&amp;b[10];
-for(int i=0;i&lt;10;i++){
-  cout &lt;&lt; *(pbtr+1);
-}
-</code></pre><pre><code>  cin&gt;&gt;*(aptr+2);
-  等同于
-  cin&gt;&gt;a[2];
-</code></pre>错误范例<pre><code>//错误范例
-char s[]=&quot;Hello&quot;;
-char *p=&amp;s
-//s本身就是地址
-</code></pre>下列等同</li>
-</ul>
-<pre><code>cout&lt;&lt;b[2];    //b与bptr是地址（指针是常量，无法修改）
-    &lt;&lt; *(bptr+2);
-    &lt;&lt; bptr[2];
-    &lt;&lt;*[b+2];
-</code></pre><ul>
-<li>逐一输出Hello<pre><code>chara[10]=&quot;Hello&quot;;
-char *p=a;//注意定义一个指针p，这里*为定义p为指针，赋值需赋值指针，使用的时候，*p才是指针p指向的值
-while(*p!=10)
-cout&lt;&lt;*p++;
-</code></pre></li>
-<li>再看一例<pre><code>if(numptr[i]&gt;*maxptr)
-  maxptr=&amp;numptr[i] //等价于maxptr=numptr+i
-cout&lt;&lt; *maxptr
-cout&lt;&lt; maxptr-numptr(即&amp;numptr[0])//下标：两地址差
-</code></pre></li>
-<li>申请可变内存空间<pre><code>cin &gt;&gt; n;
-numptr=new int[n];
-</code></pre><pre><code>cin&gt;&gt; n;
-int * PData;
-PData=new int[n];
-for(int i=0;i&lt;n;i++)
-  cout &lt;&lt; PData[i];
-</code></pre></li>
-<li>赋值字符串<pre><code>正确： char *p=&quot;Hello&quot;
-错误： char str[14];
-          str[]=&quot;Hello&quot;;// 数组不能赋值字符串
-</code></pre></li>
-<li>交换x,y指向的东西<pre><code>void swap_addr(int *x,int *y){
-int t=*x;
-*x=*y;*y=t;
-}
-swap-addr(&amp;na,&amp;nb); //传指
-</code></pre></li>
-<li>随机数<pre><code># include &lt;sctdlib&gt;
-# include &lt;ctime&gt;//随机数需要添加这两个头文件（系统函数）
-strand(time(0));
-for(int i=0;i&lt;10;i++){
-  n=rand()
-  pn[i]=new int[n];
-  for(int j=0;i&lt;n;j++)
-  pn[i][j]=rand();
-}
-</code></pre></li>
-<li>别名<pre><code>Date &amp;ref=date;//ref-&gt;dare的别名（引用）
-</code></pre></li>
-<li>++p(不同于p++)<pre><code>cout &lt;&lt; *(++p);从第二位开始输出p地址的值
-</code></pre></li>
-<li>二维指针<pre><code>int **pn;
-cin&gt;&gt;np;
-pn=new(int t*)[np]//*pn为列向量的地址
-//ptr[1]等价于*(ptr+1)
-</code></pre><h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1></li>
-<li>链表<pre><code>struct Node{
-  int data;    
-  Node *Next
-}
-</code></pre></li>
-<li>一个高冷的语句<pre><code>hour=(h&gt;=&amp;&amp;h&lt;24)?h:0;//给hour赋值，若0&lt;h&lt;24，则赋值为h,否则赋值为0
-</code></pre></li>
-<li>构造函数，初始化数据（只能被系统调用）<pre><code>Time::Time(){
-hout=0;
-minute=0;
-second=0;
-}
-</code></pre>等同于<pre><code>Time::Time(int h,int m,int s){
-SetTime(h,m,s);
-}
-</code></pre></li>
-<li>指针访问类的成员<pre><code>Time *tptr;
-tptr=&amp;t;
-tptr-&gt;printStandard();//指针访问类的成员
-</code></pre></li>
-<li>this<pre><code>Time Time::SetTime(int h,int m,int s){
-  this-&gt;hour=h;
-  this-&gt;minute=m;
-  return *this;//传递自己
-}
-</code></pre><h1 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h1></li>
-<li>继承<pre><code>//定义student类继承person
-Class student:public person{
-  public:
-  student(string n,int a,float s);
-  void print();
-  private:
-  float school;
-};
-</code></pre></li>
-<li>访问父类函数<pre><code>a.point::print();
-</code></pre></li>
-<li>初始化器<pre><code>circle::circle(int xvalue,int yvalue,double radius)::point (xvalue,yvalue{
-  setRadius(radius);
-}
-//或在基类中写缺省函数-&gt;构造函数的继承
-)
-</code></pre></li>
-<li>模板<pre><code>//模板定义一系列方程
-template &lt;typename T&gt;{
-}
-Rect(int) ir(10,5);    //类函数模板使用（说明什么类型）
-</code></pre></li>
-<li>多态<blockquote>
-<p>c++使用指针和虚函数实现多态，因为默认的赋值运算符并不会操作虚函数表，虚函数也就是基类能直接指向派生类对象的函数，大家名字都一样不过不同的对象实现不一样</p>
-</blockquote>
-</li>
-</ul>
-<p>一接口多实现（避免多”if”繁琐语句），使派生类同时完成一个动作</p>
-<pre><code>animal *p[10];
-for(int i=0;i&lt;100;i++){
-    p[i]-&gt;shout();
-    p[i]-&gt;run();
-}
-</code></pre><p>多态性polymophism-&gt;继承</p>
-<pre><code>Dog d,*pd;
-Animal a,*pa;//pa可指Dog类，因为Animal是Dog基类
-pa=pd;
-pa-&gt;move();//Animal move
-</code></pre><blockquote>
-<p>地址调用函数为a-&gt;b(),普通对象调用函数为a.b();</p>
-</blockquote>
-<p>一个多态实现的例子</p>
-<pre><code>void recognize(Animal * pa){
-    pa-&gt;shout();
-    pa-&gt;run;
-}//recognize函数根据不同的动物指针pa来实现跑和叫，当然跑和叫函数需要在不同动物类型下具体定义
-Animal *pselect[10];//实例化10个动物
-for(int i=0;i&lt;10;i++){
-    recognize(pselect[i]);
-}//10个动物依次跑和叫
-</code></pre><ul>
-<li>虚函数<br>指针指向对象，实现多态性（基类指针指向派生类对象）<pre><code>virtual void print();
-circleptr=&amp;c;
-circleptr-&gt;print();
-</code></pre>纯虚函数，派生类中必须重新定义<pre><code>Virtual void print()=0;
-</code></pre></li>
-</ul>
+<h1 id="github"><a href="#github" class="headerlink" title="github"></a>github</h1><p>上述方法不变，即克隆，下载，上传的方法都一样。<br>使用github之前也需要添加SSH来授权给即将使用的电脑：头像旁边settings-&gt;SSH and GPG keys 将key全部复制进去<br>上传时候会提示输入用户名密码,注意用户名是注册的用户名不是昵称</p>
 <hr>
 <ul>
 <li><a href="https://blog.csdn.net/weixin_42641395/article/details/82558190" target="_blank" rel="noopener">Doraengineer’s blog说明</a></li>
@@ -399,7 +214,7 @@ circleptr-&gt;print();
         
 			
 				
-			<a href="/tags/c/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">c++</a>
+			<a href="/tags/git/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">git</a>
 				
 			
 		
@@ -409,12 +224,10 @@ circleptr-&gt;print();
     	
     	
 		
-			<a href="/2019/03/31/python科学计算包/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="python科学计算包">上一篇</a>
-		
 
 		
 		
-			<a href="/2019/03/31/windos下配置python环境（pycharm-anaconda）/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="windos下配置python环境（pycharm+anaconda）">下一篇</a>
+			<a href="/2019/03/31/技术小白看懂网站第一步-前端/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="技术小白看懂网站第一步">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -517,7 +330,7 @@ circleptr-&gt;print();
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/c++语法笔记/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://www.doraengineer.xyz/2019/03/31/git学习笔记/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
