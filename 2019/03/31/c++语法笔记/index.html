@@ -223,81 +223,170 @@ cout &lt;&lt;w[weekday];             //string 类的数组
 <li>二维数组<br>int a[3][4];<ul>
 <li>数组定义后必须初始化<pre><code>int a[3][4]={1,5,6,0,0,11}//从左至右，从上至下，申请了内存但未赋值的默认赋为为0
 </code></pre></li>
-<li>语句赋值<br><code>`</code><br>for (row=0;row&lt;3;row++){<br>for(col=0,col&lt;row,col++){<br>a[row][col]=1;<br>a[row][col]=3;<br>}<br>}</li>
+<li>语句赋值</li>
 </ul>
 </li>
 </ul>
-<pre><code>* 二维数组尤其明确行是什么，列是什么
-</code></pre><p>for(int i=0; i&lt;5; i++){<br>cin &gt;&gt; SName[i];<br>    for(j=0;j&lt;3;j++){<br>    cin  &gt;&gt; fscore[j][i]<br>    }<br>}</p>
-<pre><code># 指针
-* &quot;*&quot;与“&amp;”
-</code></pre><p><em>：间接引用（地址所指向的值），&amp;：取址，</em>&amp;：相抵消(<em>&amp;=&amp;</em>)<br>bptr=&amp;b[10];<br>for(int i=0;i&lt;10;i++){<br>    cout &lt;&lt; *(pbtr+1);<br>}</p>
-<pre><code>
-</code></pre><pre><code>cin&gt;&gt;*(aptr+2);
-等同于
-cin&gt;&gt;a[2];
-</code></pre><pre><code>错误范例
-</code></pre><p>//错误范例<br>char s[]=”Hello”;<br>char *p=&amp;s<br>//s本身就是地址</p>
-<pre><code>下列等同
+<pre><code>for (row=0;row&lt;3;row++){
+    for(col=0,col&lt;row,col++){
+    a[row][col]=1;
+    a[row][col]=3;
+    }
+}
 
-</code></pre><p>cout&lt;&lt;b[2];    //b与bptr是地址（指针是常量，无法修改）<br>    &lt;&lt; <em>(bptr+2);<br>    &lt;&lt; bptr[2];<br>    &lt;&lt;</em>[b+2];</p>
-<pre><code>* 逐一输出Hello
-</code></pre><p>chara[10]=”Hello”;<br>char <em>p=a;//注意定义一个指针p，这里</em>为定义p为指针，赋值需赋值指针，使用的时候，<em>p才是指针p指向的值<br>while(</em>p!=10)<br>cout&lt;&lt;*p++;</p>
-<pre><code>* 再看一例
-</code></pre><p>if(numptr[i]&gt;<em>maxptr)<br>    maxptr=&amp;numptr[i] //等价于maxptr=numptr+i<br>cout&lt;&lt; </em>maxptr<br>cout&lt;&lt; maxptr-numptr(即&amp;numptr[0])//下标：两地址差</p>
-<pre><code>* 申请可变内存空间
-</code></pre><p>cin &gt;&gt; n;<br>numptr=new int[n];</p>
-<pre><code>
-</code></pre><p>cin&gt;&gt; n;<br>int * PData;<br>PData=new int[n];<br>for(int i=0;i&lt;n;i++)<br>    cout &lt;&lt; PData[i];</p>
-<pre><code>* 赋值字符串
-</code></pre><p>正确： char *p=”Hello”<br>错误： char str[14];<br>            str[]=”Hello”;// 数组不能赋值字符串</p>
-<pre><code>* 交换x,y指向的东西
-</code></pre><p>void swap_addr(int <em>x,int </em>y){<br>int t=<em>x;
-</em>x=<em>y;</em>y=t;<br>}<br>swap-addr(&amp;na,&amp;nb); //传指</p>
-<pre><code>* 随机数
-</code></pre><h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <sctdlib></sctdlib></h1><h1 id="include-随机数需要添加这两个头文件（系统函数）"><a href="#include-随机数需要添加这两个头文件（系统函数）" class="headerlink" title="include //随机数需要添加这两个头文件（系统函数）"></a>include <ctime>//随机数需要添加这两个头文件（系统函数）</ctime></h1><p>strand(time(0));<br>for(int i=0;i&lt;10;i++){<br>    n=rand()<br>    pn[i]=new int[n];<br>    for(int j=0;i&lt;n;j++)<br>    pn[i][j]=rand();<br>}</p>
-<pre><code>* 别名
-</code></pre><p>Date &amp;ref=date;//ref-&gt;dare的别名（引用）</p>
-<pre><code>* ++p(不同于p++)
-</code></pre><p>cout &lt;&lt; *(++p);从第二位开始输出p地址的值</p>
-<pre><code>* 二维指针
-</code></pre><p>int *<em>pn;<br>cin&gt;&gt;np;<br>pn=new(int t</em>)[np]//<em>pn为列向量的地址<br>//ptr[1]等价于</em>(ptr+1)</p>
-<pre><code># 面向对象
-* 链表
-</code></pre><p>struct Node{<br>    int data;<br>    Node *Next<br>}</p>
-<pre><code>* 一个高冷的语句
-</code></pre><p>hour=(h&gt;=&amp;&amp;h&lt;24)?h:0;//给hour赋值，若0&lt;h&lt;24，则赋值为h,否则赋值为0</p>
-<pre><code>* 构造函数，初始化数据（只能被系统调用）
-</code></pre><p>Time::Time(){<br>hout=0;<br>minute=0;<br>second=0;<br>}</p>
-<pre><code>等同于
-</code></pre><p>Time::Time(int h,int m,int s){<br>SetTime(h,m,s);<br>}</p>
-<pre><code>* 指针访问类的成员
-</code></pre><p>Time *tptr;<br>tptr=&t;<br>tptr-&gt;printStandard();//指针访问类的成员</p>
-<pre><code>* this
-</code></pre><p>Time Time::SetTime(int h,int m,int s){<br>    this-&gt;hour=h;<br>    this-&gt;minute=m;<br>    return *this;//传递自己<br>}</p>
-<pre><code># 继承和多态
-* 继承
-</code></pre><p>//定义student类继承person<br>Class student:public person{<br>    public:<br>    student(string n,int a,float s);<br>    void print();<br>    private:<br>    float school;<br>};</p>
-<pre><code>* 访问父类函数
-</code></pre><p>a.point::print();</p>
-<pre><code>* 初始化器
-</code></pre><p>circle::circle(int xvalue,int yvalue,double radius)::point (xvalue,yvalue{<br>    setRadius(radius);<br>}<br>//或在基类中写缺省函数-&gt;构造函数的继承<br>)</p>
-<pre><code>* 模板
-</code></pre><p>//模板定义一系列方程<br>template <typename t>{<br>}<br>Rect(int) ir(10,5);    //类函数模板使用（说明什么类型）</typename></p>
-<pre><code>* 多态
-&gt;c++使用指针和虚函数实现多态，因为默认的赋值运算符并不会操作虚函数表，虚函数也就是基类能直接指向派生类对象的函数，大家名字都一样不过不同的对象实现不一样
-
-一接口多实现（避免多&quot;if&quot;繁琐语句），使派生类同时完成一个动作
-</code></pre><p>animal *p[10];<br>for(int i=0;i&lt;100;i++){<br>    p[i]-&gt;shout();<br>    p[i]-&gt;run();<br>}</p>
-<pre><code>多态性polymophism-&gt;继承
-</code></pre><p>Dog d,<em>pd;<br>Animal a,</em>pa;//pa可指Dog类，因为Animal是Dog基类<br>pa=pd;<br>pa-&gt;move();//Animal move</p>
-<pre><code>&gt;地址调用函数为a-&gt;b(),普通对象调用函数为a.b();
-
-一个多态实现的例子
-</code></pre><p>void recognize(Animal <em> pa){<br>    pa-&gt;shout();<br>    pa-&gt;run;<br>}//recognize函数根据不同的动物指针pa来实现跑和叫，当然跑和叫函数需要在不同动物类型下具体定义<br>Animal </em>pselect[10];//实例化10个动物<br>for(int i=0;i&lt;10;i++){<br>    recognize(pselect[i]);<br>}//10个动物依次跑和叫</p>
-<pre><code>* 虚函数
-指针指向对象，实现多态性（基类指针指向派生类对象）
-</code></pre><p>virtual void print();</p>
+</code></pre><ul>
+<li>二维数组尤其明确行是什么，列是什么<pre><code>for(int i=0; i&lt;5; i++){
+cin &gt;&gt; SName[i];
+  for(j=0;j&lt;3;j++){
+  cin  &gt;&gt; fscore[j][i]
+  }
+}
+</code></pre><h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1></li>
+<li>“*”与“&amp;”<pre><code>*：间接引用（地址所指向的值），&amp;：取址，*&amp;：相抵消(*&amp;=&amp;*)
+bptr=&amp;b[10];
+for(int i=0;i&lt;10;i++){
+  cout &lt;&lt; *(pbtr+1);
+}
+</code></pre><pre><code>  cin&gt;&gt;*(aptr+2);
+  等同于
+  cin&gt;&gt;a[2];
+</code></pre>错误范例<pre><code>//错误范例
+char s[]=&quot;Hello&quot;;
+char *p=&amp;s
+//s本身就是地址
+</code></pre>下列等同</li>
+</ul>
+<pre><code>cout&lt;&lt;b[2];    //b与bptr是地址（指针是常量，无法修改）
+    &lt;&lt; *(bptr+2);
+    &lt;&lt; bptr[2];
+    &lt;&lt;*[b+2];
+</code></pre><ul>
+<li>逐一输出Hello<pre><code>chara[10]=&quot;Hello&quot;;
+char *p=a;//注意定义一个指针p，这里*为定义p为指针，赋值需赋值指针，使用的时候，*p才是指针p指向的值
+while(*p!=10)
+cout&lt;&lt;*p++;
+</code></pre></li>
+<li>再看一例<pre><code>if(numptr[i]&gt;*maxptr)
+  maxptr=&amp;numptr[i] //等价于maxptr=numptr+i
+cout&lt;&lt; *maxptr
+cout&lt;&lt; maxptr-numptr(即&amp;numptr[0])//下标：两地址差
+</code></pre></li>
+<li>申请可变内存空间<pre><code>cin &gt;&gt; n;
+numptr=new int[n];
+</code></pre><pre><code>cin&gt;&gt; n;
+int * PData;
+PData=new int[n];
+for(int i=0;i&lt;n;i++)
+  cout &lt;&lt; PData[i];
+</code></pre></li>
+<li>赋值字符串<pre><code>正确： char *p=&quot;Hello&quot;
+错误： char str[14];
+          str[]=&quot;Hello&quot;;// 数组不能赋值字符串
+</code></pre></li>
+<li>交换x,y指向的东西<pre><code>void swap_addr(int *x,int *y){
+int t=*x;
+*x=*y;*y=t;
+}
+swap-addr(&amp;na,&amp;nb); //传指
+</code></pre></li>
+<li>随机数<pre><code># include &lt;sctdlib&gt;
+# include &lt;ctime&gt;//随机数需要添加这两个头文件（系统函数）
+strand(time(0));
+for(int i=0;i&lt;10;i++){
+  n=rand()
+  pn[i]=new int[n];
+  for(int j=0;i&lt;n;j++)
+  pn[i][j]=rand();
+}
+</code></pre></li>
+<li>别名<pre><code>Date &amp;ref=date;//ref-&gt;dare的别名（引用）
+</code></pre></li>
+<li>++p(不同于p++)<pre><code>cout &lt;&lt; *(++p);从第二位开始输出p地址的值
+</code></pre></li>
+<li>二维指针<pre><code>int **pn;
+cin&gt;&gt;np;
+pn=new(int t*)[np]//*pn为列向量的地址
+//ptr[1]等价于*(ptr+1)
+</code></pre><h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1></li>
+<li>链表<pre><code>struct Node{
+  int data;    
+  Node *Next
+}
+</code></pre></li>
+<li>一个高冷的语句<pre><code>hour=(h&gt;=&amp;&amp;h&lt;24)?h:0;//给hour赋值，若0&lt;h&lt;24，则赋值为h,否则赋值为0
+</code></pre></li>
+<li>构造函数，初始化数据（只能被系统调用）<pre><code>Time::Time(){
+hout=0;
+minute=0;
+second=0;
+}
+</code></pre>等同于<pre><code>Time::Time(int h,int m,int s){
+SetTime(h,m,s);
+}
+</code></pre></li>
+<li>指针访问类的成员<pre><code>Time *tptr;
+tptr=&amp;t;
+tptr-&gt;printStandard();//指针访问类的成员
+</code></pre></li>
+<li>this<pre><code>Time Time::SetTime(int h,int m,int s){
+  this-&gt;hour=h;
+  this-&gt;minute=m;
+  return *this;//传递自己
+}
+</code></pre><h1 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h1></li>
+<li>继承<pre><code>//定义student类继承person
+Class student:public person{
+  public:
+  student(string n,int a,float s);
+  void print();
+  private:
+  float school;
+};
+</code></pre></li>
+<li>访问父类函数<pre><code>a.point::print();
+</code></pre></li>
+<li>初始化器<pre><code>circle::circle(int xvalue,int yvalue,double radius)::point (xvalue,yvalue{
+  setRadius(radius);
+}
+//或在基类中写缺省函数-&gt;构造函数的继承
+)
+</code></pre></li>
+<li>模板<pre><code>//模板定义一系列方程
+template &lt;typename T&gt;{
+}
+Rect(int) ir(10,5);    //类函数模板使用（说明什么类型）
+</code></pre></li>
+<li>多态<blockquote>
+<p>c++使用指针和虚函数实现多态，因为默认的赋值运算符并不会操作虚函数表，虚函数也就是基类能直接指向派生类对象的函数，大家名字都一样不过不同的对象实现不一样</p>
+</blockquote>
+</li>
+</ul>
+<p>一接口多实现（避免多”if”繁琐语句），使派生类同时完成一个动作</p>
+<pre><code>animal *p[10];
+for(int i=0;i&lt;100;i++){
+    p[i]-&gt;shout();
+    p[i]-&gt;run();
+}
+</code></pre><p>多态性polymophism-&gt;继承</p>
+<pre><code>Dog d,*pd;
+Animal a,*pa;//pa可指Dog类，因为Animal是Dog基类
+pa=pd;
+pa-&gt;move();//Animal move
+</code></pre><blockquote>
+<p>地址调用函数为a-&gt;b(),普通对象调用函数为a.b();</p>
+</blockquote>
+<p>一个多态实现的例子</p>
+<pre><code>void recognize(Animal * pa){
+    pa-&gt;shout();
+    pa-&gt;run;
+}//recognize函数根据不同的动物指针pa来实现跑和叫，当然跑和叫函数需要在不同动物类型下具体定义
+Animal *pselect[10];//实例化10个动物
+for(int i=0;i&lt;10;i++){
+    recognize(pselect[i]);
+}//10个动物依次跑和叫
+</code></pre><ul>
+<li>虚函数<br>指针指向对象，实现多态性（基类指针指向派生类对象）<br><code>`</code><br>virtual void print();</li>
+</ul>
 <p>circleptr=&c;<br>circleptr-&gt;print();</p>
 <pre><code>纯虚函数，派生类中必须重新定义
 </code></pre><p>Virtual void print()=0;<br><code>`</code></p>
